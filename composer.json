@@ -1,5 +1,5 @@
 {
-    "name": "Group4/base-mvc",
+    "name": "group4/project1",
     "autoload": {
         "psr-4": {
             "Group4\\BaseMvc\\": "src/"
@@ -10,8 +10,8 @@
     },
     "authors": [
         {
-            "name": "Tống Văn Đức",
-            "email": "tongduc315@gmail.com"
+            "name": "Nguyễn Đình Tuân",
+            "email": "junnguyenvizito@gmail.com"
         }
     ],
     "require": {}

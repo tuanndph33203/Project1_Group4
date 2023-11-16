@@ -24,16 +24,17 @@
                 <th>Name</th>
                 <th>Action</th>
             </tr>
-            <?php foreach ($categories as $category) : ?>
+            <?php 
+            foreach ($categories as $category) : ?>
                 <tr>
-                    <td><?= $category['id'] ?></td>
-                    <td><?= $category['name'] ?></td>
+                    <td><?= $category['type_id'] ?></td>
+                    <td><?= $category['type_name'] ?></td>
                     <td>
-                        <a href="/admin/categories/update?id=<?= $category['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
-                        
-                        <form action="/admin/categories/delete?id=<?= $category['id'] ?>" method="post">
+                        <a href="/admin/categories/update?type_id=<?= $category['type_id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                        <form action="/admin/categories/delete?>" method="post">
+                            <input type="hidden" value="<?= $category['type_id']?>" name="type_id">
                             <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" 
-                                                    class="btn btn-danger btn-sm">Xóa</button>
+                            class="btn btn-danger btn-sm">Xóa</button>
                         </form>
                     </td>
                 </tr>

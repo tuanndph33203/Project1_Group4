@@ -11,7 +11,6 @@ class Router
 
     public function dispatch($uri) {
         $tmp = explode('?', $uri);
-        
         $uri = $tmp[0];
         if (array_key_exists($uri, $this->routes)) {
             $controller = $this->routes[$uri]['controller'];
@@ -23,5 +22,19 @@ class Router
             throw new \Exception("No route found for URI: $uri");
         }
     }
+    // public function dispatch1($uri) {
+    //     $parsedUrl = parse_url($uri);
+    //     $path = $parsedUrl['path'];
+    //     foreach ($this->routes as $route => $routeData) {
+    //         if (strpos($path, $route) === 0) {
+    //             $controller = $routeData['controller'];
+    //             $action = $routeData['action'];
+    //             $controller = new $controller();
+    //             $controller->$action();
+    //             return;
+    //         }
+    //     }
+    //     throw new \Exception("No route found for URI: $uri");
+    // }
 }
     
