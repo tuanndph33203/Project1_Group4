@@ -9,46 +9,50 @@ class CategoryController extends Controller {
 
     /* Lấy danh sách */
     public function index() {
-        $categories = (new Category())->all();
+        $categories = (new Category())->all("type_id");
 
-        $this->render("admin/categories/index", ["categories" => $categories]);
+        $this->renderAdmin("categories/index", ["categories" => $categories]);
     }
 
     /* Thêm mới */
     public function create() {
         if (isset($_POST["btn-submit"])) { 
             $data = [
-                'name' => $_POST['name'],
+                'type_name' => $_POST['name'],
             ];
+            print_r($data);
             (new Category())->insert($data);
             header('Location: /admin/categories');
         }
-        $this->render("admin/categories/create");
+        $this->renderAdmin("categories/create");
     }
     /* Cập nhật */
-    public function update() {
-
-        if (isset($_POST["btn-submit"])) { 
+    public function update()
+    {
+        if (isset($_POST["btn-submit"])) {
             $data = [
-                'name' => $_POST['name'],
+                'type_name' => $_POST['name'],
             ];
-
-            $conditions = [
-                ['id', '=', $_GET['id']],
-            ];
-
-            (new Category())->update($data, $conditions);
+    
+            if (isset($_GET['type_id'])) {
+                $conditions = [
+                    ['type_id', '=', $_GET['type_id']],
+                ];
+    
+                $category = new Category();
+                $category->update($data, $conditions);
+            }
         }
-
-        $category = (new Category())->findOne($_GET["id"]);
-
-        $this->render("admin/categories/update", ["category" => $category]);
+    
+        $category = (new Category())->findOne('type_id', $_GET["type_id"]);
+    
+        $this->renderAdmin("categories/update", ["category" => $category]);
     }
 
     /* Xóa */
     public function delete() {
         $conditions = [
-            ['id', '=', $_GET['id']],
+            ['type_id', '=', $_POST['type_id']],
         ];
         (new Category())->delete($conditions);
         header('Location: /admin/categories');

@@ -3,8 +3,14 @@
 namespace Group4\BaseMvc;
 
 class Controller {
-    protected function render($view, $data = []) {
+    protected function renderAdmin($view, $data = []) {
         extract($data);
-        include "Views/$view.php";
+        include "Views/admin/$view.php";
+    }
+    protected function renderClient($view, $data = []) {
+        extract($data);
+        include "Views/client/components/header/header.php";
+        include "Views/client/$view.php";
+        include "Views/client/components/footer/footer.php";
     }
 }
