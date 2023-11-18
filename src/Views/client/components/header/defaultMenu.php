@@ -1,12 +1,12 @@
 <div class="main_menu d-none d-lg-block">
     <nav>
         <ul>
-            <li class="active"><a href="index.php">Home</a>
+            <li class="active"><a href="/">Home</a>
                 <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
-                            <li><a href="/index.php">Trang Người Dùng</a></li>
-                            <li><a href="/admin/categories">Trang Admin</a></li>
+                            <li><a href="/">Trang Người Dùng</a></li>
+                            <li><a href="/admin">Trang Admin</a></li>
                         </ul>
                     </div>
                 </div>

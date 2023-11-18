@@ -5,8 +5,8 @@
                 <div>
                     <div>
                         <ul>
-                            <li><a href="/Project1/">Home 1</a></li>
-                            <li><a href="/Admin/">Home 2</a></li>
+                            <li><a href="/">Home 1</a></li>
+                            <li><a href="/admin">Home 2</a></li>
                         </ul>
                     </div>
                 </div>

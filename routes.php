@@ -1,5 +1,6 @@
 <?php
 
+use Group4\BaseMvc\Controllers\Admin\StatisticalController;
 use Group4\BaseMvc\Controllers\Admin\UserController;
 use Group4\BaseMvc\Controllers\Admin\CategoryController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
@@ -7,8 +8,10 @@ use Group4\BaseMvc\Router;
 
 $router = new Router();
 
-$router->addRoute('/Project1/', HomeController::class, 'index');
-$router->addRoute('/index.php', HomeController::class, 'index');
+$router->addRoute('/', HomeController::class, 'index');
+
+$router->addRoute('/admin', StatisticalController::class, 'index');
+$router->addRoute('/admin/statistical', StatisticalController::class, 'index');
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
