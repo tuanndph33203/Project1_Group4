@@ -5,7 +5,9 @@ namespace Group4\BaseMvc;
 class Controller {
     protected function renderAdmin($view, $data = []) {
         extract($data);
+        include "Views/admin/components/header.php";
         include "Views/admin/$view.php";
+        include "Views/admin/components/footer.php";
     }
     protected function renderClient($view, $data = []) {
         extract($data);
