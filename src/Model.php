@@ -25,9 +25,9 @@ class Model
         }
     }
 
-    public function findOne($id)
+    public function findOne($column,$id)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
+        $sql = "SELECT * FROM {$this->table} WHERE $column = :id LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -36,11 +36,11 @@ class Model
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
+        
         return $stmt->fetch();
     }
 
-    public function all($column = 'id')
+    public function all($column)
     {
         $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
 

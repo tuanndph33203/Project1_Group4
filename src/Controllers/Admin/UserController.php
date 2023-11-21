@@ -11,9 +11,9 @@ class UserController extends Controller
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
-        $users = (new User)->all();
+        $users = (new User)->all('id');
         
-        $this->render('admin/users/index', ['users' => $users]);
+        $this->renderAdmin('admin/users/index', ['users' => $users]);
     }
 
     public function create() {
@@ -30,7 +30,7 @@ class UserController extends Controller
             header('Location: /admin/users');
         }
 
-        $this->render('admin/users/create');
+        $this->renderAdmin('admin/users/create');
     }
 
     public function update() {
@@ -49,9 +49,9 @@ class UserController extends Controller
             (new User)->update($data, $conditions);
         }
 
-        $user = (new User)->findOne($_GET['id']);
+        $user = (new User)->findOne('id',$_GET['id']);
 
-        $this->render('admin/users/update', ['user' => $user]);
+        $this->renderAdmin('admin/users/update', ['user' => $user]);
     }
 
     public function delete() {
