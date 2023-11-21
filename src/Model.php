@@ -25,7 +25,7 @@ class Model
         }
     }
 
-    public function findOne($column,$id)
+    public function findOne($column, $id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE $column = :id LIMIT 1";
 
@@ -36,23 +36,11 @@ class Model
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        
+
         return $stmt->fetch();
     }
 
     public function all($column)
-    {
-        $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
-
-        $stmt = $this->conn->prepare($sql);
-
-        $stmt->execute();
-
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        return $stmt->fetchAll();
-    }
-    public function allProduct($column)
     {
         $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
 
@@ -74,6 +62,36 @@ class Model
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
 
+        return $stmt->fetchAll();
+    }
+    public function getAll($columns, $where, $groupByColumn)
+    {
+        $columnList = [];
+        $joinStatements = [];
+
+        foreach ($columns as $table => $columnArr) {
+            $joinStatements[] = "INNER JOIN `{$table}` ON `{$this->table}`.`{$table}_id` = `{$table}`.`{$table}_id`";
+        }
+
+        $whereConditions = [];
+        foreach ($where as $column => $value) {
+            $placeholder = "{$column}";
+            $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
+        }
+
+        $sql = "SELECT * FROM `{$this->table}`
+            " . implode(' ', $joinStatements) . "
+            WHERE " . implode(' AND ', $whereConditions) . "
+            GROUP BY `{$this->table}`.`{$groupByColumn}`";
+
+        $stmt = $this->conn->prepare($sql);
+        foreach ($where as $column => $value) {
+            $placeholder = "{$column}";
+            $stmt->bindValue(":{$placeholder}", $value);
+        }
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         return $stmt->fetchAll();
     }
 

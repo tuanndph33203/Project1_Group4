@@ -6,9 +6,8 @@
                 <div class="page-header-title">
 
                     <div class="d-inline">
-                        <i class="feather icon-clipboard bg-c-blue"></i>
-                        <h5>Thêm Sản Phẩm</h5>
-
+                        <i class="feather icon-edit bg-c-blue"></i>
+                        <h5>Sửa Sản Phẩm</h5>
                     </div>
                 </div>
             </div>
@@ -26,11 +25,14 @@
         </div>
     </div>
     <div class="pcoded-inner-content">
+
         <div class="main-body">
             <div class="page-wrapper">
+
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
+
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Điền Vào Thông Tin Sản Phẩm</h5>
@@ -42,31 +44,36 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Tên Sản Phẩm</label>
                                             <div class="col-sm-10">
-                                                <input name="name" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>                           </div>
+                                                <input name="name" value="<?= $product['product_name'] ?>" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Ảnh Sản Phẩm</label>
+                                            <label class="col-sm-2 col-form-label">Ảnh Cũ</label>
                                             <div class="col-sm-10">
-                                                <input name="image" type="file" class="form-control" required>
+                                                <img class="rounded border border-secondary" src="/assets/img/product/<?= $product['image'] ?>" alt="" height="200px">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">Chọn Ảnh Mới</label>
+                                            <div class="col-sm-10">
+                                                <input name="image" type="file" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Giá Sản Phẩm</label>
                                             <div class="col-sm-4">
-                                                <input name="price" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>
+                                                <input name="price" value="<?=$product['price'] ?>" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>
                                             </div>
                                             <label class="col-sm-2 col-form-label"><i>Vnd</i></label>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Mô Tả</label>
                                             <div class="col-sm-10">
-                                                <textarea required name="description" rows="5" cols="5" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
+                                                <textarea required name="description" rows="5" cols="5" class="form-control" placeholder="Mô tả sản phẩm"><?=$product['description'] ?>"</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Hạn sử dụng</label>
                                             <div class="col-sm-4">
-                                                <input name="expiry" type="number" class="form-control" placeholder="Nhập vào hạn ngày sử dụng" required>
+                                                <input name="expiry" value="<?=$product['expiry'] ?>" type="number" class="form-control" placeholder="Nhập vào hạn ngày sử dụng" required>
                                             </div>
                                             <label class="col-sm-2 col-form-label"><i>Ngày</i></label>
                                         </div>
@@ -77,7 +84,10 @@
                                                     <?php
                                                     $skins = $data['skins'];
                                                     foreach ($skins as $skin) : ?>
-                                                        <option value="<?= $skin['skin_id'] ?>"><?= $skin['skin_name'] ?></option>
+                                                        <option 
+                                                        <?php if ($skin['skin_id']==$product['skin_id']) {
+                                                            echo 'selected';
+                                                        } ?> value="<?= $skin['skin_id'] ?>"><?= $skin['skin_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -89,7 +99,10 @@
                                                     <?php
                                                     $types = $data['types'];
                                                     foreach ($types as $type) : ?>
-                                                        <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
+                                                        <option 
+                                                        <?php if ($type['type_id']==$product['type_id']) {
+                                                            echo 'selected';
+                                                        } ?> value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -101,7 +114,27 @@
                                                     <?php
                                                     $brands = $data['brands'];
                                                     foreach ($brands as $brand) : ?>
-                                                        <option value="<?= $brand['brand_id'] ?>"><?= $brand['brand_name'] ?></option>
+                                                        <option
+                                                        <?php if ($brand['brand_id']==$product['brand_id']) {
+                                                            echo 'selected';
+                                                        } ?>
+                                                         value="<?= $brand['brand_id'] ?>"><?= $brand['brand_name'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Trạng Thái Sản Phẩm</label>
+                                            <div class="col-sm-4">
+                                                <select name="status_id" class="form-control">
+                                                    <?php
+                                                    $status = $data['status'];
+                                                    foreach ($status as $each) : ?>
+                                                        <option 
+                                                        <?php if ($each['status_id']==$product['status_id']) {
+                                                            echo 'selected';
+                                                        } ?>
+                                                         value="<?= $each['status_id'] ?>"><?= $each['status_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -109,7 +142,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-10"></div>
                                             <div class="col-sm-2">
-                                                <button type="submit" name="btn-submit" class="btn btn-info mt-3">Thêm</button>
+                                                <button type="submit" name="btn-submit" class="btn btn-info mt-3">Sửa Đổi</button>
                                             </div>
                                         </div>
                                     </form>

@@ -6,6 +6,8 @@ use Group4\BaseMvc\Controller;
 use Group4\BaseMvc\Models\Product;
 use Group4\BaseMvc\Models\Brand;
 use Group4\BaseMvc\Models\Category;
+use Group4\BaseMvc\Models\Skin;
+use Group4\BaseMvc\Models\StatusProduct;
 
 class ProductController extends Controller
 {
@@ -13,9 +15,17 @@ class ProductController extends Controller
     /* Lấy danh sách */
     public function index()
     {
+        $columns = [
+            "brand" => ['brand_name', 'brand_id'],
+            "type" => ['type_name', 'type_id'],
+            "status" => ['status_name', 'status_id']
+        ];
+        $where = [
+            "status_id" => 1
+        ];
+        $groupByColumn = "product_id";
 
-        $products = (new Product())->all("type_id");
-
+        $products = (new Product())->getAll($columns, $where, $groupByColumn);
         $this->renderAdmin("products/index", ["products" => $products]);
     }
     /* Thêm mới */
@@ -23,6 +33,7 @@ class ProductController extends Controller
     {
         $brands = (new Brand())->all("brand_id");
         $types = (new Category())->all("type_id");
+        $skins = (new Skin())->all("skin_id");
         if (isset($_POST["btn-submit"])) {
             // if(!isset($_POST['name'])&&$_POST['name']=null){
             //     $_SESSION['error']['name'] = "Bạn chưa nhập tên sản phẩm";
@@ -45,11 +56,15 @@ class ProductController extends Controller
             $target = $folder . $file_name;
             move_uploaded_file($image["tmp_name"], $target);
             // $_SESSION['error']['submit'] = "Thêm Thành Công";
+            $time = time();
             $data = [
-                'name' => $_POST['name'],
+                'product_name' => $_POST['name'],
                 'image' => $file_name,
                 'price' => $_POST['price'],
                 'description' => $_POST['description'],
+                'time_create' => $time,
+                'expiry' => $_POST['expiry'],
+                'skin_id' => $_POST['skin_id'],
                 'type_id' => $_POST['type_id'],
                 'brand_id' => $_POST['brand_id'],
                 'status_id' => 1
@@ -59,46 +74,77 @@ class ProductController extends Controller
             //     $_SESSION['error']['submit'] = "Thêm Thất Bại";
             // }
 
-            header('Location: /admin/products');
+            header('Location: /admin/products/create');
         }
         $this->renderAdmin(
             "products/create",
             $data = [
                 "types" => $types,
                 "brands" => $brands,
+                "skins" => $skins
             ]
         );
     }
     /* Cập nhật */
     public function update()
     {
+        $brands = (new Brand())->all("brand_id");
+        $types = (new Category())->all("type_id");
+        $skins = (new Skin())->all("skin_id");
+        $status = (new StatusProduct())->all("status_id");
+        $product = (new Product())->findOne('product_id', $_GET["id"]);
         if (isset($_POST["btn-submit"])) {
+            if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
+                $image = $_FILES['image'];
+                $folder = "assets/img/product/";
+                $file_name = basename($image['name']);
+                $target = $folder . $file_name;
+                move_uploaded_file($image["tmp_name"], $target);
+            } else {
+                $file_name = $product['image'];
+            }
             $data = [
-                'name' => $_POST['name'],
+                'product_name' => $_POST['name'],
+                'image' => $file_name,
+                'price' => $_POST['price'],
+                'description' => $_POST['description'],
+                'time_create' => $product['time_create'],
+                'expiry' => $_POST['expiry'],
+                'skin_id' => $_POST['skin_id'],
+                'type_id' => $_POST['type_id'],
+                'brand_id' => $_POST['brand_id'],
+                'status_id' => $_POST['status_id']
             ];
 
             if (isset($_GET['id'])) {
                 $conditions = [
-                    ['id', '=', $_GET['id']],
+                    ['product_id', '=', $_GET['id']],
                 ];
-
-                $product = new Product();
-                $product->update($data, $conditions);
+                $product = (new Product())->update($data, $conditions);
             }
         }
 
-        $Product = (new Product())->findOne('id', $_GET["id"]);
+        $product = (new Product())->findOne('product_id', $_GET["id"]);
 
-        $this->renderAdmin("products/update", ["product" => $product]);
+        $this->renderAdmin(
+            "products/update",
+            $data = [
+                "types" => $types,
+                "brands" => $brands,
+                "skins" => $skins,
+                "status" => $status,
+                "product" => $product
+            ]
+        );
     }
 
     /* Xóa */
     public function delete()
     {
         $conditions = [
-            ['id', '=', $_POST['id']],
+            ['product_id', '=', $_POST['id']],
         ];
         (new Product())->delete($conditions);
-        header('Location: /admin/poducts');
+        header('Location: /admin/products');
     }
 }

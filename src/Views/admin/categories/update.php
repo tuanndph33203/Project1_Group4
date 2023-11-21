@@ -4,7 +4,7 @@
         <form action="" method="post">
             <label for="name">Name</label>
             <?php if (is_array($category)) {?>
-                <input type="text" name="name" class="form-control" value="<?= $category['type_name'] ?>">
+                <input type="text" name="name" class="form-control" value="<?= $category['type_name'] ?>" required>
             <?php } else { ?>
                 <br>
                 <span>ID Loại sản phẩm không có</span>

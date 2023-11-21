@@ -5,7 +5,6 @@
             <div class="page-body">
                 <div class="row">
                     <div class="col-sm-12">
-
                         <div class="card">
                             <div class="card-header">
                                 <h3>Danh Sách Phẩm</h3>
@@ -20,7 +19,8 @@
                                                 <th>Tên</th>
                                                 <th>Ảnh</th>
                                                 <th>Giá</th>
-                                                <th>Mô Tả</th>
+                                                <th>Ngày Sản Xuất</th>
+                                                <th>Hạn Sử Dụng</th>
                                                 <th>Loại Sản Phẩm</th>
                                                 <th>Hãng</th>
                                                 <th>Hành Động</th>
@@ -33,16 +33,17 @@
                                                 <tr>
                                                     <td><?php echo $i;
                                                         $i++; ?></td>
-                                                    <td><?= $product['name'] ?></td>
+                                                    <td><?= $product['product_name'] ?></td>
                                                     <td><img src="../../../../assets/img/product/<?=$product['image'] ?>" alt="" width="100px "></td>
                                                     <td><?= $product['price'] ?></td>
-                                                    <td><?= $product['description'] ?></td>
+                                                    <td><?=date('d-m-Y',$product['time_create']) ?></td>
+                                                    <td><?= $product['expiry'] ?> Ngày</td>
                                                     <td><?= $product['type_name'] ?></td>
                                                     <td><?= $product['brand_name'] ?></td>
                                                     <td>
-                                                        <a href="/admin/categories/update?type_id=<?= $product['type_id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
-                                                        <form action="/admin/categories/delete?>" method="post">
-                                                            <input type="hidden" value="<?= $product['type_id'] ?>" name="type_id">
+                                                        <a href="/admin/products/update?id=<?= $product['product_id'] ?>" class="btn btn-primary btn-sm">Chi Tiết</a>
+                                                        <form action="/admin/products/delete?>" method="post">
+                                                            <input type="hidden" value="<?= $product['product_id'] ?>" name="id">
                                                             <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
                                                         </form>
                                                     </td>
