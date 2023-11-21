@@ -4,9 +4,9 @@ namespace Group4\BaseMvc\Models;
 
 use Group4\BaseMvc\Model;
 
-class Category extends Model {
-    protected $table = 'type';
+class Skin extends Model {
+    protected $table = 'skin';
     protected $columns = [
-        'type_name',
+        'skin_name'
     ];
 }

@@ -4,10 +4,10 @@
         <form action="" method="post">
             <label for="name">Name</label>
             <?php if (is_array($brand)) {?>
-                <input type="text" name="name" class="form-control" value="<?= $category['brand_name'] ?>">
+                <input type="text" name="name" class="form-control" value="<?= $brand['brand_name'] ?>" required>
             <?php } else { ?>
                 <br>
-                <span>ID Loại sản phẩm không có</span>
+                <span>ID Brand không có</span>
                 <br>
             <?php } ?>
             <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>

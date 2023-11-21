@@ -17,12 +17,17 @@ class BrandController extends Controller {
     /* Thêm mới */
     public function create() {
         if (isset($_POST["btn-submit"])) { 
+            $image = $_FILES['image'];
+            $folder = "assets/img/brand/";
+            $file_name = basename($image['name']);
+            $target = $folder . $file_name;
+            move_uploaded_file($image["tmp_name"], $target);
             $data = [
                 'brand_name' => $_POST['name'],
+                'logo' => $file_name
             ];
-            print_r($data);
             (new Brand())->insert($data);
-            header('Location: /admin/brands');
+            header('Location: /admin/brands/create');
         }
         $this->renderAdmin("brands/create");
     }

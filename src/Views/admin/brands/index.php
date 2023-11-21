@@ -10,8 +10,9 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID Loại</th>
-                            <th>Tên Loại</th>
+                            <th>ID Hãng</th>
+                            <th>Logo</th>
+                            <th>Tên Hãng</th>
                             <th>Hành Động</th>
                         </tr>
                     </thead>
@@ -22,9 +23,10 @@
                             <tr>
                                 <td><?php echo $i;$i++; ?></td>
                                 <td><?= $brand['brand_id'] ?></td>
+                                <td><img src="../../../../assets/img/brand/<?=$brand['logo'] ?>" alt="" height="150px"></td>
                                 <td><?= $brand['brand_name'] ?></td>
                                 <td>
-                                    <a href="/admin/categories/update?id=<?= $brand['brand_id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                                    <a href="/admin/brands/update?id=<?= $brand['brand_id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
                                     <form action="/admin/brands/delete?>" method="post">
                                         <input type="hidden" value="<?= $brand['brand_id'] ?>" name="id">
                                         <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
