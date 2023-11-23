@@ -74,7 +74,7 @@ class ProductController extends Controller
             //     $_SESSION['error']['submit'] = "Thêm Thất Bại";
             // }
 
-            header('Location: /admin/products/create');
+            header('Location:/admin/products/create');
         }
         $this->renderAdmin(
             "products/create",
@@ -145,6 +145,6 @@ class ProductController extends Controller
             ['product_id', '=', $_POST['id']],
         ];
         (new Product())->delete($conditions);
-        header('Location: /admin/products');
+        header('Location:/admin/products');
     }
 }

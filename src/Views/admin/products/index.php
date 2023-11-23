@@ -8,7 +8,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3>Danh Sách Phẩm</h3>
-                                <a href="/admin/products/create" class="btn btn-info">Thêm Mới</a>
+                                <a href="/admin/products/create" class="btn btn-info">Thêm Mới</a> 
                             </div>
                             <div class="card-block">
                                 <div class="dt-responsive table-responsive">
@@ -34,7 +34,7 @@
                                                     <td><?php echo $i;
                                                         $i++; ?></td>
                                                     <td><?= $product['product_name'] ?></td>
-                                                    <td><img src="../../../../assets/img/product/<?=$product['image'] ?>" alt="" width="100px "></td>
+                                                    <td><img src="../../../../assets/img/product/<?=$product['image'] ?>" alt="" height="100px "></td>
                                                     <td><?= $product['price'] ?></td>
                                                     <td><?=date('d-m-Y',$product['time_create']) ?></td>
                                                     <td><?= $product['expiry'] ?> Ngày</td>

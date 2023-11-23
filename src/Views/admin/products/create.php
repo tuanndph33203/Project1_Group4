@@ -66,14 +66,14 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Hạn sử dụng</label>
                                             <div class="col-sm-4">
-                                                <input name="expiry" type="number" class="form-control" placeholder="Nhập vào hạn ngày sử dụng" required>
+                                                <input name="expiry" type="number" min="1" class="form-control" placeholder="Nhập vào hạn ngày sử dụng" required>
                                             </div>
                                             <label class="col-sm-2 col-form-label"><i>Ngày</i></label>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Dùng được cho loại da</label>
                                             <div class="col-sm-10">
-                                                <select name="skin_id" class="form-control">
+                                                <select name="skin_id" class="form-control" required>
                                                     <?php
                                                     $skins = $data['skins'];
                                                     foreach ($skins as $skin) : ?>
@@ -85,7 +85,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Loại Sản Phẩm</label>
                                             <div class="col-sm-10">
-                                                <select name="type_id" class="form-control">
+                                                <select name="type_id" class="form-control" requireds>
                                                     <?php
                                                     $types = $data['types'];
                                                     foreach ($types as $type) : ?>
@@ -97,7 +97,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Hãng Sản Phẩm</label>
                                             <div class="col-sm-10">
-                                                <select name="brand_id" class="form-control">
+                                                <select name="brand_id" class="form-control" required>
                                                     <?php
                                                     $brands = $data['brands'];
                                                     foreach ($brands as $brand) : ?>

@@ -27,7 +27,7 @@ class BrandController extends Controller {
                 'logo' => $file_name
             ];
             (new Brand())->insert($data);
-            header('Location: /admin/brands/create');
+            header('Location:/admin/brands/create');
         }
         $this->renderAdmin("brands/create");
     }
@@ -60,6 +60,6 @@ class BrandController extends Controller {
             ['brand_id', '=', $_POST['id']],
         ];
         (new Brand())->delete($conditions);
-        header('Location: /admin/brands');
+        header('Location:/admin/brands');
     }
 }
