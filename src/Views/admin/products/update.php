@@ -81,9 +81,7 @@
                                             <label class="col-sm-2 col-form-label">Dùng được cho loại da</label>
                                             <div class="col-sm-10">
                                                 <select name="skin_id" class="form-control" required>
-                                                    <?php
-                                                    $skins = $data['skins'];
-                                                    foreach ($skins as $skin) : ?>
+                                                    <?php foreach ($skins as $skin) : ?>
                                                         <option 
                                                         <?php if ($skin['skin_id']==$product['skin_id']) {
                                                             echo 'selected';
@@ -96,9 +94,7 @@
                                             <label class="col-sm-2 col-form-label">Loại Sản Phẩm</label>
                                             <div class="col-sm-10">
                                                 <select name="type_id" class="form-control" required>
-                                                    <?php
-                                                    $types = $data['types'];
-                                                    foreach ($types as $type) : ?>
+                                                    <?php foreach ($types as $type) : ?>
                                                         <option 
                                                         <?php if ($type['type_id']==$product['type_id']) {
                                                             echo 'selected';
@@ -111,9 +107,7 @@
                                             <label class="col-sm-2 col-form-label">Hãng Sản Phẩm</label>
                                             <div class="col-sm-10">
                                                 <select name="brand_id" class="form-control" required>
-                                                    <?php
-                                                    $brands = $data['brands'];
-                                                    foreach ($brands as $brand) : ?>
+                                                    <?php foreach ($brands as $brand) : ?>
                                                         <option
                                                         <?php if ($brand['brand_id']==$product['brand_id']) {
                                                             echo 'selected';
@@ -127,9 +121,7 @@
                                             <label class="col-sm-2 col-form-label">Trạng Thái Sản Phẩm</label>
                                             <div class="col-sm-4">
                                                 <select name="status_id" class="form-control">
-                                                    <?php
-                                                    $status = $data['status'];
-                                                    foreach ($status as $each) : ?>
+                                                    <?php foreach ($status as $each) : ?>
                                                         <option 
                                                         <?php if ($each['status_id']==$product['status_id']) {
                                                             echo 'selected';
