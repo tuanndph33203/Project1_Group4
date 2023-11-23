@@ -15,18 +15,36 @@ class ProductController extends Controller
     /* Lấy danh sách */
     public function index()
     {
+        if (isset($_POST['btn-search'])) {
+        }
+        $brands = (new Brand())->all("brand_id");
+        $types = (new Category())->all("type_id");
+        $status = (new StatusProduct())->all("status_id");
         $columns = [
             "brand" => ['brand_name', 'brand_id'],
             "type" => ['type_name', 'type_id'],
             "status" => ['status_name', 'status_id']
         ];
-        $where = [
-            "status_id" => 1
-        ];
+        $where = [];
+
+        foreach ($_POST as $key => $value) {
+            if ($value !== null && $value !== '') {
+                $where[$key] = $value;
+            }
+        }
+        print_r($where);
         $groupByColumn = "product_id";
 
         $products = (new Product())->getAll($columns, $where, $groupByColumn);
-        $this->renderAdmin("products/index", ["products" => $products]);
+        $this->renderAdmin(
+            "products/index",
+            [
+                "products" => $products,
+                "brands" => $brands,
+                "types" => $types,
+                "status" => $status
+            ]
+        );
     }
     /* Thêm mới */
     public function create()
@@ -35,7 +53,7 @@ class ProductController extends Controller
         $types = (new Category())->all("type_id");
         $skins = (new Skin())->all("skin_id");
         if (isset($_POST["btn-submit"])) {
-            if(!isset($_POST['name'])&&$_POST['name']=null){
+            if (!isset($_POST['name']) && $_POST['name'] = null) {
                 $_SESSION['error']['name'] = "Bạn chưa nhập tên sản phẩm";
             }
             // if(!isset($_FILES['image'])&&$_FILES['image']['size']<0){
