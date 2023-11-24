@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </li>
-            <li><a href="shop.html">shop</a>
+            <li><a href="/client/shop">shop</a>
                 <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
@@ -105,7 +105,7 @@
 
                 </div>
             </li>
-            <li><a href="#">pages</a>
+            <li><a href="/client/pages">pages</a>
                 <div class="mega_menu">
                     <div class="mega_top fix">
                         <div class="mega_items">
