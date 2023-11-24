@@ -28,4 +28,4 @@ $router->addRoute('/admin/categories/create', CategoryController::class, 'create
 $router->addRoute('/admin/categories/update', CategoryController::class, 'update');
 $router->addRoute('/admin/categories/delete', CategoryController::class, 'delete');
 
-$router->addRoute('/client', ShopController::class, 'index');
+$router->addRoute('/client/shop', ShopController::class, 'index');

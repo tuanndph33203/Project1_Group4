@@ -25,7 +25,7 @@ class ProductController extends Controller
         ];
         $groupByColumn = "product_id";
 
-        $products = (new Product())->getAll($columns, $where, $groupByColumn);
+        $products = (new Product())-> getAll($columns, $where, $groupByColumn);
         $this->renderAdmin("products/index", ["products" => $products]);
     }
     /* Thêm mới */
