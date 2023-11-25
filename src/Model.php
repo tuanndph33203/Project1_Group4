@@ -25,7 +25,7 @@ class Model
         }
     }
 
-    public function findOne($column, $id)
+    public function findOne($column,$id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE $column = :id LIMIT 1";
 
@@ -36,7 +36,7 @@ class Model
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
+        
         return $stmt->fetch();
     }
 

@@ -11,7 +11,11 @@
                     </div>
                 </div>
             </li>
+<<<<<<< HEAD
+            <li><a href="/client/shop">shop</a>
+=======
             <li><a href="shop.html">shop</a>
+>>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
                 <div>
                     <div>
                         <ul>
@@ -105,7 +109,11 @@
 
                 </div>
             </li>
+<<<<<<< HEAD
+            <li><a href="/client/pages">pages</a>
+=======
             <li><a href="#">pages</a>
+>>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
                 <div>
                     <div>
                         <div>

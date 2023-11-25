@@ -6,7 +6,8 @@ use Group4\BaseMvc\Controllers\Admin\CategoryController;
 use Group4\BaseMvc\Controllers\Admin\BrandController;
 use Group4\BaseMvc\Controllers\Admin\ProductController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
-
+use Group4\BaseMvc\Controllers\Client\ShopController;
+use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -35,3 +36,6 @@ $router->addRoute('/admin/products', ProductController::class, 'index');
 $router->addRoute('/admin/products/create', ProductController::class, 'create');
 $router->addRoute('/admin/products/update', ProductController::class, 'update');
 $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
+
+$router->addRoute('/client/shop', ShopController::class, 'index');
+$router->addRoute('/client/pages', PortfolioController::class, 'index');
