@@ -53,9 +53,9 @@ class ProductController extends Controller
         $types = (new Category())->all("type_id");
         $skins = (new Skin())->all("skin_id");
         if (isset($_POST["btn-submit"])) {
-            if (!isset($_POST['name']) && $_POST['name'] = null) {
-                $_SESSION['error']['name'] = "Bạn chưa nhập tên sản phẩm";
-            }
+            // if(!isset($_POST['name'])&&$_POST['name']=null){
+            //     $_SESSION['error']['name'] = "Bạn chưa nhập tên sản phẩm";
+            // }
             // if(!isset($_FILES['image'])&&$_FILES['image']['size']<0){
             //     $_SESSION['error']['image'] = "Bạn chưa nhập ảnh sản phẩm";
             // }else{
