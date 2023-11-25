@@ -8,6 +8,6 @@ use Group4\BaseMvc\Models\User;
 class StatisticalController extends Controller
 {
     public function index() {
-        $this->renderAdmin('/statistical/statistical');
+        $this->renderAdmin('statistical/statistical');
     }
 }

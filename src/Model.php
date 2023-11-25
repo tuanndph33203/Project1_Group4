@@ -52,7 +52,6 @@ class Model
 
         return $stmt->fetchAll();
     }
-
     public function paginate($page = 1, $perPage = 10)
     {
         $sql = "SELECT * FROM {$this->table} LIMIT {$perPage} OFFSET (({$page} - 1) * {$perPage})";
@@ -65,6 +64,41 @@ class Model
 
         return $stmt->fetchAll();
     }
+    public function getAll($columns, $where, $groupByColumn)
+{
+    $joinStatements = [];
+
+    foreach ($columns as $table => $columnArr) {
+        $joinStatements[] = "INNER JOIN `{$table}` ON `{$this->table}`.`{$table}_id` = `{$table}`.`{$table}_id`";
+    }
+
+    $whereConditions = [];
+    if (!empty($where)) { // Kiểm tra xem $where có chứa các biến không
+        foreach ($where as $column => $value) {
+            $placeholder = "{$column}";
+            $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
+        }
+    }
+
+    $sql = "SELECT * FROM `{$this->table}`
+        " . implode(' ', $joinStatements);
+
+    if (!empty($whereConditions)) { // Nếu có điều kiện WHERE, thì thêm vào câu SQL
+        $sql .= " WHERE " . implode(' AND ', $whereConditions);
+    }
+
+    $sql .= " GROUP BY `{$this->table}`.`{$groupByColumn}`";
+
+    $stmt = $this->conn->prepare($sql);
+    foreach ($where as $column => $value) {
+        $placeholder = "{$column}";
+        $stmt->bindValue(":{$placeholder}", $value);
+    }
+    $stmt->execute();
+
+    $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+    return $stmt->fetchAll();
+}
 
     public function insert($data)
     {

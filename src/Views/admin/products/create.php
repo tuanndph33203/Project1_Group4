@@ -74,9 +74,7 @@
                                             <label class="col-sm-2 col-form-label">Dùng được cho loại da</label>
                                             <div class="col-sm-10">
                                                 <select name="skin_id" class="form-control" required>
-                                                    <?php
-                                                    $skins = $data['skins'];
-                                                    foreach ($skins as $skin) : ?>
+                                                    <?php foreach ($skins as $skin) : ?>
                                                         <option value="<?= $skin['skin_id'] ?>"><?= $skin['skin_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
@@ -86,9 +84,7 @@
                                             <label class="col-sm-2 col-form-label">Loại Sản Phẩm</label>
                                             <div class="col-sm-10">
                                                 <select name="type_id" class="form-control" requireds>
-                                                    <?php
-                                                    $types = $data['types'];
-                                                    foreach ($types as $type) : ?>
+                                                    <?php foreach ($types as $type) : ?>
                                                         <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
@@ -98,9 +94,7 @@
                                             <label class="col-sm-2 col-form-label">Hãng Sản Phẩm</label>
                                             <div class="col-sm-10">
                                                 <select name="brand_id" class="form-control" required>
-                                                    <?php
-                                                    $brands = $data['brands'];
-                                                    foreach ($brands as $brand) : ?>
+                                                    <?php foreach ($brands as $brand) : ?>
                                                         <option value="<?= $brand['brand_id'] ?>"><?= $brand['brand_name'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
