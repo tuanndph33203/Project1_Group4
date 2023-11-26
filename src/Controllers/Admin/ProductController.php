@@ -32,7 +32,6 @@ class ProductController extends Controller
                 $where[$key] = $value;
             }
         }
-        print_r($where);
         $groupByColumn = "product_id";
 
         $products = (new Product())->getAll($columns, $where, $groupByColumn);

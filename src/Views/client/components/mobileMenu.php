@@ -144,7 +144,7 @@
                 </div>
             </li>
 
-            <li><a href="blog.html">blog</a>
+            <li><a href="/client/blog"></a>
                 <div>
                     <div>
                         <ul>
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </li>
-            <li><a href="contact.html">contact us</a></li>
+            <li><a href="/client/contact">contact us</a></li>
 
         </ul>
     </nav>

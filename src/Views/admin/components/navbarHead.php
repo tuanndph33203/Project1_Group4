@@ -2,7 +2,11 @@
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             <a href="index.html">
+<<<<<<< HEAD
                 <img class="img-fluid" src="files/assets/images/logo.png" alt="Theme-Logo" />
+=======
+                <img class="img-fluid" src="/assets/admin_files/assets/images/logo.png" alt="Theme-Logo" />
+>>>>>>> a1b361ca8dfb195db80660d0eb74efc3c6e31004
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="feather icon-menu icon-toggle-right"></i>
@@ -46,7 +50,11 @@
                             </li>
                             <li>
                                 <div class="media">
+<<<<<<< HEAD
                                     <img class="img-radius" src="files/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+=======
+                                    <img class="img-radius" src="/assets/admin_files/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+>>>>>>> a1b361ca8dfb195db80660d0eb74efc3c6e31004
                                     <div class="media-body">
                                         <h5 class="notification-user">John Doe</h5>
                                         <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
@@ -57,7 +65,11 @@
                             </li>
                             <li>
                                 <div class="media">
+<<<<<<< HEAD
                                     <img class="img-radius" src="files/assets/images/avatar-3.jpg" alt="Generic placeholder image">
+=======
+                                    <img class="img-radius" src="/assets/admin_files/assets/images/avatar-3.jpg" alt="Generic placeholder image">
+>>>>>>> a1b361ca8dfb195db80660d0eb74efc3c6e31004
                                     <div class="media-body">
                                         <h5 class="notification-user">Joseph William</h5>
                                         <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
@@ -68,7 +80,11 @@
                             </li>
                             <li>
                                 <div class="media">
+<<<<<<< HEAD
                                     <img class="img-radius" src="files/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+=======
+                                    <img class="img-radius" src="/assets/admin_files/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+>>>>>>> a1b361ca8dfb195db80660d0eb74efc3c6e31004
                                     <div class="media-body">
                                         <h5 class="notification-user">Sara Soudein</h5>
                                         <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
@@ -91,7 +107,11 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
+<<<<<<< HEAD
                             <img src="files/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+=======
+                            <img src="/assets/admin_files/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+>>>>>>> a1b361ca8dfb195db80660d0eb74efc3c6e31004
                             <span>John Doe</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
