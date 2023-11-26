@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-=======
-<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
->>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
 <script type="text/javascript" src="/assets/admin_files/bower_components/jquery/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/admin_files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/assets/admin_files/bower_components/popper.js/js/popper.min.js"></script>
