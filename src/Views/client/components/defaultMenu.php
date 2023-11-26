@@ -11,11 +11,7 @@
                     </div>
                 </div>
             </li>
-<<<<<<< HEAD
             <li><a href="/client/shop">shop</a>
-=======
-            <li><a href="shop.html">shop</a>
->>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
                 <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
@@ -109,11 +105,7 @@
 
                 </div>
             </li>
-<<<<<<< HEAD
             <li><a href="/client/pages">pages</a>
-=======
-            <li><a href="#">pages</a>
->>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
                 <div class="mega_menu">
                     <div class="mega_top fix">
                         <div class="mega_items">
@@ -146,13 +138,14 @@
                                 <li><a href="checkout.html">Checkout </a></li>
                                 <li><a href="wishlist.html">Wishlist</a></li>
                                 <li><a href="login.html">Login</a></li>
+                                <li><a href="logup.html">Logup</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </li>
 
-            <li><a href="blog.html">blog</a>
+            <li><a href="/client/blog">blog</a>
                 <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
@@ -163,7 +156,7 @@
                     </div>
                 </div>
             </li>
-            <li><a href="contact.html">contact us</a></li>
+            <li><a href="/client/contact">contact us</a></li>
 
         </ul>
     </nav>
