@@ -23,11 +23,11 @@
             <div class="header_links">
                 <ul>
                     <li><a href="contact.html" title="Contact">Contact</a></li>
-                    <li><a href="wishlist.html" title="wishlist">My wishlist</a></li>
+                    <li><a href="/client/wishlist" title="wishlist">My wishlist</a></li>
                     <li><a href="my-account.html" title="My account">My account</a></li>
                     <li><a href="cart.html" title="My cart">My cart</a></li>
                     <li><a href="/client/account" title="Login">Login</a></li>
-                    <li><a href="logup.html" title="Logup">Logup</a></li>
+                    <li><a href="/client/account" title="Logup">Logup</a></li>
                 </ul>
             </div>   
         </div>
