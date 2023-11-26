@@ -136,7 +136,7 @@
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a href="cart.html">cart</a></li>
                                 <li><a href="checkout.html">Checkout </a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="/wishlist/wishlist">Wishlist</a></li>
                                 <li><a href="/account/login">Login</a></li>
                             </ul>
                         </div>
