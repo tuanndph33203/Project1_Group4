@@ -71,12 +71,17 @@
                     <ul class="pcoded-submenu">
                         <li>
                             <a href="/admin/users" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Danh Sách</span>
+                                <span class="pcoded-mtext">Danh Sách Nhân Viên</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/users/customer" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Danh Sách Khách Hàng</span>
                             </a>
                         </li>
                         <li class>
                             <a href="/admin/users/create" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Thêm Tài Khoản</span>
+                                <span class="pcoded-mtext">Thêm Nhân Viên</span>
                             </a>
                         </li>
                     </ul>
