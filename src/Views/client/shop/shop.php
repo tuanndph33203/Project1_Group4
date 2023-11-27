@@ -1,8 +1,8 @@
 <div class=" pos_home_section">
     <div class="row pos_home">
         <div class="col-lg-3 col-md-12">
-            <!--layere categorie"-->
-            <div class="sidebar_widget shop_c">
+            <!--top 10 yeu thich start -->
+            <!-- <div class="sidebar_widget shop_c">
                 <div class="categorie__titile">
                     <h4>Categories</h4>
                 </div>
@@ -26,8 +26,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <!--layere categorie end-->
+            </div> -->
+            <!--top 10 yeu thich end-->
 
             <!--color area start-->
             <div class="sidebar_widget color">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="cart_item">
                     <div class="cart_img">
-                        <a href="#"><img src="assets\img\cart\cart.jpg" alt=""></a>
+                        <a href="#"><img src="/assets/img/cart/cart.jpg" alt=""></a>
                     </div>
                     <div class="cart_info">
                         <a href="#">lorem ipsum dolor</a>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="cart_item">
                     <div class="cart_img">
-                        <a href="#"><img src="assets\img\cart\cart2.jpg" alt=""></a>
+                        <a href="#"><img src="/assets/img/cart/cart2.jpg" alt=""></a>
                     </div>
                     <div class="cart_info">
                         <a href="#">Quisque ornare dui</a>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="special_product_inner mb-20">
                     <div class="special_p_thumb">
-                        <a href="single-product.html"><img src="assets\img\cart\cart3.jpg" alt=""></a>
+                        <a href="single-product.html"><img src="/assets/img/cart/cart3.jpg" alt=""></a>
                     </div>
                     <div class="small_p_desc">
                         <div class="product_ratting">
@@ -161,7 +161,7 @@
                 </div>
                 <div class="special_product_inner">
                     <div class="special_p_thumb">
-                        <a href="single-product.html"><img src="assets\img\cart\cart18.jpg" alt=""></a>
+                        <a href="single-product.html"><img src="/assets/img/cart/cart18.jpg" alt=""></a>
                     </div>
                     <div class="small_p_desc">
                         <div class="product_ratting">
@@ -188,7 +188,7 @@
         <div class="col-lg-9 col-md-12">
             <!--banner slider start-->
             <div class="banner_slider mb-35">
-                <img src="assets\img\banner\bannner10.jpg" alt="">
+                <img src="/assets/img/banner/bannner10.jpg" alt="">
             </div>
             <!--banner slider start-->
 
@@ -236,9 +236,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product1.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product1.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -259,9 +259,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product2.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product2.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -282,9 +282,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product3.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product3.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -305,9 +305,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product4.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product4.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -328,9 +328,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product5.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product5.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -351,9 +351,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product6.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product6.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -374,9 +374,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product7.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product7.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -397,9 +397,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product8.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product8.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -420,9 +420,9 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single_product">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product9.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product9.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                         <div class="product_action">
                                             <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -447,9 +447,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product2.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product2.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -492,9 +492,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product3.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product3.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -538,9 +538,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product4.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product4.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -584,9 +584,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product5.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product5.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -630,9 +630,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product6.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product6.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -676,9 +676,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product7.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product7.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -722,9 +722,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product8.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product8.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -768,9 +768,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product9.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product9.jpg" alt=""></a>
                                         <div class="hot_img">
-                                            <img src="assets\img\cart\span-hot.png" alt="">
+                                            <img src="/assets/img/cart/span-hot.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -814,9 +814,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product_thumb">
-                                        <a href="single-product.html"><img src="assets\img\product\product1.jpg" alt=""></a>
+                                        <a href="single-product.html"><img src="/assets/img/product/product1.jpg" alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets\img\cart\span-new.png" alt="">
+                                            <img src="/assets/img/cart/span-new.png" alt="">
                                         </div>
                                     </div>
                                 </div>

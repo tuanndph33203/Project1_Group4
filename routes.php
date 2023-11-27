@@ -5,9 +5,14 @@ use Group4\BaseMvc\Controllers\Admin\UserController;
 use Group4\BaseMvc\Controllers\Admin\CategoryController;
 use Group4\BaseMvc\Controllers\Admin\BrandController;
 use Group4\BaseMvc\Controllers\Admin\ProductController;
+use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
 use Group4\BaseMvc\Controllers\Client\ShopController;
 use Group4\BaseMvc\Controllers\Client\PortfolioController;
+use Group4\BaseMvc\Controllers\Client\ContactController;
+use Group4\BaseMvc\Controllers\Client\LoginController;
+use Group4\BaseMvc\Controllers\Client\LogupController;
+use Group4\BaseMvc\Controllers\Client\wishlistController;
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -40,3 +45,10 @@ $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/pages', PortfolioController::class, 'index');
+$router->addRoute('/client/blog', BlogController::class, 'index' );
+$router->addRoute('/client/contact', ContactController::class, 'index' );
+$router->addRoute('/client/account', LoginController::class, 'index' );
+$router->addRoute('/client/account', LogupController::class, 'index' );
+$router->addRoute('/client/wishlist', wishlistController::class, 'index' );
+
+

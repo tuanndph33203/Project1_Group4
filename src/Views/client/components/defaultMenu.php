@@ -136,15 +136,16 @@
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a href="cart.html">cart</a></li>
                                 <li><a href="checkout.html">Checkout </a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                <li><a href="wishlist/wishlist">Wishlist</a></li>
+                                <li><a href="/account/login">Login</a></li>
+                                <li><a href="/client/account">Logup</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </li>
 
-            <li><a href="blog.html">blog</a>
+            <li><a href="/client/blog">blog</a>
                 <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
@@ -155,7 +156,7 @@
                     </div>
                 </div>
             </li>
-            <li><a href="contact.html">contact us</a></li>
+            <li><a href="/client/contact">contact us</a></li>
 
         </ul>
     </nav>
