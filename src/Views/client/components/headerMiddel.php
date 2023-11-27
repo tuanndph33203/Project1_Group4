@@ -3,7 +3,7 @@
         <!--logo start-->
         <div class="col-lg-3 col-md-3">
             <div class="logo">
-                <a href="/"><img src="assets\img\logo\logo.jpg.png" alt=""></a>
+                <a href="/"><img src="/assets/img/logo/logo.jpg.png" alt=""></a>
             </div>
         </div>
         <!--logo end-->
@@ -21,7 +21,7 @@
                     <div class="mini_cart">
                         <div class="cart_item">
                             <div class="cart_img">
-                                <a href="#"><img src="assets\img\cart\cart.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/cart/cart.jpg" alt=""></a>
                             </div>
                             <div class="cart_info">
                                 <a href="#">lorem ipsum dolor</a>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="cart_item">
                             <div class="cart_img">
-                                <a href="#"><img src="assets\img\cart\cart2.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/cart/cart2.jpg" alt=""></a>
                             </div>
                             <div class="cart_info">
                                 <a href="#">Quisque ornare dui</a>
