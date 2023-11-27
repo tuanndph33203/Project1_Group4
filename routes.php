@@ -41,6 +41,10 @@ $router->addRoute('/admin/products/update', ProductController::class, 'update');
 $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
+$router->addRoute('/client/shop/cart', ShopController::class, 'cart');
+
 $router->addRoute('/client/pages', PortfolioController::class, 'index');
+
 $router->addRoute('/client/blog', BlogController::class, 'index' );
+
 $router->addRoute('/client/contact', ContactController::class, 'index' );

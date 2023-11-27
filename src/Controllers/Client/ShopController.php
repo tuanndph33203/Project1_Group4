@@ -12,4 +12,8 @@ class ShopController extends Controller
     public function index() {
         $this->renderClient('shop/shop');
     }
+    public function cart() {
+        $this->renderClient('shop/cart');
+    }
+
 }

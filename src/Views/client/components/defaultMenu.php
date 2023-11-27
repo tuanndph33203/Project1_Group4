@@ -11,8 +11,9 @@
                     </div>
                 </div>
             </li>
-            <li><a href="/client/shop">shop</a>
-                <div class="mega_menu jewelry">
+            <li>
+                <a href="/client/shop">shop</a>
+                <!-- <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
                             <li><a href="shop-list.html">shop list</a></li>
@@ -26,9 +27,9 @@
                             <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </li>
-            <li><a href="#">women</a>
+            <!-- <li><a href="#">women</a>
                 <div class="mega_menu">
                     <div class="mega_top fix">
                         <div class="mega_items">
@@ -104,9 +105,10 @@
                     </div>
 
                 </div>
-            </li>
-            <li><a href="/client/pages">pages</a>
-                <div class="mega_menu">
+            </li> -->
+            <li>
+                <a href="/client/pages">pages</a>
+                <!-- <div class="mega_menu">
                     <div class="mega_top fix">
                         <div class="mega_items">
                             <h3><a href="#">Column1</a></h3>
@@ -142,11 +144,12 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </li>
 
-            <li><a href="/client/blog">blog</a>
-                <div class="mega_menu jewelry">
+            <li>
+                <a href="/client/blog">blog</a>
+                <!-- <div class="mega_menu jewelry">
                     <div class="mega_items jewelry">
                         <ul>
                             <li><a href="blog-details.html">blog details</a></li>
@@ -154,9 +157,14 @@
                             <li><a href="blog-sidebar.html">blog sidebar</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </li>
-            <li><a href="/client/contact">contact us</a></li>
+            <li>
+                <a href="/client/contact">contact us</a>
+            </li>
+            <li>
+                <a href="/client/shop/cart">my cart </a>
+            </li>
 
         </ul>
     </nav>

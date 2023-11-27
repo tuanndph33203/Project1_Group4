@@ -15,10 +15,9 @@
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
-                <div class="shopping_cart">
+                <!-- <div class="shopping_cart">
                     <a href="#"><i class="fa fa-shopping-cart"></i> 2Items - $209.44 <i class="fa fa-angle-down"></i></a>
 
-                    <!--mini cart-->
                     <div class="mini_cart">
                         <div class="cart_item">
                             <div class="cart_img">
@@ -58,8 +57,7 @@
                             <a href="checkout.html"> Check out</a>
                         </div>
                     </div>
-                    <!--mini cart end-->
-                </div>
+                </div> -->
 
             </div>
         </div>
