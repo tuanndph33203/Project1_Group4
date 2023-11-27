@@ -15,8 +15,6 @@ class ProductController extends Controller
     /* Lấy danh sách */
     public function index()
     {
-        if (isset($_POST['btn-search'])) {
-        }
         $brands = (new Brand())->all("brand_id");
         $types = (new Category())->all("type_id");
         $status = (new StatusProduct())->all("status_id");

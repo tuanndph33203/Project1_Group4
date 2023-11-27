@@ -22,6 +22,7 @@ $router->addRoute('/admin', StatisticalController::class, 'index');
 $router->addRoute('/admin/statistical', StatisticalController::class, 'index');
 
 $router->addRoute('/admin/users', UserController::class, 'index');
+$router->addRoute('/admin/users/customer', UserController::class, 'customer');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
 $router->addRoute('/admin/users/update', UserController::class, 'update');
 $router->addRoute('/admin/users/delete', UserController::class, 'delete');

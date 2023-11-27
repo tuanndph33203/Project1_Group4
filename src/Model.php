@@ -25,7 +25,7 @@ class Model
         }
     }
 
-    public function findOne($column,$id)
+    public function findOne($column, $id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE $column = :id LIMIT 1";
 
@@ -36,7 +36,7 @@ class Model
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        
+
         return $stmt->fetch();
     }
 
@@ -73,27 +73,47 @@ class Model
     }
 
     $whereConditions = [];
-    if (!empty($where)) { // Kiểm tra xem $where có chứa các biến không
+
+    if (!empty($where)) {
         foreach ($where as $column => $value) {
-            $placeholder = "{$column}";
-            $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
+            if (is_array($value)) {
+                $whereInConditions = [];
+                foreach ($value as $index => $item) {
+                    $placeholder = "{$column}_{$index}";
+                    $whereInConditions[] = ":{$placeholder}";
+                }
+                $whereInCondition = implode(' OR ', $whereInConditions);
+                $whereConditions[] = "({$whereInCondition})";
+            } else {
+                $placeholder = "{$column}";
+                $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
+            }
         }
     }
 
     $sql = "SELECT * FROM `{$this->table}`
-        " . implode(' ', $joinStatements);
+    " . implode(' ', $joinStatements);
 
-    if (!empty($whereConditions)) { // Nếu có điều kiện WHERE, thì thêm vào câu SQL
+    if (!empty($whereConditions)) {
         $sql .= " WHERE " . implode(' AND ', $whereConditions);
     }
 
     $sql .= " GROUP BY `{$this->table}`.`{$groupByColumn}`";
 
     $stmt = $this->conn->prepare($sql);
+
     foreach ($where as $column => $value) {
-        $placeholder = "{$column}";
-        $stmt->bindValue(":{$placeholder}", $value);
+        if (is_array($value)) {
+            foreach ($value as $index => $item) {
+                $placeholder = "{$column}_{$index}";
+                $stmt->bindValue(":{$placeholder}", $item);
+            }
+        } else {
+            $placeholder = "{$column}";
+            $stmt->bindValue(":{$placeholder}", $value);
+        }
     }
+
     $stmt->execute();
 
     $stmt->setFetchMode(\PDO::FETCH_ASSOC);
