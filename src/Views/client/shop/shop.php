@@ -2,6 +2,7 @@
     <div class="row pos_home">
         <div class="col-lg-3 col-md-12">
             <!--top 10 yeu thich start -->
+
             <!-- <div class="sidebar_widget shop_c">
                 <div class="categorie__titile">
                     <h4>Categories</h4>
@@ -107,7 +108,7 @@
                     <h3>popular tags</h3>
                 </div>
                 <div class="block_tags">
-                    <a href="#">ipod</a>
+                    <a href="#"></a>
                     <a href="#">sam sung</a>
                     <a href="#">apple</a>
                     <a href="#">iphone 5s</a>

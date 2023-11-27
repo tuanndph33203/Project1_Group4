@@ -33,15 +33,9 @@
                                                     <td><?php echo $i;
                                                         $i++; ?></td>
                                                     <td><?= $product['product_name'] ?></td>
-<<<<<<< HEAD
-                                                    <td><img src="../../../../assets/img/product/<?=$product['image'] ?>" alt="" height="100px "></td>
-                                                    <td><?= $product['price'] ?></td>
-                                                    <td><?=date('d-m-Y',$product['time_create']) ?></td>
-=======
                                                     <td><img src="../../../../assets/img/product/<?= $product['image'] ?>" alt="" height="100px "></td>
                                                     <td><?= $product['price'] ?></td>
                                                     <td><?= date('d-m-Y', $product['time_create']) ?></td>
->>>>>>> cc927054e88b5c7b68e6a817c64422a4c730d429
                                                     <td><?= $product['expiry'] ?> Ngày</td>
                                                     <td><?= $product['type_name'] ?></td>
                                                     <td><?= $product['brand_name'] ?></td>

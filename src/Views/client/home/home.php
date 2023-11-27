@@ -217,9 +217,11 @@
                 <div class="block_title">
                     <h3>New Products</h3>
                 </div>
+                
                 <div class="row">
                     <div class="product_active owl-carousel">
                         <div class="col-lg-3">
+                            
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product1.jpg" alt=""></a>
@@ -227,7 +229,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -236,13 +238,13 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <!-- <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product2.jpg" alt=""></a>
@@ -250,7 +252,7 @@
                                         <img src="/assets/img/cart/span-hot.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -259,7 +261,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -273,7 +275,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -282,7 +284,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -296,7 +298,7 @@
                                         <img src="/assets/img/cart/span-hot.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -305,7 +307,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -319,7 +321,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -328,12 +330,12 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -354,7 +356,7 @@
                                         <img src="/assets/img/cart/span-hot.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -363,7 +365,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -377,7 +379,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -386,7 +388,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -400,7 +402,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -409,7 +411,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -423,7 +425,7 @@
                                         <img src="/assets/img/cart/span-hot.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -432,7 +434,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
@@ -446,7 +448,7 @@
                                         <img src="/assets/img/cart/span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -455,7 +457,7 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
