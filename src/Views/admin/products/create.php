@@ -42,7 +42,8 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Tên Sản Phẩm</label>
                                             <div class="col-sm-10">
-                                                <input name="name" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>                           </div>
+                                                <input name="name" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Ảnh Sản Phẩm</label>
@@ -51,11 +52,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Giá Sản Phẩm</label>
+                                            <label class="col-sm-2 col-form-label">Đơn vị tính</label>
                                             <div class="col-sm-4">
-                                                <input name="price" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" required>
+                                                <select name="unit_id" class="form-control" required>
+                                                    <?php foreach ($units as $unit) : ?>
+                                                        <option value="<?= $unit['unit_id'] ?>"><?= $unit['unit_name'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
-                                            <label class="col-sm-2 col-form-label"><i>Vnd</i></label>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Mô Tả</label>
@@ -70,40 +74,43 @@
                                             </div>
                                             <label class="col-sm-2 col-form-label"><i>Ngày</i></label>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Dùng được cho loại da</label>
-                                            <div class="col-sm-10">
-                                                <select name="skin_id" class="form-control" required>
-                                                    <?php foreach ($skins as $skin) : ?>
-                                                        <option value="<?= $skin['skin_id'] ?>"><?= $skin['skin_name'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
+                                        <div class="form-group row justify-content-between px-3">
+                                            <div class="col-sm-3">
+                                                <label class="row">Dùng được cho loại da</label>
+                                                <div class="row">
+                                                    <select name="skin_id" class="form-control" required>
+                                                        <?php foreach ($skins as $skin) : ?>
+                                                            <option value="<?= $skin['skin_id'] ?>"><?= $skin['skin_name'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="row">Loại Sản Phẩm</label>
+                                                <div class="row">
+                                                    <select name="type_id" class="form-control" requireds>
+                                                        <?php foreach ($types as $type) : ?>
+                                                            <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="row">Hãng Sản Phẩm</label>
+                                                <div class="row">
+                                                    <select name="brand_id" class="form-control" required>
+                                                        <?php foreach ($brands as $brand) : ?>
+                                                            <option value="<?= $brand['brand_id'] ?>"><?= $brand['brand_name'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Loại Sản Phẩm</label>
-                                            <div class="col-sm-10">
-                                                <select name="type_id" class="form-control" requireds>
-                                                    <?php foreach ($types as $type) : ?>
-                                                        <option value="<?= $type['type_id'] ?>"><?= $type['type_name'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Hãng Sản Phẩm</label>
-                                            <div class="col-sm-10">
-                                                <select name="brand_id" class="form-control" required>
-                                                    <?php foreach ($brands as $brand) : ?>
-                                                        <option value="<?= $brand['brand_id'] ?>"><?= $brand['brand_name'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row">
                                             <div class="col-sm-10"></div>
                                             <div class="col-sm-2">
-                                                <button type="submit" name="btn-submit" class="btn btn-info mt-3">Thêm</button>
+                                                <button type="submit" name="btn-submit" class="btn btn-info mt-3">Thêm Sản Phẩm</button>
                                             </div>
                                         </div>
                                     </form>

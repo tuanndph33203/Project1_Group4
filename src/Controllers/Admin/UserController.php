@@ -19,14 +19,8 @@ class UserController extends Controller
             "role" => ['role_name', 'role_id']
         ];
         $where = [
-            'role_id' => [2, 1]
+            'role_id' => 2
         ];
-
-        // foreach ($_POST as $key => $value) {
-        //     if ($value !== null && $value !== '') {
-        //         $where[$key] = $value;
-        //     }
-        // }
         $groupByColumn = "user_id";
 
         $users = (new User())->getAll($columns, $where, $groupByColumn);
@@ -37,25 +31,22 @@ class UserController extends Controller
             ]
         );
     }
-    public function customer() 
+    public function customer()
     {
         $status = (new StatusUser())->all("status_user_id");
-        if (isset($_POST['btn-search'])) {
-            $columns = [
-                "role" => ['role_name', 'role_id']
-            ];
-            $where = [
-            ];
-            foreach ($_POST as $key => $value) {
-                if ($value !== null && $value !== '') {
-                    $where[$key] = $value;
-                }
+        $where = [
+            'role_id' => 3
+        ];
+        $columns = [
+            "role" => ['role_name', 'role_id']
+        ];
+        $where = [];
+        foreach ($_POST as $key => $value) {
+            if ($value !== null && $value !== '') {
+                $where[$key] = $value;
             }
-        }else{
-            $where = [
-                'role_id' => 3
-            ];
         }
+
         $groupByColumn = "user_id";
 
         $users = (new User())->getAll($columns, $where, $groupByColumn);
@@ -160,5 +151,15 @@ class UserController extends Controller
         (new User)->delete($conditions);
 
         header('Location:/admin/users');
+    }
+    public function active()
+    {
+        (new User)->updateStatus(1,$_GET['id']);
+        header('Location:/admin/users/customer');
+    }
+    public function lock()
+    {
+        (new User)->updateStatus(2,$_GET['id']);
+        header('Location:/admin/users/customer');
     }
 }
