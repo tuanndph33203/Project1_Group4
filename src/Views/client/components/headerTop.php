@@ -22,12 +22,12 @@
         <div class="col-lg-6 col-md-6">
             <div class="header_links">
                 <ul>
-                    <li><a href="contact.html" title="Contact">Contact</a></li>
+                    <li><a href="/client/contact" title="Contact">Contact</a></li>
                     <li><a href="/client/wishlist" title="wishlist">My wishlist</a></li>
-                    <li><a href="my-account.html" title="My account">My account</a></li>
-                    <li><a href="cart.html" title="My cart">My cart</a></li>
+                    <li><a href="/client/account/my_account" title="My account">My account</a></li>
+                    <li><a href="/client/shop/cart" title="My cart">My cart</a></li>
                     <li><a href="/client/account" title="Login">Login</a></li>
-                    <li><a href="/client/account" title="Logup">Logup</a></li>
+                    <li><a href="/client/account/Logup" title="Logup">Logup</a></li>
                 </ul>
             </div>   
         </div>

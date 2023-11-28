@@ -12,8 +12,7 @@ use Group4\BaseMvc\Controllers\Client\HomeController;
 use Group4\BaseMvc\Controllers\Client\ShopController;
 use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
-use Group4\BaseMvc\Controllers\Client\LoginController;
-use Group4\BaseMvc\Controllers\Client\LogupController;
+use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
 
 use Group4\BaseMvc\Router;
@@ -52,11 +51,18 @@ $router->addRoute('/admin/products/products_detail/create', ProductDetailControl
 $router->addRoute('/admin/products/products_detail/update', ProductDetailController::class, 'update');
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
+$router->addRoute('/client/shop/cart', ShopController::class, 'cart');
+
 $router->addRoute('/client/pages', PortfolioController::class, 'index');
+
 $router->addRoute('/client/blog', BlogController::class, 'index' );
+
 $router->addRoute('/client/contact', ContactController::class, 'index' );
-$router->addRoute('/client/account', LoginController::class, 'index' );
-$router->addRoute('/client/account', LogupController::class, 'index' );
+
+$router->addRoute('/client/account', AccountController::class, 'index' );
+$router->addRoute('/client/account/Logup', AccountController::class, 'Logup' );
+$router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
+
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
 
 
