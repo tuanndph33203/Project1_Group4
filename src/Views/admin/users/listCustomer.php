@@ -62,14 +62,16 @@
                                                 <td><?= $user['address'] ?></td>
                                                 <td><?= $user['role_name'] ?></td>
                                                 <td>
-                                                    <form class="mb-3" action="/admin/users/lock?id=<?= $user['user_id'] ?>" method="post">
-                                                        <button type="submit" onclick="return confirm('Bạn có chắc chắn muốn khóa?');" class="btn btn-warning btn-sm">Khóa tài khoản</button>
-                                                    </form>
+                                                    <?php if ($user['status_id'] == 1) { ?>
+                                                        <a href="/admin/users/lock?id=<?= $user['user_id'] ?>" onclick="return confirm('Bạn có chắc chắn muốn khóa?');" class="btn btn-warning btn-sm mb-4">Khóa tài khoản</a>
+                                                    <?php } else { ?>
+                                                        <a href="/admin/users/active?id=<?= $user['user_id'] ?>" onclick="return confirm('Bạn có chắc chắn muốn mở khóa?');" class="btn btn-warning btn-sm mb-4">Mở khóa tài khoản</a>
+                                                    <?php } ?>
+
+                                                    <br>
                                                     <?php
                                                     if ($user['status_id'] == 3) { ?>
-                                                        <form action="/admin/users/activate?id=<?= $user['user_id'] ?>" method="post">
-                                                            <button type="submit" onclick="return confirm('Kích hoạt cho tài khoản này?');" class="btn btn-success btn-sm">Kích hoạt</button>
-                                                        </form>
+                                                        <a href="/admin/users/active?id=<?= $user['user_id'] ?>" onclick="return confirm('Kích hoạt cho tài khoản này?');" class="btn btn-success btn-sm">Kích hoạt</a>
                                                     <?php } ?>
                                                 </td>
                                             </tr>

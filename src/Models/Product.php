@@ -9,13 +9,14 @@ class Product extends Model {
     protected $columns = [
         'product_name',
         'image',
-        'price',
         'description',
         'time_create',
         'expiry',
         'skin_id',
         'type_id',
         'brand_id',
-        'status_id'
+        'status_id',
+        'unit_id'
     ];
+
 }
