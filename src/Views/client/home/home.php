@@ -222,6 +222,9 @@
                     <div class="product_active owl-carousel">
                         <div class="col-lg-3">
                             
+                        <?php
+                        
+                        ?>
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product1.jpg" alt=""></a>

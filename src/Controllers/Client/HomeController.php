@@ -12,4 +12,9 @@ class HomeController extends Controller
     public function index() {
         $this->renderClient('home/home');
     }
+    // public function listproduct_home() {
+    //     $this->renderClient('');
+    //     $sql = "select * from product onder by limit 0,5"
+    // }
+    
 }

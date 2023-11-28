@@ -1,7 +1,7 @@
 <div class=" pos_home_section">
     <div class="row pos_home">
         <div class="col-lg-3 col-md-12">
-            <!--top 10 yeu thich start -->
+            
 
             <!-- <div class="sidebar_widget shop_c">
                 <div class="categorie__titile">
@@ -28,7 +28,6 @@
                     </ul>
                 </div>
             </div> -->
-            <!--top 10 yeu thich end-->
 
             <!--color area start-->
             <div class="sidebar_widget color">
