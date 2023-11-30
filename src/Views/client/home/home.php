@@ -217,27 +217,33 @@
                 <div class="block_title">
                     <h3>New Products</h3>
                 </div>
-                
+
                 <div class="row">
                     <div class="product_active owl-carousel">
-                        <div class="col-lg-3">
-                            
+
+
                         <?php
-                        
-                        ?>
-                            <div class="single_product">
+                        $i = 0;
+                        $img_path = '/assets/img/product/';
+                        // $name = '';
+                        foreach ($get10ByproductID as $get10Byproduct) {
+                            extract($get10Byproduct);
+                            $img = $img_path . $image;
+                            // $link_product = "".$id;
+                            echo '<div class="col-lg-3">
+                                <div class="single_product">
                                 <div class="product_thumb">
-                                    <a href="single-product.html"><img src="/assets/img/product/product1.jpg" alt=""></a>
+                                    <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px"></a>
                                     <div class="img_icone">
-                                        <img src="/assets/img/cart/span-new.png" alt="">
+                                        <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
                                         <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
-                                    <span class="product_price">$50.00</span>
-                                    <h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>
+                                    <span class="product_price">' . $min_price . '</span>
+                                    <h3 class="product_title"><a href="">' . $product_name . '</a></h3>
                                 </div>
                                 <div class="product_info">
                                     <ul>
@@ -246,8 +252,13 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="col-lg-3">
+                            </div>';
+                            $i += 1;
+                        }
+                        ?>
+
+                    </div>
+                    <!-- <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product2.jpg" alt=""></a>
@@ -339,7 +350,6 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
                 </div>
             </div>
             <!--new product area start-->
@@ -351,7 +361,16 @@
                 </div>
                 <div class="row">
                     <div class="product_active owl-carousel">
-                        <div class="col-lg-3">
+                        <?php
+                        $i = 0;
+                        $img_path = '/assets/img/product/';
+                        $price = '';
+                        $name = '';
+                        foreach ($get10ByproductID as $get10Byproduct) {
+                            extract($get10Byproduct);
+                            $img = $img_path . $image;
+                            // $link_product = "".$id;
+                            echo '<div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product7.jpg" alt=""></a>
@@ -373,8 +392,12 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
+                            </div>';
+                            $i += 1;
+                        }
+                        ?>
+
+                        <!-- <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="/assets/img/product/product8.jpg" alt=""></a>
@@ -465,7 +488,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

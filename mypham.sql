@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 24, 2023 lúc 04:17 PM
+-- Thời gian đã tạo: Th10 28, 2023 lúc 02:04 PM
 -- Phiên bản máy phục vụ: 8.0.30
 -- Phiên bản PHP: 8.1.10
 
@@ -51,6 +51,7 @@ INSERT INTO `brand` (`brand_id`, `brand_name`, `logo`) VALUES
 CREATE TABLE `cart` (
   `cart_id` int NOT NULL,
   `product_id` int NOT NULL,
+  `size` int NOT NULL,
   `user_id` int NOT NULL,
   `quantity` int NOT NULL,
   `price` int NOT NULL
@@ -96,6 +97,7 @@ CREATE TABLE `order_detail` (
   `order_detail_id` int NOT NULL,
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
+  `size` int NOT NULL,
   `quantity` int NOT NULL,
   `price` int NOT NULL,
   `subtotal` int NOT NULL
@@ -140,25 +142,52 @@ CREATE TABLE `product` (
   `product_id` int NOT NULL,
   `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `price` int NOT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `time_create` int NOT NULL,
   `expiry` int NOT NULL,
   `skin_id` int NOT NULL,
   `type_id` int NOT NULL,
   `brand_id` int NOT NULL,
-  `status_id` int NOT NULL
+  `status_id` int NOT NULL,
+  `unit_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `image`, `price`, `description`, `time_create`, `expiry`, `skin_id`, `type_id`, `brand_id`, `status_id`) VALUES
-(8, 'Kem mắt Estee Lauder', 'vn-11134207-7r98o-llhz0boel9s81f.jpg', 158000, 'Kem mắt ESTEE LAUDER 5ml Kem dưỡng mắt giảm thâm quầng nếp nhăn bọng mắt tái tạo phục hồi da vùng mắt\r\n\r\nĐôi mắt vốn là cửa sổ tâm hồn, yếu tố quan trọng tạo nên vẻ ngoài thu hút cho mỗi người, đôi mắt không chỉ có hình dáng đẹp mà vùng da xung quanh cùng cần được chú trọng. Tuy nhiên, do thói quen hằng ngày và tuổi tác mà vùng này ngày càng trở nên thâm quầng, chảy xệ và xuất hiện các nếp nhăn, làm chị em mất hết sự tự tin khi giao tiếp.\r\n\r\n- Kem mắt ESTEE LAUDER 5ml Kem dưỡng mắt giảm thâm quầng nếp nhăn bọng mắt tái tạo phục hồi da vùng mắt từ thương hiệu ESTEE LAUDER sẽ giải quyết nhiều vấn đề, giúp hỗ trợ tái tạo đôi vùng da mắt rạng ngời và trẻ trung đồng thời bảo vệ vùng da này trước mọi tác hại từ môi trường.\r\n\r\n\r\n\r\nCông dụng\r\n\r\nGiảm quầng thâm mắt, nếp nhăn và các dấu hiện lão hóa trong giai đoạn đầu tiên\r\n\r\nĐược điều chế và kiểm nghiệm để đảm bảo tính dịu nhẹ khi sử dụng cho vùng da mắt mỏng manh\r\n\r\nHũ thủy tinh đựng sản phẩm được sản xuất với ít nhất 15% vật liệu tái chế\r\n\r\nBao bì hộp giấy được làm với giấy có nguồn gốc bền vững và tái chế được\r\n\r\nĐược kiểm nghiệm nhãn khoa\r\n\r\nĐược kiểm nghiệm da liễu\r\n\r\nKhông gây kích ứng, không làm bí tắc lỗ chân lông (không gây mụn)\r\n\r\nKhông chứa chất tạo mùi tổng hợp\r\n\r\nKhông chứa parabens, phthalates, sulfites,sulfate,cồn khô, dầu khoáng và paraffin\"', 1700628472, 365, 4, 5, 7, 1),
-(9, 'L\'Oréal Paris Revitalift Crystal Micro Essence', '6923700934458_packshot.png', 449000, 'Thông tin sản phẩm\r\nDưỡng chất căng mướt da L\'Oréal Paris Revitalift Crystal Micro Essence là sản phẩm kết hợp nước và dưỡng chất dưỡng da đặc biệt phù hợp cho làn da châu Á. \r\nVới công nghệ micronized, Revitalift Crystal Micro-Essence thẩm thấu sâu hơn vào biểu bì da, tăng cường giữ ẩm trên da giúp làn da trông căng mượt và mềm mại, và hỗ trợ các thành phần dưỡng da thấm sâu hơn vào da. \r\nMột sản phẩm với 7 công dụng: Cấp ẩm tức thì, Sáng mịn da, Giúp se nhỏ lổ chân lông, Giúp da săn chắc và đàn hồi hơn, Giảm vết thâm và đốm nâu, Giúp chăm sóc da từ sâu bên trong, Cho làn da trông tươi trẻ hơn.\r\nThành phần\r\nAQUA / WATER, BUTYLENE GLYCOL, ALCOHOL, HYDROXYETHYLPIPERAZINE ETHANE SULFONIC ACID, PROPANEDIOL, PPG-6-DECYLTETRADECETH-30, CAPRYLYL GLYCOL, SALICYLIC ACID, SODIUM HYDROXIDE, P-ANISIC ACID, ADENOSINE, CAPRYLOYL SALICYLIC ACID, ACETYL TRIFLUOROMETHYLPHENYL VALYLGLYCINE, DISODIUM EDTA, PARFUM/ FRAGRANCE, MADECASSOSIDE, BENZYL SALICYLATE, LIMONENE, LINALOOL, BENZYL ALCOHOL, PENTYLENE GLYCOL, FAEX EXTRACT/ YEAST EXTRACT, TOCOPHEROL\r\nCách sử dụng\r\nSử dụng hàng ngày vào mỗi sáng và tối, sau bước làm sạch và trước bước kem dưỡng. Sử dụng một lượng tinh chất vừa đủ (khoảng 1 hạt bắp nhỏ) và chia đều trên năm điểm: trán, mũi, cằm, hai bên má. Sau đó, thoa đều nhẹ nhàng khắp mặt và vỗ nhẹ. Nên dùng thêm cho vùng da quanh cổ. Tránh vùng da quanh mắt.', 1700669936, 365, 4, 5, 5, 1),
-(10, 'L\'Oréal Paris Micellar Water 3-in-1', '6-jpeg-5174877c-7ab0-43f7-9b74-fdcedb794233.jpg', 153000, 'Thông tin sản phẩm\r\nVới công nghệ mới, Nước tẩy trang L\'Oreal Paris 3-in-1 Micellar Water đa tác dụng vừa giúp làm sạch lấy đi sạch cặn trang điểm những vẫn giúp da giữ ẩm, thông thoáng và mềm mượt chỉ trong một bước. Sản phẩm có 3 loại cho bạn lựa chọn tùy theo nhu cầu: 1. Moisturizing - Mềm mịn (màu hồng): Nhờ thành phần chiết xuất hoa hồng Pháp, giúp duy trì độ ẩm cho da sau khi tẩy trang. Sản phẩm giúp làm sạch lớp trang điểm và làm da mềm mịn. Không chứa dầu, hương liệu và Ethanol. Dành cho da thường/da khô. Phù hợp với cả da nhạy cảm. 2. Refreshing - Tươi mát (xanh dương nhạt): Làn da trông tươi tắn lên sau khi tẩy trang. Sản phẩm giúp làm sạch lớp trang điểm và làm da tươi mát hơn. Không chứa dầu, hương liệu và Ethanol. Dành cho da dầu/da hỗn hợp. Phù hợp với cả da nhạy cảm. 3. Deep Cleasing - Sạch sâu (xanh dương đậm): Có hai lớp chất lỏng giúp làm sạch chất bẩn không cần thiết trên da và loại bỏ lớp trang điểm hiệu quả, kể cả lớp trang điểm lâu trôi và water-proof chỉ trong một bước. Công nghệ Micellar đột phá với các hạt mixen siêu nhỏ, hoạt động như \"một nam châm thông minh\" tự động hút sạch cặn trang điểm, bụi bẩn, dầu thừa và chất bẩn khác trên da mà không làm khô da, không gây kích ứng da. Thích hợp cho mọi loại da, kể cả da nhạy cảm.\r\nThành phần\r\nAqua / Water, Hexylene Glycol, Glycerin, Rosa Gallica Flower Extract, Sorbitol, Poloxamer 184, Disodium Cocoamphodiacetate, Disodium Edta, Propylene Glycol, BHT , Polyaminopropyl Biguanide\r\nCách sử dụng\r\n- Lắc đều. - Cho sản phẩm vào bông tẩy trang rồi nhẹ nhàng lau lên mặt, mắt và môi theo chuyển động tròn. - Không cần rửa lại với nước.', 1700670674, 365, 4, 9, 5, 1),
-(11, 'L\'Oreal ParisTrue Match Super-Blendable Foundation', '4935421255820_packshot.png', 308000, 'Chi tiết sản phẩm\r\nTrue Match Mới, kem nền lâu trôi, siêu mỏng mịn. Công thức mới  giúp kem nền tiệp vào  màu da chính xác hơn. Các màu sắc phù hợp tông màu da  và kết cấu kem đặc trưng sẽ cho bạn một lớp nền đồng nhất như làn da thứ hai giúp bạn trông tươi sáng và rạng rỡ hơn trước. Lớp kem nền lâu trôi và mang lại cảm giác thoải mái dài lâu. Tất cả những gì bạn thấy là một làn da tỏa sáng.\r\nThành phần\r\nAqua / Nước, Dimethicone, Isododecane, Cyclohexasiloxane, Glycerin, Peg-10 Dimethicone, Methyl Methacrylate Crosspolymer, Butylene Glycol, Pentylene Glycol, Synthetic Fluorphlogopite, Disteardimonium Hectorite, Hydroxyethylpiperazine Ethane Sulfonicacid, Cetyl Peg/Ppg-10/1 Dimethicone, Sodium Chloride, Polyglyceryl-4 Isostearate, Hexyl Laurate, Caprylyl Glycol, Phenoxyethanol, Disodium Stearoyl Glutamate, Tocopherol, Panthenol, Aluminumhydroxide, Hydroxyethyl Urea, Hydrated Silica, Methicone, [+/- Có thể chứa: Ci 77891 / Titaniumdioxide, Ci 77491, Ci 77492, Ci 77499 / Iron Oxides, Mica, Ci 15985 / Yellow 6 Lake, Ci 42090 / Blue 1 Lake, Ci 77510 / Ferric Ammonium Ferrocyanide, Ci 45410 / Red 28 Lake, Ci 15850 / Red 7]. (F.I.L. B167167/1).\r\nCách dùng\r\n1. Bắt đầu với khuôn mặt đã làm sạch, săn chắc và đủ ẩm. 2. Thoa một lớp kem lót bí mật lên da. Nhớ đừng thoa quá dày. 3. Thoa kem nền true match lên mặt. Bắt đầu với vùng chữ T và tán đều với chuyển động vòng tròn, hoặc hãy tán kem theo cách của bạn.', 1700670889, 365, 3, 6, 5, 1);
+INSERT INTO `product` (`product_id`, `product_name`, `image`, `description`, `time_create`, `expiry`, `skin_id`, `type_id`, `brand_id`, `status_id`, `unit_id`) VALUES
+(8, 'Kem mắt Estee Lauder', 'vn-11134207-7r98o-llhz0boel9s81f.jpg', 'Kem mắt ESTEE LAUDER 5ml Kem dưỡng mắt giảm thâm quầng nếp nhăn bọng mắt tái tạo phục hồi da vùng mắt\r\n\r\nĐôi mắt vốn là cửa sổ tâm hồn, yếu tố quan trọng tạo nên vẻ ngoài thu hút cho mỗi người, đôi mắt không chỉ có hình dáng đẹp mà vùng da xung quanh cùng cần được chú trọng. Tuy nhiên, do thói quen hằng ngày và tuổi tác mà vùng này ngày càng trở nên thâm quầng, chảy xệ và xuất hiện các nếp nhăn, làm chị em mất hết sự tự tin khi giao tiếp.\r\n\r\n- Kem mắt ESTEE LAUDER 5ml Kem dưỡng mắt giảm thâm quầng nếp nhăn bọng mắt tái tạo phục hồi da vùng mắt từ thương hiệu ESTEE LAUDER sẽ giải quyết nhiều vấn đề, giúp hỗ trợ tái tạo đôi vùng da mắt rạng ngời và trẻ trung đồng thời bảo vệ vùng da này trước mọi tác hại từ môi trường.\r\n\r\n\r\n\r\nCông dụng\r\n\r\nGiảm quầng thâm mắt, nếp nhăn và các dấu hiện lão hóa trong giai đoạn đầu tiên\r\n\r\nĐược điều chế và kiểm nghiệm để đảm bảo tính dịu nhẹ khi sử dụng cho vùng da mắt mỏng manh\r\n\r\nHũ thủy tinh đựng sản phẩm được sản xuất với ít nhất 15% vật liệu tái chế\r\n\r\nBao bì hộp giấy được làm với giấy có nguồn gốc bền vững và tái chế được\r\n\r\nĐược kiểm nghiệm nhãn khoa\r\n\r\nĐược kiểm nghiệm da liễu\r\n\r\nKhông gây kích ứng, không làm bí tắc lỗ chân lông (không gây mụn)\r\n\r\nKhông chứa chất tạo mùi tổng hợp\r\n\r\nKhông chứa parabens, phthalates, sulfites,sulfate,cồn khô, dầu khoáng và paraffin\"', 1700628472, 365, 4, 5, 7, 1, 1),
+(9, 'L\'Oréal Paris Revitalift Crystal Micro Essence', '6923700934458_packshot.png', 'Thông tin sản phẩm\r\nDưỡng chất căng mướt da L\'Oréal Paris Revitalift Crystal Micro Essence là sản phẩm kết hợp nước và dưỡng chất dưỡng da đặc biệt phù hợp cho làn da châu Á. \r\nVới công nghệ micronized, Revitalift Crystal Micro-Essence thẩm thấu sâu hơn vào biểu bì da, tăng cường giữ ẩm trên da giúp làn da trông căng mượt và mềm mại, và hỗ trợ các thành phần dưỡng da thấm sâu hơn vào da. \r\nMột sản phẩm với 7 công dụng: Cấp ẩm tức thì, Sáng mịn da, Giúp se nhỏ lổ chân lông, Giúp da săn chắc và đàn hồi hơn, Giảm vết thâm và đốm nâu, Giúp chăm sóc da từ sâu bên trong, Cho làn da trông tươi trẻ hơn.\r\nThành phần\r\nAQUA / WATER, BUTYLENE GLYCOL, ALCOHOL, HYDROXYETHYLPIPERAZINE ETHANE SULFONIC ACID, PROPANEDIOL, PPG-6-DECYLTETRADECETH-30, CAPRYLYL GLYCOL, SALICYLIC ACID, SODIUM HYDROXIDE, P-ANISIC ACID, ADENOSINE, CAPRYLOYL SALICYLIC ACID, ACETYL TRIFLUOROMETHYLPHENYL VALYLGLYCINE, DISODIUM EDTA, PARFUM/ FRAGRANCE, MADECASSOSIDE, BENZYL SALICYLATE, LIMONENE, LINALOOL, BENZYL ALCOHOL, PENTYLENE GLYCOL, FAEX EXTRACT/ YEAST EXTRACT, TOCOPHEROL\r\nCách sử dụng\r\nSử dụng hàng ngày vào mỗi sáng và tối, sau bước làm sạch và trước bước kem dưỡng. Sử dụng một lượng tinh chất vừa đủ (khoảng 1 hạt bắp nhỏ) và chia đều trên năm điểm: trán, mũi, cằm, hai bên má. Sau đó, thoa đều nhẹ nhàng khắp mặt và vỗ nhẹ. Nên dùng thêm cho vùng da quanh cổ. Tránh vùng da quanh mắt.', 1700669936, 365, 4, 5, 5, 1, 1),
+(10, 'L\'Oréal Paris Micellar Water 3-in-1', '6-jpeg-5174877c-7ab0-43f7-9b74-fdcedb794233.jpg', 'Thông tin sản phẩm\r\nVới công nghệ mới, Nước tẩy trang L\'Oreal Paris 3-in-1 Micellar Water đa tác dụng vừa giúp làm sạch lấy đi sạch cặn trang điểm những vẫn giúp da giữ ẩm, thông thoáng và mềm mượt chỉ trong một bước. Sản phẩm có 3 loại cho bạn lựa chọn tùy theo nhu cầu: 1. Moisturizing - Mềm mịn (màu hồng): Nhờ thành phần chiết xuất hoa hồng Pháp, giúp duy trì độ ẩm cho da sau khi tẩy trang. Sản phẩm giúp làm sạch lớp trang điểm và làm da mềm mịn. Không chứa dầu, hương liệu và Ethanol. Dành cho da thường/da khô. Phù hợp với cả da nhạy cảm. 2. Refreshing - Tươi mát (xanh dương nhạt): Làn da trông tươi tắn lên sau khi tẩy trang. Sản phẩm giúp làm sạch lớp trang điểm và làm da tươi mát hơn. Không chứa dầu, hương liệu và Ethanol. Dành cho da dầu/da hỗn hợp. Phù hợp với cả da nhạy cảm. 3. Deep Cleasing - Sạch sâu (xanh dương đậm): Có hai lớp chất lỏng giúp làm sạch chất bẩn không cần thiết trên da và loại bỏ lớp trang điểm hiệu quả, kể cả lớp trang điểm lâu trôi và water-proof chỉ trong một bước. Công nghệ Micellar đột phá với các hạt mixen siêu nhỏ, hoạt động như \"một nam châm thông minh\" tự động hút sạch cặn trang điểm, bụi bẩn, dầu thừa và chất bẩn khác trên da mà không làm khô da, không gây kích ứng da. Thích hợp cho mọi loại da, kể cả da nhạy cảm.\r\nThành phần\r\nAqua / Water, Hexylene Glycol, Glycerin, Rosa Gallica Flower Extract, Sorbitol, Poloxamer 184, Disodium Cocoamphodiacetate, Disodium Edta, Propylene Glycol, BHT , Polyaminopropyl Biguanide\r\nCách sử dụng\r\n- Lắc đều. - Cho sản phẩm vào bông tẩy trang rồi nhẹ nhàng lau lên mặt, mắt và môi theo chuyển động tròn. - Không cần rửa lại với nước.', 1700670674, 365, 4, 9, 5, 1, 1),
+(11, 'L\'Oreal ParisTrue Match Super-Blendable Foundation', '4935421255820_packshot.png', 'Chi tiết sản phẩm\r\nTrue Match Mới, kem nền lâu trôi, siêu mỏng mịn. Công thức mới  giúp kem nền tiệp vào  màu da chính xác hơn. Các màu sắc phù hợp tông màu da  và kết cấu kem đặc trưng sẽ cho bạn một lớp nền đồng nhất như làn da thứ hai giúp bạn trông tươi sáng và rạng rỡ hơn trước. Lớp kem nền lâu trôi và mang lại cảm giác thoải mái dài lâu. Tất cả những gì bạn thấy là một làn da tỏa sáng.\r\nThành phần\r\nAqua / Nước, Dimethicone, Isododecane, Cyclohexasiloxane, Glycerin, Peg-10 Dimethicone, Methyl Methacrylate Crosspolymer, Butylene Glycol, Pentylene Glycol, Synthetic Fluorphlogopite, Disteardimonium Hectorite, Hydroxyethylpiperazine Ethane Sulfonicacid, Cetyl Peg/Ppg-10/1 Dimethicone, Sodium Chloride, Polyglyceryl-4 Isostearate, Hexyl Laurate, Caprylyl Glycol, Phenoxyethanol, Disodium Stearoyl Glutamate, Tocopherol, Panthenol, Aluminumhydroxide, Hydroxyethyl Urea, Hydrated Silica, Methicone, [+/- Có thể chứa: Ci 77891 / Titaniumdioxide, Ci 77491, Ci 77492, Ci 77499 / Iron Oxides, Mica, Ci 15985 / Yellow 6 Lake, Ci 42090 / Blue 1 Lake, Ci 77510 / Ferric Ammonium Ferrocyanide, Ci 45410 / Red 28 Lake, Ci 15850 / Red 7]. (F.I.L. B167167/1).\r\nCách dùng\r\n1. Bắt đầu với khuôn mặt đã làm sạch, săn chắc và đủ ẩm. 2. Thoa một lớp kem lót bí mật lên da. Nhớ đừng thoa quá dày. 3. Thoa kem nền true match lên mặt. Bắt đầu với vùng chữ T và tán đều với chuyển động vòng tròn, hoặc hãy tán kem theo cách của bạn.\"\"', 1700670889, 365, 3, 6, 5, 1, 1),
+(12, 'Nguyễn Ngọc Quang (FPL HN)', 'product5.jpg', 'xXX', 1701134801, 1233, 4, 9, 7, 1, 2),
+(13, 'Nguyễn Ngọc Quang (FPL HN)', 'productbig1.jpg', 'aỪAEF', 1701134989, 1, 4, 9, 7, 1, 2),
+(14, 'Nguyễn Ngọc Quang (FPL HN)', 'productbig1.jpg', 'dDdAD', 1701135040, 4, 4, 9, 7, 1, 2),
+(15, 'Nguyễn Đình Tuân1', 'productbig.jpg', 'ư3fgefwef', 1701135433, 4, 4, 9, 7, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_detail`
+--
+
+CREATE TABLE `product_detail` (
+  `price` int NOT NULL,
+  `quantity` int NOT NULL,
+  `size` int NOT NULL,
+  `product_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_detail`
+--
+
+INSERT INTO `product_detail` (`price`, `quantity`, `size`, `product_id`) VALUES
+(1, 1, 1, 8),
+(10, 11, 33, 15),
+(1111111, 111, 35, 15),
+(100000, 99, 50, 11);
 
 -- --------------------------------------------------------
 
@@ -311,6 +340,25 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `unit`
+--
+
+CREATE TABLE `unit` (
+  `unit_id` int NOT NULL,
+  `unit_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `unit`
+--
+
+INSERT INTO `unit` (`unit_id`, `unit_name`) VALUES
+(1, 'g'),
+(2, 'ml');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `user`
 --
 
@@ -322,11 +370,18 @@ CREATE TABLE `user` (
   `email` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
   `birth_day` date NOT NULL,
-  `address` int NOT NULL,
+  `address` text NOT NULL,
   `sex_id` int NOT NULL,
   `role_id` int NOT NULL,
   `status_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`user_id`, `avatar`, `username`, `phone`, `email`, `password`, `birth_day`, `address`, `sex_id`, `role_id`, `status_id`) VALUES
+(2, '310317041_196433179462925_8996714286151707152_n.jpg', 'Nguyễn Đình Tuânn', '(+84) 789100059', 'tuanndph33203@fpt.edu.vn', '$2y$10$E7jl.pRErgsiht.bULOzu.7d8K9n8RGBGznL0nh1fYewxYF6XCnSK', '2023-11-05', 'Hà Nội', 3, 3, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -344,7 +399,8 @@ ALTER TABLE `brand`
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`) USING BTREE,
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `size` (`size`);
 
 --
 -- Chỉ mục cho bảng `comment`
@@ -368,7 +424,8 @@ ALTER TABLE `order`
 ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`order_detail_id`) USING BTREE,
   ADD KEY `FK_ORDERS_ORDERDETAILS` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `size` (`size`);
 
 --
 -- Chỉ mục cho bảng `post`
@@ -393,7 +450,15 @@ ALTER TABLE `product`
   ADD KEY `type_id` (`type_id`),
   ADD KEY `brand_id` (`brand_id`),
   ADD KEY `expiry_id` (`expiry`),
-  ADD KEY `skin_id` (`skin_id`);
+  ADD KEY `skin_id` (`skin_id`),
+  ADD KEY `unit_id` (`unit_id`);
+
+--
+-- Chỉ mục cho bảng `product_detail`
+--
+ALTER TABLE `product_detail`
+  ADD PRIMARY KEY (`size`,`product_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `role`
@@ -438,11 +503,19 @@ ALTER TABLE `type`
   ADD PRIMARY KEY (`type_id`);
 
 --
+-- Chỉ mục cho bảng `unit`
+--
+ALTER TABLE `unit`
+  ADD PRIMARY KEY (`unit_id`);
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`) USING BTREE,
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `sex_id` (`sex_id`),
+  ADD KEY `status_id` (`status_id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -494,7 +567,7 @@ ALTER TABLE `posts_comment`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
@@ -536,13 +609,19 @@ ALTER TABLE `status_user`
 -- AUTO_INCREMENT cho bảng `type`
 --
 ALTER TABLE `type`
-  MODIFY `type_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `type_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `unit`
+--
+ALTER TABLE `unit`
+  MODIFY `unit_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -553,7 +632,8 @@ ALTER TABLE `user`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`size`) REFERENCES `product_detail` (`size`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Các ràng buộc cho bảng `comment`
@@ -574,7 +654,8 @@ ALTER TABLE `order`
 --
 ALTER TABLE `order_detail`
   ADD CONSTRAINT `FK_ORDERS_ORDERDETAILS` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
-  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`size`) REFERENCES `product_detail` (`size`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Các ràng buộc cho bảng `posts_comment`
@@ -590,13 +671,22 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`skin_id`) REFERENCES `skin` (`skin_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`skin_id`) REFERENCES `skin` (`skin_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `product_ibfk_6` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Các ràng buộc cho bảng `product_detail`
+--
+ALTER TABLE `product_detail`
+  ADD CONSTRAINT `product_detail_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Các ràng buộc cho bảng `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`sex_id`) REFERENCES `sex` (`sex_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`status_id`) REFERENCES `status_user` (`status_user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
