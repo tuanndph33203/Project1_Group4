@@ -6,6 +6,7 @@ use Group4\BaseMvc\Controllers\Admin\CategoryController;
 use Group4\BaseMvc\Controllers\Admin\BrandController;
 use Group4\BaseMvc\Controllers\Admin\ProductController;
 use Group4\BaseMvc\Controllers\Admin\ProductDetailController;
+use Group4\BaseMvc\Controllers\Admin\OrderController;
 
 use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
@@ -49,6 +50,8 @@ $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
 $router->addRoute('/admin/products/products_detail/delete', ProductDetailController::class, 'delete');
 $router->addRoute('/admin/products/products_detail/create', ProductDetailController::class, 'create');
 $router->addRoute('/admin/products/products_detail/update', ProductDetailController::class, 'update');
+
+$router->addRoute('/admin/orders', OrderController::class, 'index');
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
