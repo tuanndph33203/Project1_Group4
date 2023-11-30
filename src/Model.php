@@ -42,7 +42,7 @@ class Model
 
     public function all($column)
     {
-        $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
+        $sql = "SELECT * FROM `{$this->table}` ORDER BY {$column} DESC";
 
         $stmt = $this->conn->prepare($sql);
 
