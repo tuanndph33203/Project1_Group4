@@ -364,8 +364,6 @@
                         <?php
                         $i = 0;
                         $img_path = '/assets/img/product/';
-                        $price = '';
-                        $name = '';
                         foreach ($get10ByproductID as $get10Byproduct) {
                             extract($get10Byproduct);
                             $img = $img_path . $image;
@@ -373,9 +371,9 @@
                             echo '<div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                    <a href="single-product.html"><img src="/assets/img/product/product7.jpg" alt=""></a>
+                                    <a href="single-product.html"><img src="'.$img.'" width="200px" height="300px" alt=""></a>
                                     <div class="hot_img">
-                                        <img src="/assets/img/cart/span-hot.png" alt="">
+                                        <img src="'.$img.'" alt="">
                                     </div>
                                     <div class="product_action">
                                         <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -499,7 +497,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single_banner">
-                            <a href="#"><img src="/assets/img/banner/banner7.jpg" alt=""></a>
+                            <a href="#"><img src="/assets/img/banner/banner7.jpg" alt="" width="178px" ></a>
                             <div class="banner_title">
                                 <p>Up to <span> 40%</span> off</p>
                             </div>

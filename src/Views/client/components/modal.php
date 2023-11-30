@@ -26,7 +26,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal_tab_button">    
+                                <!-- <div class="modal_tab_button">    
                                     <ul class="nav product_navactive" role="tablist">
                                         <li>
                                             <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="/assets/img/cart/cart17.jpg" alt=""></a>
@@ -38,7 +38,7 @@
                                             <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="/assets/img/cart/cart19.jpg" alt=""></a>
                                         </li>
                                     </ul>
-                                </div>    
+                                </div>     -->
                             </div>  
                         </div> 
                         <div class="col-lg-7 col-md-7 col-sm-12">

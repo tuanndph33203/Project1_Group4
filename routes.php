@@ -12,6 +12,7 @@ use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
+use Group4\BaseMvc\Controllers\Client\ModalController;
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -56,5 +57,7 @@ $router->addRoute('/client/account/Logup', AccountController::class, 'Logup' );
 $router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
+
+$router->addRoute('/client/modal', ModalController::class, 'index' );
 
 
