@@ -3,7 +3,7 @@
         <div class="pcoded-inner-navbar main-menu">
             <div class="pcoded-navigation-label">Công cụ</div>
             <ul class="pcoded-item pcoded-left-item">/
-                <li class="active pcoded-trigger">
+                <li>
                     <a href="/admin/statistical" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="feather icon-bar-chart-2"></i></span>
                         <span class="pcoded-mtext">Thống kê</span>
@@ -85,6 +85,12 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="/admin/orders" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                        <span class="pcoded-mtext">Đơn hàng</span>
+                    </a>
                 </li>
             </ul>
         </div>

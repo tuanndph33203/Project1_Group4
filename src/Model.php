@@ -42,7 +42,7 @@ class Model
 
     public function all($column)
     {
-        $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
+        $sql = "SELECT * FROM `{$this->table}` ORDER BY {$column} DESC";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -65,60 +65,60 @@ class Model
         return $stmt->fetchAll();
     }
     public function getAll($columns, $where, $groupByColumn)
-{
-    $joinStatements = [];
+    {
+        $joinStatements = [];
 
-    foreach ($columns as $table => $columnArr) {
-        $joinStatements[] = "INNER JOIN `{$table}` ON `{$this->table}`.`{$table}_id` = `{$table}`.`{$table}_id`";
-    }
+        foreach ($columns as $table => $columnArr) {
+            $joinStatements[] = "INNER JOIN `{$table}` ON `{$this->table}`.`{$table}_id` = `{$table}`.`{$table}_id`";
+        }
 
-    $whereConditions = [];
+        $whereConditions = [];
 
-    if (!empty($where)) {
-        foreach ($where as $column => $value) {
-            if (is_array($value)) {
-                $whereInConditions = [];
-                foreach ($value as $index => $item) {
-                    $placeholder = "{$column}_{$index}";
-                    $whereInConditions[] = ":{$placeholder}";
+        if (!empty($where)) {
+            foreach ($where as $column => $value) {
+                if (is_array($value)) {
+                    $whereInConditions = [];
+                    foreach ($value as $index => $item) {
+                        $placeholder = "{$column}_{$index}";
+                        $whereInConditions[] = ":{$placeholder}";
+                    }
+                    $whereInCondition = implode(' OR ', $whereInConditions);
+                    $whereConditions[] = "({$whereInCondition})";
+                } else {
+                    $placeholder = "{$column}";
+                    $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
                 }
-                $whereInCondition = implode(' OR ', $whereInConditions);
-                $whereConditions[] = "({$whereInCondition})";
-            } else {
-                $placeholder = "{$column}";
-                $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
             }
         }
-    }
 
-    $sql = "SELECT * FROM `{$this->table}`
+        $sql = "SELECT * FROM `{$this->table}`
     " . implode(' ', $joinStatements);
 
-    if (!empty($whereConditions)) {
-        $sql .= " WHERE " . implode(' AND ', $whereConditions);
-    }
-
-    $sql .= " GROUP BY `{$this->table}`.`{$groupByColumn}`";
-
-    $stmt = $this->conn->prepare($sql);
-
-    foreach ($where as $column => $value) {
-        if (is_array($value)) {
-            foreach ($value as $index => $item) {
-                $placeholder = "{$column}_{$index}";
-                $stmt->bindValue(":{$placeholder}", $item);
-            }
-        } else {
-            $placeholder = "{$column}";
-            $stmt->bindValue(":{$placeholder}", $value);
+        if (!empty($whereConditions)) {
+            $sql .= " WHERE " . implode(' AND ', $whereConditions);
         }
+
+        $sql .= " GROUP BY `{$this->table}`.`{$groupByColumn}`";
+
+        $stmt = $this->conn->prepare($sql);
+
+        foreach ($where as $column => $value) {
+            if (is_array($value)) {
+                foreach ($value as $index => $item) {
+                    $placeholder = "{$column}_{$index}";
+                    $stmt->bindValue(":{$placeholder}", $item);
+                }
+            } else {
+                $placeholder = "{$column}";
+                $stmt->bindValue(":{$placeholder}", $value);
+            }
+        }
+
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
     }
-
-    $stmt->execute();
-
-    $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-    return $stmt->fetchAll();
-}
 
     public function insert($data)
     {
@@ -143,18 +143,9 @@ class Model
         }
 
         $stmt->execute();
+        $id = $this->conn->lastInsertId();
+        return $id;
     }
-
-    /* 
-        $data = [
-            'collumn_name' => 'giá trị người dùng truyền vào',
-        ];
-
-        $conditions = [
-            ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào', 'AND hoặc OR'],
-            ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào']
-        ];
-    */
     public function update($data, $conditions = [])
     {
         $sql = "UPDATE {$this->table} SET ";
