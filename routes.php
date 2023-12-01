@@ -6,6 +6,7 @@ use Group4\BaseMvc\Controllers\Admin\CategoryController;
 use Group4\BaseMvc\Controllers\Admin\BrandController;
 use Group4\BaseMvc\Controllers\Admin\ProductController;
 use Group4\BaseMvc\Controllers\Admin\ProductDetailController;
+use Group4\BaseMvc\Controllers\Admin\OrderController;
 
 use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
@@ -14,12 +15,13 @@ use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
-
+use Group4\BaseMvc\Controllers\Client\ModalController;
 use Group4\BaseMvc\Router;
 
 $router = new Router();
 
 $router->addRoute('/', HomeController::class, 'index');
+$router->addRoute('/modal', HomeController::class, 'modal');
 
 $router->addRoute('/admin', StatisticalController::class, 'index');
 $router->addRoute('/admin/statistical', StatisticalController::class, 'index');
@@ -50,6 +52,8 @@ $router->addRoute('/admin/products/products_detail/delete', ProductDetailControl
 $router->addRoute('/admin/products/products_detail/create', ProductDetailController::class, 'create');
 $router->addRoute('/admin/products/products_detail/update', ProductDetailController::class, 'update');
 
+$router->addRoute('/admin/orders', OrderController::class, 'index');
+
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
 
@@ -66,5 +70,8 @@ $router->addRoute('/client/account/resetpassword', AccountController::class, 're
 
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
+
+$router->addRoute('/client/components/modal', ModalController::class, 'index' );
+
 
 
