@@ -11,9 +11,11 @@ class HomeController extends Controller
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
-        $get10ByproductID = (new Product)->get10ByproductID('1');   
+        $get10ByproductID = (new Product)->get10ByproductID();  
+        $getAllByproductID = (new Product)->getAllByproductID(1); 
         extract($get10ByproductID);
-        // print_r(json_encode($get10ByproductID));
-        $this->renderClient('home/home', ['get10ByproductID'=> $get10ByproductID]);
+        extract($getAllByproductID);
+        $this->renderClient('home/home' ,['get10ByproductID'=> $get10ByproductID]);
+        // $this->renderClient('home/home',['getAllByproductID'=> $getAllByproductID]);
     }
 }

@@ -19,7 +19,7 @@ class Product extends Model
     ];
 
     // Lấy ra tất cả sản phẩm theo ID danh mục, được order by theo ID sản phẩm
-    public function get10ByproductID($product_type_id)
+    public function get10ByproductID()
     {
         $sql = "SELECT p.*,MIN(pd.price) AS min_price  FROM product p 
         INNER JOIN product_detail pd ON p.product_id = pd.product_id 
@@ -46,6 +46,39 @@ class Product extends Model
             ORDER BY p.product_id DESC 
         ";
 
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        return $stmt->fetchAll();
+    }
+    public function Getone_product($product_id){
+        $sql = "
+        SELECT 
+            *
+        FROM product p 
+
+        where p.product_id = :product_id
+    ";
+    $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindParam(':product_id', $product_id);
+
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        return $stmt->fetch();
+    }
+    public function GetrElated_products(){
+        $sql = "select * 
+        from type t
+
+        ORDER BY t.type_id DESC
+        ";
+        
         $stmt = $this->conn->prepare($sql);
 
         $stmt->execute();

@@ -21,6 +21,7 @@ use Group4\BaseMvc\Router;
 $router = new Router();
 
 $router->addRoute('/', HomeController::class, 'index');
+$router->addRoute('/modal', HomeController::class, 'modal');
 
 $router->addRoute('/admin', StatisticalController::class, 'index');
 $router->addRoute('/admin/statistical', StatisticalController::class, 'index');
@@ -68,6 +69,7 @@ $router->addRoute('/client/account/my_account', AccountController::class, 'my_ac
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
 
-$router->addRoute('/client/modal', ModalController::class, 'index' );
+$router->addRoute('/client/components/modal', ModalController::class, 'index' );
+
 
 
