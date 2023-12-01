@@ -18,7 +18,7 @@
                             <tbody>
                                 <tr>
                                     <td class="product_remove"><a href="#">X</a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart17.jpg" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart17.jpg" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbag fringilla</a></td>
                                     <td class="product-price">£65.00</td>
                                     <td class="product_quantity">In Stock</td>
@@ -29,7 +29,7 @@
 
                                 <tr>
                                     <td class="product_remove"><a href="#">X</a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart18.jpg" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart18.jpg" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbags justo</a></td>
                                     <td class="product-price">£90.00</td>
                                     <td class="product_quantity">In Stock</td>
@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr>
                                     <td class="product_remove"><a href="#">X</a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart19.jpg" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart19.jpg" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbag elit</a></td>
                                     <td class="product-price">£80.00</td>
                                     <td class="product_quantity">In Stock</td>
