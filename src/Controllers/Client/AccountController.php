@@ -18,4 +18,7 @@ class AccountController extends Controller
     public function logup() {
         $this->renderClient('account/Logup');
     }
+    public function resetpassword() {
+        $this->renderClient('account/resetpassword');
+    }
 }
