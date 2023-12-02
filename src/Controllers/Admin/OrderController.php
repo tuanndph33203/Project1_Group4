@@ -13,13 +13,19 @@ class OrderController extends Controller {
         $columns = [
             "user" => ['username', 'user_id','address'],
             "status_order" => ['status_order_name', 'status_order_id']
+           
         ];
         $where = [];
+        if (isset($_GET['id'])) {
+            $where["status_order_id"] = $_GET['id'];
+        }
+        
         $orders = (new Order())->getAll($columns,$where,'order_id');
         $orders_detail = [];
         foreach ($orders as $key => $order) {
             $orders_detail[$key] = (new OrderDetail())->getOderDetail($order['order_id']);
         }
+        // print_r($orders);
         $this->renderAdmin("orders/index", 
         [
             "orders" => $orders,
@@ -28,39 +34,32 @@ class OrderController extends Controller {
     }
 
     /* Thêm mới */
-    // public function create() {
-    //     if (isset($_POST["btn-submit"])) { 
-    //         $data = [
-    //             'type_name' => $_POST['name'],
-    //         ];
-    //         print_r($data);
-    //         (new Order())->insert($data);
-    //         header('Location: /admin/categories');
-    //     }
-    //     $this->renderAdmin("categories/create");
-    // }
+    public function detail() {
+        $id = $_GET['id'];
+        $columns = [
+            "user" => ['username', 'user_id'],
+            "status_order" => ['status_order_name', 'status_order_id'],
+            "pay" => ['pay_name', 'pay_id']
+        ];
+        $where = [
+            "order_id" => $id
+        ];
+        $order = (new Order())->getAll($columns,$where,'order_id');
+        $order_detail = (new OrderDetail())->getOderDetail($order[0]['order_id']);
+        print_r($order_detail);
+        $this->renderAdmin("orders/detail", 
+        [
+            "order" => $order[0],
+            "order_detail" => $order_detail
+        ]);
+    }
     // /* Cập nhật */
-    // public function update()
-    // {
-    //     if (isset($_POST["btn-submit"])) {
-    //         $data = [
-    //             'type_name' => $_POST['name'],
-    //         ];
+    public function status()
+    {
+        (new Order())->updateStatusOrder($_GET['id'], $_GET["act"]);
     
-    //         if (isset($_GET['type_id'])) {
-    //             $conditions = [
-    //                 ['type_id', '=', $_GET['type_id']],
-    //             ];
-    
-    //             $category = new Order();
-    //             $category->update($data, $conditions);
-    //         }
-    //     }
-    
-    //     $category = (new Order())->findOne('type_id', $_GET["type_id"]);
-    
-    //     $this->renderAdmin("categories/update", ["category" => $category]);
-    // }
+        header("Location:/admin/orders");
+    }
 
     // /* Xóa */
     // public function delete() {

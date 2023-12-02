@@ -48,11 +48,14 @@ $router->addRoute('/admin/products', ProductController::class, 'index');
 $router->addRoute('/admin/products/create', ProductController::class, 'create');
 $router->addRoute('/admin/products/update', ProductController::class, 'update');
 $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
+
 $router->addRoute('/admin/products/products_detail/delete', ProductDetailController::class, 'delete');
 $router->addRoute('/admin/products/products_detail/create', ProductDetailController::class, 'create');
 $router->addRoute('/admin/products/products_detail/update', ProductDetailController::class, 'update');
 
 $router->addRoute('/admin/orders', OrderController::class, 'index');
+$router->addRoute('/admin/orders/detail', OrderController::class, 'detail');
+$router->addRoute('/admin/orders/status', OrderController::class, 'status');
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
