@@ -59,11 +59,6 @@
     <!--footer area start-->
     <?php include "components/footerTop.php" ?>
     <!--footer area end-->
-
-    <!-- modal area start -->
-    <?php include "components/modal.php" ?>
-    <!-- modal area end -->
-
     <!-- all js here -->
     <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
     <script src="/assets/js/popper.js"></script>

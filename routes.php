@@ -15,7 +15,8 @@ use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
-use Group4\BaseMvc\Controllers\Client\ModalController;
+use Group4\BaseMvc\Controllers\Client\ShowProduct;
+
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -74,7 +75,5 @@ $router->addRoute('/client/account/resetpassword', AccountController::class, 're
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
 
-$router->addRoute('/client/components/modal', ModalController::class, 'index' );
-
-
+$router->addRoute('/client/product_detail', ShowProduct::class, 'index' );
 
