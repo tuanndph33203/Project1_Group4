@@ -122,7 +122,7 @@ class Model
 
     public function insert($data)
     {
-        $sql = "INSERT INTO {$this->table}";
+        $sql = "INSERT INTO `{$this->table}`";
 
         $columns = implode(", ", $this->columns);
         $sql .= "({$columns}) VALUES ";

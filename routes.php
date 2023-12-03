@@ -15,7 +15,7 @@ use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
-use Group4\BaseMvc\Controllers\Client\ShowProduct;
+use Group4\BaseMvc\Controllers\Client\ShowShoping;
 
 use Group4\BaseMvc\Router;
 
@@ -65,15 +65,19 @@ $router->addRoute('/client/pages', PortfolioController::class, 'index');
 
 $router->addRoute('/client/blog', BlogController::class, 'index' );
 
-$router->addRoute('/client/contact', ContactController::class, 'index' );
+$router->addRoute('/client/contact', ContactController::class, 'index');
 
-$router->addRoute('/client/account', AccountController::class, 'index' );
-$router->addRoute('/client/account/Logup', AccountController::class, 'Logup' );
+$router->addRoute('/client/account', AccountController::class, 'index');
+$router->addRoute('/client/account/Logup', AccountController::class, 'Logup');
 $router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
-$router->addRoute('/client/account/resetpassword', AccountController::class, 'resetpassword' );
+$router->addRoute('/client/account/resetpassword', AccountController::class, 'resetpassword');
 
 
-$router->addRoute('/client/wishlist', wishlistController::class, 'index' );
+$router->addRoute('/client/wishlist', wishlistController::class, 'index');
 
-$router->addRoute('/client/product_detail', ShowProduct::class, 'index' );
+$router->addRoute('/client/product_detail', ShowShoping::class, 'index');
+$router->addRoute('/client/shoping/checkout', ShowShoping::class, 'checkout');
+$router->addRoute('/client/shoping/order', ShowShoping::class, 'addOrder');
+$router->addRoute('/client/shoping/success', ShowShoping::class, 'success');
+$router->addRoute('/client/shoping/error', ShowShoping::class, 'error');
 
