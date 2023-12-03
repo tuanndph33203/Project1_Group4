@@ -7,13 +7,7 @@
             <div class="modal_body">
                 <div class="container">
                     <div class="row">
-                    <?php
-                        $i = 0;
-                        $img_path = '/assets/img/product/';
-                        foreach ($Getone_product as $product) {
-                            extract($product);
-                            $img = $img_path . $image;
-                            echo '<div class="col-lg-5 col-md-5 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
                             <div class="modal_tab">
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
@@ -65,10 +59,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>';
-                        $i++;
-                        }
-                        ?>
+                        </div>
                     </div>
                 </div>
             </div>

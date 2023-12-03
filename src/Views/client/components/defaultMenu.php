@@ -106,46 +106,6 @@
 
                 </div>
             </li> -->
-            <li>
-                <a href="/client/pages">pages</a>
-                <!-- <div class="mega_menu">
-                    <div class="mega_top fix">
-                        <div class="mega_items">
-                            <h3><a href="#">Column1</a></h3>
-                            <ul>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-details.html">single portfolio </a></li>
-                                <li><a href="about.html">About Us </a></li>
-                                <li><a href="about-2.html">About Us 2</a></li>
-                                <li><a href="services.html">Service </a></li>
-                                <li><a href="my-account.html">my account </a></li>
-                            </ul>
-                        </div>
-                        <div class="mega_items">
-                            <h3><a href="#">Column2</a></h3>
-                            <ul>
-                                <li><a href="blog.html">Blog </a></li>
-                                <li><a href="blog-details.html">Blog Details </a></li>
-                                <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
-                                <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="404.html">404</a></li>
-                            </ul>
-                        </div>
-                        <div class="mega_items">
-                            <h3><a href="#">Column3</a></h3>
-                            <ul>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="cart.html">cart</a></li>
-                                <li><a href="checkout.html">Checkout </a></li>
-                                <li><a href="wishlist/wishlist">Wishlist</a></li>
-                                <li><a href="/account/login">Login</a></li>
-                                <li><a href="/client/account">Logup</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> -->
-            </li>
 
             <li>
                 <a href="/client/blog">blog</a>

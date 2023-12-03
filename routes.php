@@ -11,11 +11,9 @@ use Group4\BaseMvc\Controllers\Admin\OrderController;
 use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
 use Group4\BaseMvc\Controllers\Client\ShopController;
-use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
-use Group4\BaseMvc\Controllers\Client\ModalController;
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -57,8 +55,6 @@ $router->addRoute('/admin/orders', OrderController::class, 'index');
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
 
-$router->addRoute('/client/pages', PortfolioController::class, 'index');
-
 $router->addRoute('/client/blog', BlogController::class, 'index' );
 
 $router->addRoute('/client/contact', ContactController::class, 'index' );
@@ -69,7 +65,6 @@ $router->addRoute('/client/account/my_account', AccountController::class, 'my_ac
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
 
-$router->addRoute('/client/components/modal', ModalController::class, 'index' );
 
 
 
