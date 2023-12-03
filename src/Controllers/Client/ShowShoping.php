@@ -27,7 +27,6 @@ class ShowShoping extends Controller
         $groupByColumn = "product_id";
         $product = (new Product())->getAll($columns, $where, $groupByColumn);
         $product_details = (new ProductDetail())->getAllProductDetail($product[0]["product_id"]);
-        print_r($product);
         $this->renderClient(
             "shoping/product_detail",
             [
@@ -51,7 +50,6 @@ class ShowShoping extends Controller
 
         $groupByColumn = "product_id";
         $product = (new Product())->getAll($columns, $where, $groupByColumn);
-        print_r($_POST);print_r($product);
         if (isset($_POST['add-order'])) {
             print_r($_POST);
             $this->renderClient(

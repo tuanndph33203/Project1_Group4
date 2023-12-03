@@ -258,7 +258,7 @@
                                 <div class="product_info">
                                     <ul>
                                         <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                        <li><a href="/client/" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
+                                        <li><a href="/client/product_detail?id='.$product_id.'" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -266,7 +266,6 @@
                             $i += 1;
                         }
                         ?>
-                            
                         </div>
                     </div>
 
