@@ -257,47 +257,15 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="/client/wishlist" title=" Add to Wishlist "> Buy Now </a></li>
-                                        <li><a href="/client/" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                        <li><a href="/client/product_detail?id='.$product_id.'" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
                             </div>';
-                                $i += 1;
-                            }
-                            ?>
-
-                            <!-- <div class="col-lg-3">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a href="single-product.html"><img src="" width="200px" height="300px" alt=""></a>
-                                        <div class="hot_img">
-                                            <img src="" alt="">
-                                        </div>
-                                        <form action="/client/shop/cart" method="post">
-                                            <div class="product_action">
-                                                <input type="hidden" name="img" >
-                                                <input type="hidden" name="product_name">
-                                                <input type="hidden" name="price">
-                                                <input type="hidden" name="quantity">
-                                                <input type="hidden" name="total">
-                                                <input type="submit" name="add_cart">
-                                            </div>
-                                        
-                                    </div>
-                                    <div class="product_content">
-                                        <span class="product_price"></span>
-                                        <h3 class="product_title"><a href="single-product.html"></a></h3>
-                                    </div>
-                                    <div class="product_info">
-                                        <ul>
-                                            
-                                            <li><a href="/client/" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
-                                        </ul>
-                                    </div>
-                                </form>
-                                </div>
-                            </div> -->
+                            $i += 1;
+                        }
+                        ?>
                         </div>
                     </div>
 

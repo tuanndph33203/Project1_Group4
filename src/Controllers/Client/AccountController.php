@@ -11,6 +11,7 @@ class AccountController extends Controller
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
+        
         $this->renderClient('account/Login');
     } 
     public function my_account() {
@@ -36,3 +37,4 @@ class AccountController extends Controller
         $this->renderClient('account/resetpassword');
     }
 }
+

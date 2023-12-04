@@ -7,10 +7,14 @@ use Group4\BaseMvc\Model;
 class Order extends Model {
     protected $table = 'order';
     protected $columns = [
-        'user_id',
+        'receiver',
+        'order_phone',
+        'order_address',
         'order_date',
         'total_price',
-        'status_id'
+        'user_id',
+        'status_order_id',
+        'pay_id'
     ];
     public function updateStatusOrder($id,$status_id){
         $sql = "UPDATE `order` SET 

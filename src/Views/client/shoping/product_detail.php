@@ -104,7 +104,7 @@
             <div class="blog_details_right">
                 <div class="blog_widget recent-posts mb-30 border p-2">
                     <h3>Thông Tin</h3>
-                    <form action="" method="post" class="single_posts mb-20 ml-1 d-block">
+                    <form action="/client/shoping/checkout" method="post" class="single_posts mb-20 ml-1 d-block">
                         <div class="row">
                             <div class="col-sm-5">
                                 <strong>Trọng Lượng</strong>
@@ -114,13 +114,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <?php foreach ($product_details as $product_detail) { ?>
+                            <?php foreach ($product_details as $key => $product_detail) { ?>
                                 <div class="col-sm-5 d-flex align-items-center">
-                                    <input type="radio" class="unit-price" value="<?= htmlspecialchars($product_detail['price']) ?>" name="unit_price" style="width: 15px;" onclick="updateTotal()">
+                                    <input type="radio" required class="unit-price" value="<?= htmlspecialchars($product_detail['price']) ?>" name="detail_size" style="width: 15px;" onclick="updateTotal()">
+                                    <input type="hidden" name="detail_price[<?= htmlspecialchars($product_detail['price']) ?>]" value="<?= htmlspecialchars($product_detail['size']) ?>">
                                     <span class="mr-4 ml-1"><?= htmlspecialchars($product_detail['size'] . " " . $product['unit_name']) ?></span>
                                 </div>
                                 <div class="col-sm-7 d-flex align-items-center">
-                                    <span class="mr-4 ml-1"><?= htmlspecialchars($product_detail['price']) ?> <i>Vnd</i></span>
+                                    <span class="mr-4 ml-1 money"><?= htmlspecialchars($product_detail['price']) ?></span> <i>Vnd</i>
                                 </div>
                             <?php } ?>
                         </div>
@@ -129,7 +130,7 @@
                                 <span>
                                     <strong>Số Lượng</strong>
                                 </span>
-                                <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="updateTotal()">
+                                <input type="number" id="quantity" name="quantity" required value="1" min="1" onchange="updateTotal()">
                             </div>
                         </div>
                         <div class="single_posts mb-20">
@@ -137,12 +138,13 @@
                                 <span>
                                     <strong>Tổng Tiền</strong>
                                 </span>
-                                <input type="text" id="total-amount" name="" disabled><i>Vnd</i>
+                                <input type="text" id="total-amount" name="total_price" readonly><i>Vnd</i>
                             </div>
                         </div>
                         <div class="container">
+                            <input type="hidden" value="<?=$product['product_id'] ?>" name="product_id">
                             <div class=" justify-content-center p-1"><button class=" w-75 btn btn-warning">Thêm Vào Giỏ Hàng</button></div>
-                            <div class=" justify-content-center p-1"><button class=" w-75 btn btn-danger">Mua Hàng</button></div>
+                            <div class=" justify-content-center p-1"><button name="add-order" class=" w-75 btn btn-danger">Mua Hàng</button></div>
                         </div>
                     </form>
                 </div>
