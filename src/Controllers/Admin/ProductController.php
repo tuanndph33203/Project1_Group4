@@ -46,6 +46,7 @@ class ProductController extends Controller
             ]
         );
     }
+
     /* Thêm mới */
     public function create()
     {

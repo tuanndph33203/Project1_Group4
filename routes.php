@@ -14,6 +14,9 @@ use Group4\BaseMvc\Controllers\Client\ShopController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
+use Group4\BaseMvc\Controllers\Client\ShowProduct;
+use Group4\BaseMvc\Controllers\Client\CartController;
+
 use Group4\BaseMvc\Router;
 
 $router = new Router();
@@ -46,11 +49,16 @@ $router->addRoute('/admin/products', ProductController::class, 'index');
 $router->addRoute('/admin/products/create', ProductController::class, 'create');
 $router->addRoute('/admin/products/update', ProductController::class, 'update');
 $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
+
 $router->addRoute('/admin/products/products_detail/delete', ProductDetailController::class, 'delete');
 $router->addRoute('/admin/products/products_detail/create', ProductDetailController::class, 'create');
 $router->addRoute('/admin/products/products_detail/update', ProductDetailController::class, 'update');
 
 $router->addRoute('/admin/orders', OrderController::class, 'index');
+$router->addRoute('/admin/orders/detail', OrderController::class, 'detail');
+$router->addRoute('/admin/orders/status', OrderController::class, 'status');
+
+///////////
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
@@ -62,9 +70,11 @@ $router->addRoute('/client/contact', ContactController::class, 'index' );
 $router->addRoute('/client/account', AccountController::class, 'index' );
 $router->addRoute('/client/account/Logup', AccountController::class, 'Logup' );
 $router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
+$router->addRoute('/client/account/resetpassword', AccountController::class, 'resetpassword' );
+
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index' );
 
+$router->addRoute('/client/product_detail', ShowProduct::class, 'index' );
 
-
-
+$router->addRoute('/client/shop/cart', CartController::class, 'index');

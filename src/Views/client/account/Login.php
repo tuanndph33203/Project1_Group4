@@ -20,7 +20,7 @@
                             <input id="remember" type="checkbox">
                             Remember me
                         </label>
-                        <a href="#">Lost your password?</a>
+                        <a href="/client/account/resetpassword">Lost your password?</a>
                     </div>
                     <br>
                     <p>

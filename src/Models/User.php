@@ -31,7 +31,7 @@ class User extends Model
         // Trả về true hoặc false để biểu thị thành công hoặc thất bại
         return $stmt->rowCount() > 0;
     }
-    public function register_user($avatar, $username, $phone,  $email, $password, $birth_day, $address,){
+    public function register_user($avatar, $username, $phone,  $email, $password, $birth_day, $address){
         $sql = "insert into user( avatar, username, phone, email, password, birth_day, address value(':avatar',':username', ':phone', ':email', ':password,':birth_day',':address')";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":avatar", $avatar, \PDO::PARAM_STR_CHAR);

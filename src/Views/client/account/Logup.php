@@ -71,8 +71,12 @@
                         </select>
                     </p> -->
                     <div class="login_submit">
-                        <button type="submit" value="register" name="register">Register</button>
+                        <button type="submit">Register</button>
+                        <a href="/client/account/resetpassword">Lost your password?</a>
                     </div>
+                    <p>
+                        Do you have account ?  <a href="/client/account/Logup"><b>Login</b></a>
+                    </p>    
                 </form>
                 <?php
                 if (isset($thongbao) && ($thongbao != "")) {

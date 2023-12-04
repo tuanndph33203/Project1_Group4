@@ -12,10 +12,10 @@ class AccountController extends Controller
     */
     public function index() {
         $this->renderClient('account/Login');
-    }
+    } 
     public function my_account() {
         $this->renderClient('account/my_account');
-    }
+    } 
     public function logup() {
         $thongbao = null;
         if(isset($_POST['register'])&&($_POST['register'])){
@@ -31,5 +31,8 @@ class AccountController extends Controller
             $thongbao="đã đăng ký thành công vui lòng đăng để thực hiện đặt hàng và bình luận";
         }
         $this->renderClient('account/Logup',['thongbao'=>$thongbao]);
+    }
+    public function resetpassword() {
+        $this->renderClient('account/resetpassword');
     }
 }

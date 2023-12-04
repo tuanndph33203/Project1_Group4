@@ -4,7 +4,7 @@ namespace Group4\BaseMvc\Models;
 
 use Group4\BaseMvc\Model;
 
-class Category extends Model {
+class comment extends Model {
     protected $table = 'comment';
     protected $columns = [
         'user_id ',
@@ -14,15 +14,21 @@ class Category extends Model {
         'comment',
         'comment_date',
     ];
-    public function comment_product($product_id,$user_id) {
-        $sql = "SELECT * FROM comment 
-        WHERE (product_id, user_id) IN (
-          SELECT product_id, user_id 
-          FROM comments
-          GROUP BY product_id, user_id
-          ORDER BY id DESC
+    public function comment_product() {
+        $sql = "SELECT *
+        FROM comment
+        WHERE product_id = (
+          SELECT product_id
+          FROM comment  
+          ORDER BY product_id DESC 
           LIMIT 1
+        ) AND user_id = (
+          SELECT user_id
+          FROM comment
+          ORDER BY user_id DESC
+          LIMIT 1  
         )";
+        
         $stmt = $this->conn->prepare($sql);
 
         $stmt->execute();
@@ -32,8 +38,8 @@ class Category extends Model {
         return $stmt->fetchAll();
 
     }
-    public function getAllcomment() {
-        $sql = "select * from comment";
+    public function getAllcomment($product_id) {
+        $sql = "select * from comment ";
 
         $stmt = $this->conn->prepare($sql);
 

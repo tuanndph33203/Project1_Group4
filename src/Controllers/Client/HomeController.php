@@ -14,8 +14,7 @@ class HomeController extends Controller
         $get10ByproductID = (new Product)->get10ByproductID();  
         $getAllByproductID = (new Product)->getAllByproductID(1); 
         $this->renderClient('home/home' ,[
-            'get10ByproductID'=> $get10ByproductID,
-            'getAllByproductID'=> $getAllByproductID
+            'get10ByproductID'=> $get10ByproductID,'getAllByproductID'=> $getAllByproductID
         ]);
     }
 }
