@@ -39,6 +39,7 @@
                                     $product_price = $cart[3];
                                     $product_quantity = $cart[4];
                                     $pay = $cart[3] * $cart[4];
+                                    
                                     echo '<tr>
                                     <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                                     <td class="product_thumb"><a href="#"><img src="'.$img.'" alt=""></a></td>
