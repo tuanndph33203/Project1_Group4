@@ -22,3 +22,4 @@
 <script src="/assets/admin_files/assets/js/vertical/vertical-layout.min.js"></script>
 <script type="text/javascript" src="/assets/admin_files/assets/pages/dashboard/custom-dashboard.min.js"></script>
 <script type="text/javascript" src="/assets/admin_files/assets/js/script.min.js"></script>
+<script type="text/javascript" src="/assets/js/money.js"></script>

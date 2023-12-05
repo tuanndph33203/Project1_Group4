@@ -9,4 +9,5 @@ class Category extends Model {
     protected $columns = [
         'type_name',
     ];
+   
 }

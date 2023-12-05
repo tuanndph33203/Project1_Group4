@@ -25,4 +25,13 @@ class Order extends Model {
         $stmt->bindParam(':status_id',$status_id);
         $stmt->execute();
     }
+    public function monthOrder($date){
+        $sql = "SELECT count(*) as total_orders, SUM(total_price) as total_price FROM `order`
+                WHERE DATE_FORMAT(order_date, '%Y-%m') = :date;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':date', $date);
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+    }
 }
