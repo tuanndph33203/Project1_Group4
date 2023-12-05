@@ -140,16 +140,16 @@
                     <h3>popular tags</h3>
                 </div>
                 <!-- <?php
-                    $i = 0;
-                    foreach ($GetrElated_products as $GetrElated) {
-                        extract($GetrElated);
-                        echo'<div class="block_tags">
-                    <a href="#">'.$type_name.'</a>
+                        $i = 0;
+                        foreach ($GetrElated_products as $GetrElated) {
+                            extract($GetrElated);
+                            echo '<div class="block_tags">
+                    <a href="#">' . $type_name . '</a>
                 </div>';
-                $i +=1 ;
-                    }
-                ?> -->
-                
+                            $i += 1;
+                        }
+                        ?> -->
+
             </div>
             <!--popular tags end-->
 
@@ -220,8 +220,6 @@
 
                 <div class="row">
                     <div class="product_active owl-carousel">
-
-
                         <?php
                         $i = 0;
                         $img_path = '/assets/img/product/';
@@ -233,28 +231,35 @@
                             echo '<div class="col-lg-3">
                                 <div class="single_product">
                                 <div class="product_thumb">
+
                                     <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px"></a>
                                     <div class="img_icone">
-                                        <img src="' . $img . '" alt="">
+                                    <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
                                         <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
-                                    <span class="product_price">' . $min_price . '</span>
-                                    <h3 class="product_title"><a href="">' . $product_name . '</a></h3>
+                                <span class="product_price">' . $min_price . '</span>
+                                <h3 class="product_title"><a href="">' . $product_name . '</a></h3>
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                        <li><a href="/client/product_detail?id='.$product_id.'" title="Quick view">View Detail</a></li>
+  
+                                        <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
+                                <form action="/client/shop/cart" method="post">
+                                    <input type="hidden" name="" value="' . $img . '">
+                                    <input type="hidden" name="" value="' . $min_price . '">
+                                    <input type="hidden" name="" value="' . $product_name . '">
+                                    <input type="submit" name="add_Cart" value = "add_Cart">
+                                </form>
                             </div>';
-                            $i += 1;
                         }
+                        $i += 1;
                         ?>
 
                     </div>
@@ -272,15 +277,15 @@
                         <?php
                         $i = 0;
                         $img_path = '/assets/img/product/';
-                        foreach ($get10ByproductID as $get10Byproduct) {    
+                        foreach ($get10ByproductID as $get10Byproduct) {
                             extract($get10Byproduct);
                             $img = $img_path . $image;
                             echo '<div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
-                                    <a href="single-product.html"><img src="'.$img.'" width="200px" height="300px" alt=""></a>
+                                    <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px" alt=""></a>
                                     <div class="hot_img">
-                                        <img src="'.$img.'" alt="">
+                                        <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
                                         <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
@@ -292,8 +297,8 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                        <li><a href="/client/product_detail?id='.$product_id.'" title="Quick view">View Detail</a></li>
+                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Buy Now</a></li>
+                                        <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -301,7 +306,6 @@
                             $i += 1;
                         }
                         ?>
-
                         <!-- <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
@@ -404,7 +408,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single_banner">
-                            <a href="#"><img src="/assets/img/banner/banner7.jpg" alt="" width="178px" ></a>
+                            <a href="#"><img src="/assets/img/banner/banner7.jpg" alt="" width="178px"></a>
                             <div class="banner_title">
                                 <p>Up to <span> 40%</span> off</p>
                             </div>

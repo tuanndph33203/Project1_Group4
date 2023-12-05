@@ -23,7 +23,6 @@
             <div class="header_links">
                 <ul>
                     <li><a href="/client/contact" title="Contact">Contact</a></li>
-                    <li><a href="/client/wishlist" title="wishlist">My wishlist</a></li>
                     <li><a href="/client/account/my_account" title="My account">My account</a></li>
                     <li><a href="/client/shop/cart" title="My cart">My cart</a></li>
                     <li><a href="/client/account" title="Login">Login</a></li>

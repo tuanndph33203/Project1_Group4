@@ -13,9 +13,8 @@ class HomeController extends Controller
     public function index() {
         $get10ByproductID = (new Product)->get10ByproductID();  
         $getAllByproductID = (new Product)->getAllByproductID(1); 
-        extract($get10ByproductID);
-        extract($getAllByproductID);
-        $this->renderClient('home/home' ,['get10ByproductID'=> $get10ByproductID]);
-        // $this->renderClient('home/home',['getAllByproductID'=> $getAllByproductID]);
+        $this->renderClient('home/home' ,[
+            'get10ByproductID'=> $get10ByproductID,'getAllByproductID'=> $getAllByproductID
+        ]);
     }
 }

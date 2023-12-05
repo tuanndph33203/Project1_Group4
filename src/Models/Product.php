@@ -54,24 +54,7 @@ class Product extends Model
 
         return $stmt->fetchAll();
     }
-    public function Getone_product($product_id){
-        $sql = "
-        SELECT 
-            *
-        FROM product p 
-
-        where p.product_id = :product_id
-    ";
-    $stmt = $this->conn->prepare($sql);
-
-        $stmt->bindParam(':product_id', $product_id);
-
-        $stmt->execute();
-
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        return $stmt->fetch();
-    }
+    
     public function GetrElated_products(){
         $sql = "select * 
         from type t

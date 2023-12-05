@@ -1,4 +1,3 @@
-<!--breadcrumbs area start-->
 <div class="breadcrumbs_area">
     <div class="row">
         <div class="col-12">
@@ -14,9 +13,6 @@
     </div>
 </div>
 <!--breadcrumbs area end-->
-
-
-
 <!--shopping cart area start -->
 <div class="shopping_cart_area">
     <form action="#">
@@ -35,19 +31,32 @@
                                     <th class="product_total">Total</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <?php
+                            $img_path = '/assets/img/product/';
+                                foreach ($_SESSION['mycart'] as $cart ){
+                                    $img = $img_path . $cart[1];
+                                    $product_name = $cart[2];
+                                    $product_price = $cart[3];
+                                    $product_quantity = $cart[4];
+                                    $pay = $cart[3] * $cart[4];
+                                    
+                                    echo '<tr>
                                     <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart17.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                    <td class="product-price">£65.00</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                    <td class="product_total">£130.00</td>
+                                    <td class="product_thumb"><a href="#"><img src="'.$img.'" alt=""></a></td>
+                                    <td class="product_name"><a href="#">'.$cart[2].'</a></td>
+                                    <td class="product-price">'.$cart[3].'</td>
+                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number">'.$cart[4].'</td>
+                                    <td class="product_total">'.$pay.'</td>
 
 
-                                </tr>
+                                </tr>';
+                                }
 
-                                <tr>
+                            ?>
+                            <tbody>
+                                
+
+                                <!-- <tr>
                                     <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                                     <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart18.jpg" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbags justo</a></td>
@@ -66,7 +75,7 @@
                                     <td class="product_total">£160.00</td>
 
 
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>

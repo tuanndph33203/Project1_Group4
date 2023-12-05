@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 28, 2023 lúc 02:04 PM
+-- Thời gian đã tạo: Th12 02, 2023 lúc 12:42 AM
 -- Phiên bản máy phục vụ: 8.0.30
 -- Phiên bản PHP: 8.1.10
 
@@ -81,11 +81,23 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `order` (
   `order_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `receiver` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `order_phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `order_address` text NOT NULL,
   `order_date` date NOT NULL,
   `total_price` int NOT NULL,
-  `status_id` int DEFAULT NULL
+  `user_id` int DEFAULT NULL,
+  `status_order_id` int DEFAULT NULL,
+  `pay_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`order_id`, `receiver`, `order_phone`, `order_address`, `order_date`, `total_price`, `user_id`, `status_order_id`, `pay_id`) VALUES
+(1, 'Nguyễn Đình Tuân', '0886024065', 'àdwfdafd', '2023-11-29', 10000, 2, 3, 1),
+(2, 'Nguyễn Đình Tuân', '0886024065', 'àdwfdafd', '2023-11-09', 10000, 2, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -94,14 +106,43 @@ CREATE TABLE `order` (
 --
 
 CREATE TABLE `order_detail` (
-  `order_detail_id` int NOT NULL,
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
   `size` int NOT NULL,
   `quantity` int NOT NULL,
-  `price` int NOT NULL,
   `subtotal` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_id`, `product_id`, `size`, `quantity`, `subtotal`) VALUES
+(1, 11, 50, 1, 12121),
+(1, 15, 33, 1, 123132313),
+(1, 15, 35, 12, 123123131),
+(2, 11, 50, 1, 12121);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `pay`
+--
+
+CREATE TABLE `pay` (
+  `pay_id` int NOT NULL,
+  `pay_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `pay`
+--
+
+INSERT INTO `pay` (`pay_id`, `pay_name`) VALUES
+(1, 'Chưa Thanh Toán'),
+(2, 'Đã Thanh Toán'),
+(3, 'Chưa hoàn tiền'),
+(4, 'Đã Hoàn Tiền');
 
 -- --------------------------------------------------------
 
@@ -287,13 +328,11 @@ CREATE TABLE `status_order` (
 
 INSERT INTO `status_order` (`status_order_id`, `status_order_name`) VALUES
 (1, 'Đang xử lý'),
-(2, 'Chờ Xác Nhận'),
+(2, 'Đã xác nhận'),
 (3, 'Đang vận chuyển'),
 (4, 'Đã giao hàng'),
 (5, 'Đã hủy'),
-(6, 'Đã hoàn trả'),
-(7, 'Đã thanh toán'),
-(8, 'Chờ thanh toán');
+(6, 'Đã hoàn trả');
 
 -- --------------------------------------------------------
 
@@ -416,16 +455,22 @@ ALTER TABLE `comment`
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `FK_USER_ORDERS` (`user_id`),
-  ADD KEY `status_id` (`status_id`);
+  ADD KEY `status_id` (`status_order_id`),
+  ADD KEY `pay_id` (`pay_id`);
 
 --
 -- Chỉ mục cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  ADD PRIMARY KEY (`order_detail_id`) USING BTREE,
-  ADD KEY `FK_ORDERS_ORDERDETAILS` (`order_id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `size` (`size`);
+  ADD PRIMARY KEY (`order_id`,`product_id`,`size`),
+  ADD KEY `size` (`size`),
+  ADD KEY `order_detail_ibfk_1` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `pay`
+--
+ALTER TABLE `pay`
+  ADD PRIMARY KEY (`pay_id`);
 
 --
 -- Chỉ mục cho bảng `post`
@@ -543,13 +588,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `order_detail`
+-- AUTO_INCREMENT cho bảng `pay`
 --
-ALTER TABLE `order_detail`
-  MODIFY `order_detail_id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pay`
+  MODIFY `pay_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `post`
@@ -647,14 +692,15 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `FK_USER_ORDERS` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status_order` (`status_order_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`status_order_id`) REFERENCES `status_order` (`status_order_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`pay_id`) REFERENCES `pay` (`pay_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Các ràng buộc cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD CONSTRAINT `FK_ORDERS_ORDERDETAILS` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
-  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_detail` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`size`) REFERENCES `product_detail` (`size`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --

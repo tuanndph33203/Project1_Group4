@@ -11,11 +11,11 @@ use Group4\BaseMvc\Controllers\Admin\OrderController;
 use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
 use Group4\BaseMvc\Controllers\Client\ShopController;
-use Group4\BaseMvc\Controllers\Client\PortfolioController;
 use Group4\BaseMvc\Controllers\Client\ContactController;
 use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
 use Group4\BaseMvc\Controllers\Client\ShowShoping;
+use Group4\BaseMvc\Controllers\Client\CartController;
 
 use Group4\BaseMvc\Router;
 
@@ -58,10 +58,10 @@ $router->addRoute('/admin/orders', OrderController::class, 'index');
 $router->addRoute('/admin/orders/detail', OrderController::class, 'detail');
 $router->addRoute('/admin/orders/status', OrderController::class, 'status');
 
+///////////
+
 $router->addRoute('/client/shop', ShopController::class, 'index');
 $router->addRoute('/client/shop/cart', ShopController::class, 'cart');
-
-$router->addRoute('/client/pages', PortfolioController::class, 'index');
 
 $router->addRoute('/client/blog', BlogController::class, 'index' );
 
@@ -81,3 +81,4 @@ $router->addRoute('/client/shoping/order', ShowShoping::class, 'addOrder');
 $router->addRoute('/client/shoping/success', ShowShoping::class, 'success');
 $router->addRoute('/client/shoping/error', ShowShoping::class, 'error');
 
+$router->addRoute('/client/shop/cart', CartController::class, 'index');

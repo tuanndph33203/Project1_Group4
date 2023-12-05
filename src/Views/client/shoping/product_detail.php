@@ -29,7 +29,11 @@
                         <div class="row">
                             <div class="col-sm-2">Mỹ Phẩm Dạng : </div>
                             <div class="col-sm-6">
-                                <?php if ($product['unit_id'] == 1) {
+                                <?php
+
+                                use Group4\BaseMvc\Models\comment;
+
+                                if ($product['unit_id'] == 1) {
                                     echo "Đặc";
                                 } else {
                                     echo "Lỏng";
@@ -50,7 +54,6 @@
                                                         echo "Đã Hết Hạn Sử Dụng";
                                                     }
                                                     ?></div>
-
                         </div>
                     </div>
                     <div class="blog_entry_content container">
@@ -60,6 +63,37 @@
                         <div class="row">
                             <?= $product['description'] ?>
                         </div>
+                    </div>
+                    <div class="comments_area">
+                        <div class="comments__title">
+                            <h3>Leave a Reply </h3>
+                        </div>
+                        <div class="comments__notes">
+                            <p>Your email address will not be published.</p>
+                        </div>
+                        <div class="product_review_form blog_form">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <?php
+                                        $i = 0;
+
+                                        foreach ($getAllcomment as $getAll) {
+                                            echo '<label for="review_comment">All comment </label>
+                                        <textarea name="comment" id="" cols="30" rows="10" disabled>'.$comment.'</textarea>';
+                                        }
+                                        $i += 1;
+                                        ?>
+
+                                        <label for="review_comment">comment </label>
+                                        <textarea name="comment" id="review_comment"></textarea>
+                                    </div>
+
+                                </div>
+                                <button type="submit">Post Comment</button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
                 <!--services img area-->
