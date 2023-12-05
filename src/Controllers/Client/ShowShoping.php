@@ -51,7 +51,6 @@ class ShowShoping extends Controller
         $groupByColumn = "product_id";
         $product = (new Product())->getAll($columns, $where, $groupByColumn);
         if (isset($_POST['add-order'])) {
-            print_r($_POST);
             $this->renderClient(
                 "shoping/checkout",
                 [
@@ -124,6 +123,29 @@ class ShowShoping extends Controller
             "shoping/orders",
             [
                 "orders" => $orders,
+                "orders_detail" => $orders_detail
+            ]
+        );
+    }
+    public function receive()
+    {
+        $id = $_GET['id'];
+        (new Order())->updateStatusOrder($id,4);
+        header('location:/client/shoping/list');
+    }
+    public function pay()
+    {
+        $id = $_GET['id'];
+        $orders_detail = (new OrderDetail())->getOderDetail($id);
+       if (isset($_POST['submit-order'])) {
+            (new Order())->updatePay($id,2);
+            (new Order())->updateStatusOrder($id,4);
+            header("location:/client/shoping/success");
+            return;
+       }
+        $this->renderClient(
+            "shoping/pay",
+            [
                 "orders_detail" => $orders_detail
             ]
         );

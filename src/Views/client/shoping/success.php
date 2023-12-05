@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="alert alert-success text-center" role="alert">
                     <h1>Chúc mừng! Bạn đã mua hàng thành công.</h1>
-                    <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+                    <p>Cảm ơn bạn đã mua hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
                     <span>Sẽ chuyển trang sau 10s</span>
                 </div>
             </div>
