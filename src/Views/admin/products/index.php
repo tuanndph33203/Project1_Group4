@@ -57,8 +57,6 @@
                                                 <th>STT</th>
                                                 <th>Tên</th>
                                                 <th>Ảnh</th>
-                                                <th>Ngày Sản Xuất</th>
-                                                <th>Hạn Sử Dụng</th>
                                                 <th>Loại Sản Phẩm</th>
                                                 <th>Hãng</th>
                                                 <th>Hành Động</th>
@@ -73,8 +71,6 @@
                                                         $i++; ?></td>
                                                     <td><?= $product['product_name'] ?></td>
                                                     <td><img src="/assets/img/product/<?=$product['image'] ?>" alt="" height="100px "></td>
-                                                    <td><?=date('d-m-Y',$product['time_create']) ?></td>
-                                                    <td><?= $product['expiry'] ?> Ngày</td>
                                                     <td><?= $product['type_name'] ?></td>
                                                     <td><?= $product['brand_name'] ?></td>
                                                     <td>

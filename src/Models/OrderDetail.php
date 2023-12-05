@@ -20,6 +20,7 @@ class OrderDetail extends Model
         order_detail.*,
         product.product_name,
         product_detail.price,
+        product.image,
         unit.unit_name
    FROM
        order_detail
