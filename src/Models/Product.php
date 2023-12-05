@@ -9,13 +9,16 @@ class Product extends Model
 {
     protected $table = 'product';
     protected $columns = [
-        'category_id',
-        'name',
-        'price',
-        'price_sale',
-        'img',
+        'product_name',
+        'image',
         'description',
-        'is_active',
+        'time_create',
+        'expiry',
+        'skin_id',
+        'type_id',
+        'brand_id',
+        'status_id',
+        'unit_id'
     ];
 
     // Lấy ra tất cả sản phẩm theo ID danh mục, được order by theo ID sản phẩm
@@ -25,7 +28,7 @@ class Product extends Model
         INNER JOIN product_detail pd ON p.product_id = pd.product_id 
         WHERE 1 
         GROUP BY p.product_id, p.product_name 
-        ORDER BY p.product_id DESC LIMIT 0,6;
+        ORDER BY p.product_id DESC LIMIT 0,8;
         ";
 
         $stmt = $this->conn->prepare($sql);

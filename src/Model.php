@@ -200,6 +200,17 @@ class Model
 
         $stmt->execute();
     }
+    public function count()
+    {
+        $sql = "SELECT {$this->table}.{$this->table}_name, COUNT(*) AS total_column
+                FROM product INNER JOIN {$this->table}
+                ON product.{$this->table}_id = {$this->table}.{$this->table}_id
+                GROUP BY {$this->table}.{$this->table}_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     public function __destruct()
     {
