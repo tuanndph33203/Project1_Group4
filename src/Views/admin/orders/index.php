@@ -25,7 +25,6 @@
                                             <tr>
                                                 <th>STT</th>
                                                 <th>Mặt hàng</th>
-                                                <th>Địa Chỉ</th>
                                                 <th>Ngày Đặt Hàng</th>
                                                 <th>Tổng Tiền</th>
                                                 <th>Trạng Thái Đơn</th>
@@ -54,7 +53,6 @@
                                                             <?php } ?>
                                                         </table>
                                                     </td>
-                                                    <td>Tên Khách Hàng: <?php echo $order['receiver']; ?><br> Số Điện Thoại: <?php echo $order['order_phone']; ?><br> Địa Chỉ: <?php echo $order['order_address']; ?></td>
                                                     <td><?php echo $order['order_date']; ?></td>
                                                     <td><?php echo $order['total_price']; ?> <i>Vnd</i></td>
                                                     <td><?php echo $order['status_order_name']; ?></td>

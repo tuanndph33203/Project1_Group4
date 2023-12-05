@@ -59,11 +59,12 @@ class ShowShoping extends Controller
                     "product" => $product[0]
                 ]
             );
-        }else{
+        } else {
             header("Location:/");
         }
     }
-    public function addOrder(){
+    public function addOrder()
+    {
         if (isset($_POST["submit-order"])) {
             $date = date("Y-m-d", time());
             $data = [
@@ -86,21 +87,45 @@ class ShowShoping extends Controller
             ];
             (new OrderDetail())->insert($data_detail);
             header("location:/client/shoping/success");
-        }else{
+        } else {
             header("location:/client/shoping/error");
         }
     }
-    public function success(){
+    public function success()
+    {
         $this->renderClient(
-            "shoping/success");
+            "shoping/success"
+        );
     }
-    public function error(){
+    public function error()
+    {
         $this->renderClient(
-            "shoping/error");
+            "shoping/error"
+        );
     }
-    public function listOrders(){
+    public function listOrders()
+    {
+        $columns = [
+            "user" => ['username', 'user_id', 'address'],
+            "status_order" => ['status_order_name', 'status_order_id'],
+            "pay" => ['pay_name', 'pay_id']
+        ];
+        $where = [];
+        if (isset($_GET['id'])) {
+            $where["status_order_id"] = $_GET['id'];
+        }
+
+        $orders = (new Order())->getAll($columns, $where, 'order_id');
+        $orders_detail = [];
+        foreach ($orders as $key => $order) {
+            $orders_detail[$key] = (new OrderDetail())->getOderDetail($order['order_id']);
+        };
         $this->renderClient(
-            "shoping/orders"
+            "shoping/orders",
+            [
+                "orders" => $orders,
+                "orders_detail" => $orders_detail
+            ]
         );
     }
 }

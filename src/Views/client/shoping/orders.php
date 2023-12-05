@@ -7,7 +7,6 @@
                     <li><i class="fa fa-angle-right"></i></li>
                     <li>Danh Sách Đơn Hàng</li>
                 </ul>
-
             </div>
         </div>
     </div>
@@ -20,36 +19,40 @@
             <div class="col-12">
                 <div class="table_desc">
                     <div class="cart_page table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="product_thumb">Sản Phẩm</th>
-                                    <th class="product_name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product_quantity">Quantity</th>
-                                    <th class="product_total">Total</th>
-                                    <th>Trạng Thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart18.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbags justo</a></td>
-                                    <td class="product-price">£90.00</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                    <td class="product_total">£180.00</td>
-                                    <td>Đang Vận Chuyển</td>
-                                </tr>
-                                <tr>
-                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart19.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag elit</a></td>
-                                    <td class="product-price">£80.00</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                    <td class="product_total">£160.00</td>
-                                    <td>Đang Vận Chuyển</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <?php foreach ($orders as $key => $order) : ?>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">STT: <?=$key + 1;?></h5>
+                                    <div class="row">
+                                        <?php foreach ($orders_detail[$key] as $index => $order_detail) { ?>
+                                            <div class="col-md-4">
+                                                <img src="/assets/img/product/<?= $order_detail['image'] ?>" class="card-img-top" style="width: 100px; height: 100px;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $order_detail['product_name']; ?></h5>
+                                                    <p class="card-text">Phân Loại: <?php echo $order_detail['size'] . " " . $order_detail['unit_name']; ?></p>
+                                                    <p class="card-text"><?php echo $order_detail['quantity']; ?> Sản Phẩm</p>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <p class="total-price text-right" style="color: red;font-weight: bold;">Tổng Tiền : <span class="money"><?php echo $order['total_price']; ?></span> Vnd</p>
+                                    <p class="status text-success">Trạng Thái: <?php echo $order['status_order_name']; ?></p>
+                                    <?php if ($order['status_order_id']==3 && $order['pay_id']==1) { ?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-success">Thanh Toán - Nhận Hàng</a></p>
+                                    <?php } else if($order['status_order_id']==3 && $order['pay_id']==2){?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-success">Nhận Hàng</a></p>
+                                    <?php } else if($order['status_order_id']==1 || $order['status_order_id']==2 && $order['pay_id'] == 1){?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-warning">Hủy Đơn</a></p>
+                                    <?php } else if($order['status_order_id']==1 || $order['status_order_id']==2 && $order['pay_id'] == 2){?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-warning">Hủy Đơn - Hoàn Tiền</a></p>
+                                    <?php } else if($order['status_order_id']==4){?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-danger">Trả Hàng</a></p>
+                                    <?php } else if($order['status_order_id']==5 || $order['status_order_id']==6){?>
+                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-danger">Mua Lại</a></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
