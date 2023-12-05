@@ -98,4 +98,9 @@ class ShowShoping extends Controller
         $this->renderClient(
             "shoping/error");
     }
+    public function listOrders(){
+        $this->renderClient(
+            "shoping/orders"
+        );
+    }
 }
