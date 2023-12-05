@@ -237,7 +237,12 @@
                                     <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <form class="h-100" action="/client/shop/cart" method="post">
+                                            <input type="hidden" name="" value="' . $img . '">
+                                            <input type="hidden" name="" value="' . $min_price . '">
+                                            <input type="hidden" name="" value="' . $product_name . '">
+                                            <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -246,17 +251,11 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-  
                                         <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
-                                <form action="/client/shop/cart" method="post">
-                                    <input type="hidden" name="" value="' . $img . '">
-                                    <input type="hidden" name="" value="' . $min_price . '">
-                                    <input type="hidden" name="" value="' . $product_name . '">
-                                    <input type="submit" name="add_Cart" value = "add_Cart">
-                                </form>
+                              
                             </div>';
                         }
                         $i += 1;
@@ -269,6 +268,7 @@
 
             <!--featured product start-->
             <div class="featured_product">
+
                 <div class="block_title">
                     <h3>Featured Products</h3>
                 </div>
@@ -288,7 +288,12 @@
                                         <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <form class="h-100" action="/client/shop/cart" method="post">
+                                            <input type="hidden" name="" value="' . $img . '">
+                                            <input type="hidden" name="" value="' . $min_price . '">
+                                            <input type="hidden" name="" value="' . $product_name . '">
+                                            <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="product_content">

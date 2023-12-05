@@ -80,5 +80,6 @@ $router->addRoute('/client/shoping/checkout', ShowShoping::class, 'checkout');
 $router->addRoute('/client/shoping/order', ShowShoping::class, 'addOrder');
 $router->addRoute('/client/shoping/success', ShowShoping::class, 'success');
 $router->addRoute('/client/shoping/error', ShowShoping::class, 'error');
+$router->addRoute('/client/shoping/list', ShowShoping::class, 'listOrders');
 
 $router->addRoute('/client/shop/cart', CartController::class, 'index');
