@@ -38,17 +38,17 @@
                                     <p class="total-price text-right" style="color: red;font-weight: bold;">Tổng Tiền : <span class="money"><?php echo $order['total_price']; ?></span> Vnd</p>
                                     <p class="status text-success">Trạng Thái: <?php echo $order['status_order_name']; ?></p>
                                     <?php if ($order['status_order_id']==3 && $order['pay_id']==1) { ?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-success">Thanh Toán - Nhận Hàng</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/pay?id=<?=$order['order_id'] ?>&pay=1" class="btn btn-success">Thanh Toán - Nhận Hàng</a></p>
                                     <?php } else if($order['status_order_id']==3 && $order['pay_id']==2){?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-success">Nhận Hàng</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/receive?id=<?=$order['order_id'] ?>&pay=2" class="btn btn-success">Nhận Hàng</a></p>
                                     <?php } else if($order['status_order_id']==1 || $order['status_order_id']==2 && $order['pay_id'] == 1){?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-warning">Hủy Đơn</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/cancel?id=<?=$order['order_id'] ?>&pay=1" class="btn btn-warning">Hủy Đơn</a></p>
                                     <?php } else if($order['status_order_id']==1 || $order['status_order_id']==2 && $order['pay_id'] == 2){?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-warning">Hủy Đơn - Hoàn Tiền</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/cancel?id=<?=$order['order_id'] ?>&pay=2" class="btn btn-warning">Hủy Đơn - Hoàn Tiền</a></p>
                                     <?php } else if($order['status_order_id']==4){?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-danger">Trả Hàng</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/return?id=<?=$order['order_id'] ?>" class="btn btn-danger">Trả Hàng</a></p>
                                     <?php } else if($order['status_order_id']==5 || $order['status_order_id']==6){?>
-                                        <p class="status text-success"><a href="client/shoping/list?id=1" class="btn btn-danger">Mua Lại</a></p>
+                                        <p class="status text-success"><a href="/client/shoping/rachat?id=<?=$order['order_id'] ?>" class="btn btn-danger">Mua Lại</a></p>
                                     <?php } ?>
                                 </div>
                             </div>
