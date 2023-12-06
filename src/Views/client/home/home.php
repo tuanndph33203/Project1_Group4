@@ -251,10 +251,13 @@
                                     </ul>
                                 </div>
                             </div>
-                                <form action="/client/shop/cart" method="post">
-                                    <input type="hidden" name="" value="' . $img . '">
-                                    <input type="hidden" name="" value="' . $min_price . '">
-                                    <input type="hidden" name="" value="' . $product_name . '">
+                                <form action="/client/shop/cart" method="post" >
+                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="price" value="' . $min_price . '">
+                                    <input type="hidden" name="product_name" value="' . $product_name . '">
+                                    <input type="hidden" name="size" value="' . $size . '">
+                                    <input type="hidden" name="size" value="' . $product_id . '">
+                                    <input type="hidden" name="quantity" value="1">
                                     <input type="submit" name="add_Cart" value = "add_Cart">
                                 </form>
                             </div>';

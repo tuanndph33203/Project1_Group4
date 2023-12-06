@@ -5,24 +5,27 @@ namespace Group4\BaseMvc\Controllers\Client;
 use Group4\BaseMvc\Controller;
 use Group4\BaseMvc\Models\Cart;
 
-if(!isset ($_SERVER['mycart'])) $_SESSION['mycart'] = [];
+if(!isset ($_SERVER['cart'])) $_SESSION['cart'] = [];
 class CartController extends Controller
 {
     /*
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
-        if(isset($_POST['add_Cart']) && ($_POST['add_Cart'])) {
-            $img = $_POST['img'];
-            $product_name= $_POST['product'];
-            $min_price = $_POST['price'];
-            $quatity = $_POST['quatity'];
-            $pay = $quatity * $min_price;
-            (new cart) -> Mycart();
-            $cart = [$img , $product_name, $min_price , $quatity];
-            array_push($_SESSION['mycart'], $cart);
-            
+        if(isset($_POST['add_Cart'])) {
+            $_SESSION['cart']['image'] = $_POST['image'];
+            $_SESSION['cart']['product_name'] = $_POST['product_name'];
+            $_SESSION['price']['price'] = $_POST['price'];
+            $_SESSION['cart']['quantity'] = $_POST['quantity'];
+            $_SESSION['cart']['size'] = $_POST['size'];
         }    
-        $this->renderClient('shop/cart' , ['cart'=> $cart]);
+        print_r($_SESSION['cart']);
+        $this->renderClient('shop/cart', ['cart'=> $_SESSION['cart']]);
 }
-}
+}$_SESSION['cart'][] = [
+    'image' => $_POST['image'],
+    'product_name' => $_POST['product_name'],
+    'price' => $_POST['price'],
+    'quantity' => $_POST['quantity'],
+    'size' => $_POST['size']  
+  ];

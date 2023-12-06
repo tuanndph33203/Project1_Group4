@@ -30,15 +30,14 @@
                                     <th class="product_quantity">Quantity</th>
                                     <th class="product_total">Total</th>
                                 </tr>
-                            </thead>
+                            
                             <?php
                             $img_path = '/assets/img/product/';
-                                foreach ($_SESSION['mycart'] as $cart ){
+                                foreach ($_SESSION['cart'] as $cart ){
                                     $img = $img_path . $cart[1];
                                     $product_name = $cart[2];
                                     $product_price = $cart[3];
                                     $product_quantity = $cart[4];
-                                    $pay = $cart[3] * $cart[4];
                                     
                                     echo '<tr>
                                     <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
@@ -46,13 +45,11 @@
                                     <td class="product_name"><a href="#">'.$cart[2].'</a></td>
                                     <td class="product-price">'.$cart[3].'</td>
                                     <td class="product_quantity"><input min="0" max="100" value="1" type="number">'.$cart[4].'</td>
-                                    <td class="product_total">'.$pay.'</td>
-
-
+                                    <td class="product_total"></td>
                                 </tr>';
                                 }
-
                             ?>
+                            </thead>
                             <tbody>
                                 
 
