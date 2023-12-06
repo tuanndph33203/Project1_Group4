@@ -69,6 +69,7 @@ $router->addRoute('/client/contact', ContactController::class, 'index');
 
 $router->addRoute('/client/account', AccountController::class, 'index');
 $router->addRoute('/client/account/Logup', AccountController::class, 'Logup');
+$router->addRoute('/client/account/login', AccountController::class,'login');
 $router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
 $router->addRoute('/client/account/resetpassword', AccountController::class, 'resetpassword');
 
