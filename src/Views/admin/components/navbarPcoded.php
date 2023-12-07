@@ -92,6 +92,24 @@
                         <span class="pcoded-mtext">Đơn hàng</span>
                     </a>
                 </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="feather  icon-sidebar"></i></span>
+                        <span class="pcoded-mtext">Bài Đăng</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li>
+                            <a href="/admin/post" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Danh Sách</span>
+                            </a>
+                        </li>
+                        <li class>
+                            <a href="/admin/post/create" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Thêm Bài Đăng</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

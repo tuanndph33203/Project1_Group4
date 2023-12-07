@@ -16,8 +16,4 @@ class ShopController extends Controller
         // print_r(json_encode($get10ByproductID));
         $this->renderClient('shop/shop',['get10ByproductID'=> $get10ByproductID]);
     }
-    public function cart() {
-        $this->renderClient('shop/cart');
-    }
-
 }
