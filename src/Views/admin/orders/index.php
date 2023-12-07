@@ -59,9 +59,11 @@
                                                     <td class="container">   
                                                         <div class="row mb-4">
                                                             <?php if ($order['status_order_id'] == 1) { ?>
-                                                                <a class="btn btn-success" href="/admin/orders/status?id=<?=$order['order_id'] ?>&act=2">Xác Nhận </a>
+                                                                <a class="btn btn-success mb-4" href="/admin/orders/status?id=<?=$order['order_id'] ?>&act=2">Xác Nhận </a>
+                                                                <a class="btn btn-danger" href="/admin/orders/cancel?id=<?=$order['order_id'] ?>&act=2">Hủy Đơn</a>
                                                             <?php } else if ($order['status_order_id'] == 2) { ?>
-                                                                <a class="btn btn-danger" href="/admin/orders/status?id=<?=$order['order_id'] ?>&act=3">Vận Chuyển </a>
+                                                                <a class="btn btn-danger mb-4" href="/admin/orders/status?id=<?=$order['order_id'] ?>&act=3">Vận Chuyển </a>
+                                                                <a class="btn btn-danger" href="/admin/orders/cancel?id=<?=$order['order_id'] ?>&act=2">Hủy Đơn</a>
                                                             <?php } ?>
                                                         </div>
                                                         <a class="row btn btn-info" href="/admin/orders/detail?id=<?=$order['order_id'] ?>">Xem chi tiết</a>

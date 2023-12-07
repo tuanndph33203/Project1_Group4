@@ -11,7 +11,6 @@ if (isset($data["result"])) {
 ?>
 
 <?php
-session_start();
 if ($_SESSION['user'] != "admin") {
     header("Location: login.php");
     exit();
@@ -19,7 +18,6 @@ if ($_SESSION['user'] != "admin") {
 ?>
 
 <?php
-session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

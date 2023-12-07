@@ -30,7 +30,7 @@ class Order extends Model {
         pay_id = :pay_id
         WHERE order.order_id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':id',$id); 
         $stmt->bindParam(':pay_id',$pay_id);
         $stmt->execute();
     }
