@@ -66,7 +66,6 @@ $router->addRoute('/admin/post/create', PostController::class, 'create');
 ///////////
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
-$router->addRoute('/client/shop/cart', ShopController::class, 'cart');
 
 $router->addRoute('/client/blog', BlogController::class, 'index' );
 
