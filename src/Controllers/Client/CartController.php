@@ -26,12 +26,8 @@ class CartController extends Controller
     
     }
     public function delete() {
-        $product_id = $_GET['$product_id'] ?? '';
-
-        if (!empty($product_id)) {
-        unset($_SESSION['cart'][$product_id]);
-        }
         print_r($_SESSION['cart']);
+        unset($_SESSION['cart'][ $_GET['id']]);
         $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
     }
     
