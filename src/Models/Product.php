@@ -24,11 +24,16 @@ class Product extends Model
     // Lấy ra tất cả sản phẩm theo ID danh mục, được order by theo ID sản phẩm
     public function get10ByproductID()
     {
-        $sql = "SELECT p.*,MIN(pd.price) AS min_price  FROM product p 
-        INNER JOIN product_detail pd ON p.product_id = pd.product_id 
-        WHERE 1 
-        GROUP BY p.product_id, p.product_name 
-        ORDER BY p.product_id DESC LIMIT 0,8;
+        $sql = "SELECT p.*, pd.size, pd.price AS min_price
+        FROM product p
+        INNER JOIN (
+            SELECT product_id, MIN(price) AS min_price
+            FROM product_detail
+            GROUP BY product_id
+        ) AS pd_min ON p.product_id = pd_min.product_id
+        INNER JOIN product_detail pd ON pd.product_id = pd_min.product_id AND pd.price = pd_min.min_price
+        ORDER BY p.product_id DESC
+        LIMIT 0, 6;;
         ";
 
         $stmt = $this->conn->prepare($sql);

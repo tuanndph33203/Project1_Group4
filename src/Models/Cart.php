@@ -13,7 +13,7 @@ class Cart extends Model {
         'quantity',
         'price'
     ];
-    public function Mycart() {
+    public function cart() {
         $sql = "select product.image , product.product_name , cart.size , cart.quantity, cart.price
         from cart 
         inner join product on cart.product_id = product.product_id";
