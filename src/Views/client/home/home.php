@@ -1,3 +1,27 @@
+<style>
+    .addcart {
+        border: 1px solid #dbdbdb;
+        background: #fff;
+        color: #333333;
+        line-height: 30px;
+        padding: 2px 16px;
+        text-transform: capitalize;
+        display: block;
+        font-size: 13px;
+        margin: 0 3px;
+        line-height: 30px;
+        padding: 2px 16px;
+        text-transform: capitalize;
+        display: block;
+        font-size: 13px;
+        margin: 0 3px;
+    }
+
+    .addcart .hover {
+        background-color: black;
+    
+    }
+</style>
 <div class=" pos_home_section">
     <div class="row pos_home">
         <div class="col-lg-3 col-md-8 col-12">
@@ -228,7 +252,8 @@
                             extract($get10Byproduct);
                             $img = $img_path . $image;
                             // $link_product = "".$id;
-                            echo '<div class="col-lg-3">
+                            echo '<form action="/client/shop/cart" method="post" >
+                            <div class="col-lg-3">
                                 <div class="single_product">
                                 <div class="product_thumb">
 
@@ -251,11 +276,20 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
+                                    <li><button class = "addcart" type="submit">add to cart</button></li>
                                         <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
-                              
+                                
+                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="price" value="' . $min_price . '">
+                                    <input type="hidden" name="product_name" value="' . $product_name . '">
+                                    <input type="hidden" name="size" value="' . $size . '">
+                                    <input type="hidden" name="product_id" value="' . $product_id . '">
+                                    <input type="hidden" name="quantity" value="1">
+
+                                </form>
                             </div>';
                         }
                         $i += 1;
@@ -264,6 +298,7 @@
                     </div>
                 </div>
             </div>
+
             <!--new product area start-->
 
             <!--featured product start-->
@@ -274,18 +309,22 @@
                 </div>
                 <div class="row">
                     <div class="product_active owl-carousel">
-                        <?php
+                    <?php
                         $i = 0;
                         $img_path = '/assets/img/product/';
+                        // $name = '';
                         foreach ($get10ByproductID as $get10Byproduct) {
                             extract($get10Byproduct);
                             $img = $img_path . $image;
-                            echo '<div class="col-lg-3">
-                            <div class="single_product">
+                            // $link_product = "".$id;
+                            echo '<form action="/client/shop/cart" method="post" >
+                            <div class="col-lg-3">
+                                <div class="single_product">
                                 <div class="product_thumb">
-                                    <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px" alt=""></a>
-                                    <div class="hot_img">
-                                        <img src="' . $img . '" alt="">
+
+                                    <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px"></a>
+                                    <div class="img_icone">
+                                    <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
                                         <form class="h-100" action="/client/shop/cart" method="post">
@@ -297,19 +336,28 @@
                                     </div>
                                 </div>
                                 <div class="product_content">
-                                    <span class="product_price">' . $min_price . '</span>
-                                    <h3 class="product_title"><a href="single-product.html">' . $product_name . '</a></h3>
+                                <span class="product_price">' . $min_price . '</span>
+                                <h3 class="product_title"><a href="">' . $product_name . '</a></h3>
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Buy Now</a></li>
+                                    <li><button class = "addcart" type="submit">add to cart</button></li>
                                         <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
+                                
+                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="price" value="' . $min_price . '">
+                                    <input type="hidden" name="product_name" value="' . $product_name . '">
+                                    <input type="hidden" name="size" value="' . $size . '">
+                                    <input type="hidden" name="product_id" value="' . $product_id . '">
+                                    <input type="hidden" name="quantity" value="1">
+                            
+                                </form>
                             </div>';
-                            $i += 1;
                         }
+                        $i += 1;
                         ?>
                         <!-- <div class="col-lg-3">
                             <div class="single_product">

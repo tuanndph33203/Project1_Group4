@@ -96,3 +96,6 @@ $router->addRoute('/client/shoping/rachat', ShowShoping::class, 'rachat');
 ////
 
 $router->addRoute('/client/shop/cart', CartController::class, 'index');
+$router->addRoute('/client/shop/cart/delete', CartController::class, 'delete');
+$router->addRoute('/client/shop/cart/incrementQuantity', CartController::class, 'incrementQuantity');
+$router->addRoute('/client/shop/cart/decrementQuantity', CartController::class, 'decrementQuantity');

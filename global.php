@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 const DB_HOST = 'localhost';
 const DB_DATABASE = 'mypham';
 const DB_USERNAME = 'root';
