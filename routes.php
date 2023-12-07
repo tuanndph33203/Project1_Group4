@@ -7,6 +7,7 @@ use Group4\BaseMvc\Controllers\Admin\BrandController;
 use Group4\BaseMvc\Controllers\Admin\ProductController;
 use Group4\BaseMvc\Controllers\Admin\ProductDetailController;
 use Group4\BaseMvc\Controllers\Admin\OrderController;
+use Group4\BaseMvc\Controllers\Admin\PostController;
 
 use Group4\BaseMvc\Controllers\Client\BlogController;
 use Group4\BaseMvc\Controllers\Client\HomeController;
@@ -59,6 +60,9 @@ $router->addRoute('/admin/orders/detail', OrderController::class, 'detail');
 $router->addRoute('/admin/orders/status', OrderController::class, 'status');
 $router->addRoute('/admin/orders/cancel', OrderController::class, 'cancel');
 
+$router->addRoute('/admin/post', PostController::class, 'index');
+$router->addRoute('/admin/post/update', PostController::class, 'update');
+$router->addRoute('/admin/post/create', PostController::class, 'create');
 ///////////
 
 $router->addRoute('/client/shop', ShopController::class, 'index');
