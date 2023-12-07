@@ -69,16 +69,28 @@ $router->addRoute('/client/contact', ContactController::class, 'index');
 
 $router->addRoute('/client/account', AccountController::class, 'index');
 $router->addRoute('/client/account/Logup', AccountController::class, 'Logup');
+$router->addRoute('/client/account/login', AccountController::class,'login');
 $router->addRoute('/client/account/my_account', AccountController::class, 'my_account');
 $router->addRoute('/client/account/resetpassword', AccountController::class, 'resetpassword');
 
 
 $router->addRoute('/client/wishlist', wishlistController::class, 'index');
 
+////
 $router->addRoute('/client/product_detail', ShowShoping::class, 'index');
 $router->addRoute('/client/shoping/checkout', ShowShoping::class, 'checkout');
 $router->addRoute('/client/shoping/order', ShowShoping::class, 'addOrder');
 $router->addRoute('/client/shoping/success', ShowShoping::class, 'success');
 $router->addRoute('/client/shoping/error', ShowShoping::class, 'error');
+$router->addRoute('/client/shoping/list', ShowShoping::class, 'listOrders');
+$router->addRoute('/client/shoping/pay', ShowShoping::class, 'pay');
+$router->addRoute('/client/shoping/receive', ShowShoping::class, 'receive');
+$router->addRoute('/client/shoping/cancel', ShowShoping::class, 'cancel');
+$router->addRoute('/client/shoping/return', ShowShoping::class, 'return');
+$router->addRoute('/client/shoping/rachat', ShowShoping::class, 'rachat');
+////
 
 $router->addRoute('/client/shop/cart', CartController::class, 'index');
+$router->addRoute('/client/shop/cart/delete', CartController::class, 'delete');
+$router->addRoute('/client/shop/cart/incrementQuantity', CartController::class, 'incrementQuantity');
+$router->addRoute('/client/shop/cart/decrementQuantity', CartController::class, 'decrementQuantity');

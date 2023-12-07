@@ -48,7 +48,7 @@
                         </div>
                         <div class="row my-2">
                             <div class="col-sm-2">Địa Chỉ Cụ Thể : </div>
-                            <div class="col-sm-9"><textarea name="order_address" id="" cols="30" rows="10" class="form-control"></textarea>
+                            <div class="col-sm-9"><textarea name="order_address" id="" cols="5" rows="1" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                             <div class="row mb-4">
                                 <div class="card w-100 ">
                                     <div class="card-header d-flex justify-content-center" id="section1">
-                                        <button class="btn btn-warning w-75" type="button" data-toggle="collapse" data-target="#content1" aria-expanded="true" aria-controls="content1">Thanh Toán Trước</button>
+                                        <button class="btn btn-warning w-75" type="button" data-toggle="collapse" data-target="#content1" aria-expanded="true" aria-controls="content1">Thanh Toán</button>
                                     </div>
                                     <div id="content1" class="collapse show" aria-labelledby="section1" data-parent="#myAccordion">
                                         <div class="card-body">
@@ -121,8 +121,7 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center">
-                                <button type="submit" name="submit-order" class="btn btn-danger w-75 h-100 waves-effect" 
-                                data-type="inverse" data-from="top" data-align="center" data-icon="fa fa-comments" onclick="delayedSubmit()">Đặt Hàng</button>
+                                <button type="submit" name="submit-order" class="btn btn-danger w-75 h-100 waves-effect" >Đặt Hàng</button>
                             </div>
                         </div>
                     </div>

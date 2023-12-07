@@ -5,27 +5,55 @@ namespace Group4\BaseMvc\Controllers\Client;
 use Group4\BaseMvc\Controller;
 use Group4\BaseMvc\Models\Cart;
 
-if(!isset ($_SERVER['cart'])) $_SESSION['cart'] = [];
+// if(!isset ($_SERVER['mycart'])) $_SESSION['mycart'] = [];
 class CartController extends Controller
 {
     /*
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
-        if(isset($_POST['add_Cart'])) {
-            $_SESSION['cart']['image'] = $_POST['image'];
-            $_SESSION['cart']['product_name'] = $_POST['product_name'];
-            $_SESSION['price']['price'] = $_POST['price'];
-            $_SESSION['cart']['quantity'] = $_POST['quantity'];
-            $_SESSION['cart']['size'] = $_POST['size'];
-        }    
+        if (!empty($_POST)) {
+            $_SESSION['cart'][$_POST['product_id']] = [
+                'image' => $_POST['image'],
+                'product_name' => $_POST['product_name'],
+                'price' => $_POST['price'],
+                'quantity' => $_POST['quantity'],
+                'size' => $_POST['size'],
+            ];
+        }
+        $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
+
+    
+    }
+    public function delete() {
+        $product_id = $_GET['$product_id'] ?? '';
+
+        if (!empty($product_id)) {
+        unset($_SESSION['cart'][$product_id]);
+        }
         print_r($_SESSION['cart']);
-        $this->renderClient('shop/cart', ['cart'=> $_SESSION['cart']]);
+        $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
+    }
+    
+    public function incrementQuantity(){
+        $product_id = $_GET['$product_id'] ?? '';
+
+        if (!empty($product_id) && isset($_SESSION['cart'][$product_id])) {
+            ++$_SESSION['cart'][$product_id]['quantity'];
+        }
+        $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
+    }
+    public function decrementQuantity(){
+        $product_id = $_GET['$product_id'] ?? '';
+
+        if (!empty($product_id) && isset($_SESSION['cart'][$product_id])) {
+            if ($_SESSION['cart'][$product_id]['quantity'] > 1) {
+                --$_SESSION['cart'][$product_id]['quantity'];
+            }else{
+                unset($_SESSION['cart'][$product_id]);
+            }
+        }
+
+        $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
+    }
 }
-}$_SESSION['cart'][] = [
-    'image' => $_POST['image'],
-    'product_name' => $_POST['product_name'],
-    'price' => $_POST['price'],
-    'quantity' => $_POST['quantity'],
-    'size' => $_POST['size']  
-  ];

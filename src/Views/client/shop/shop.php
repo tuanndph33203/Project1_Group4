@@ -248,7 +248,12 @@
                                         <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <a href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <form class="h-100" action="/client/shop/cart" method="post">
+                                            <input type="hidden" name="" value="' . $img . '">
+                                            <input type="hidden" name="" value="' . $min_price . '">
+                                            <input type="hidden" name="" value="' . $product_name . '">
+                                            <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                         </form>
                                     </div>
                                 </div>
                                 <div class="product_content">

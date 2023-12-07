@@ -1,3 +1,9 @@
+<style>
+    .cart_submit{
+        background-color: black;
+        color: white;
+    }
+</style>
 <div class="breadcrumbs_area">
     <div class="row">
         <div class="col-12">
@@ -22,36 +28,38 @@
                     <div class="cart_page table-responsive">
                         <table>
                             <thead>
+
                                 <tr>
                                     <th class="product_remove">Delete</th>
                                     <th class="product_thumb">Image</th>
                                     <th class="product_name">Product</th>
-                                    <th class="product-price">Price</th>
                                     <th class="product_quantity">Quantity</th>
-                                    <th class="product_total">Total</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product_total"></th>
                                 </tr>
-                            
-                            <?php
-                            $img_path = '/assets/img/product/';
-                                foreach ($_SESSION['cart'] as $cart ){
-                                    $img = $img_path . $cart[1];
-                                    $product_name = $cart[2];
-                                    $product_price = $cart[3];
-                                    $product_quantity = $cart[4];
-                                    
-                                    echo '<tr>
-                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="'.$img.'" alt=""></a></td>
-                                    <td class="product_name"><a href="#">'.$cart[2].'</a></td>
-                                    <td class="product-price">'.$cart[3].'</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number">'.$cart[4].'</td>
-                                    <td class="product_total"></td>
-                                </tr>';
-                                }
-                            ?>
+
+
                             </thead>
                             <tbody>
-                                
+                                <?php foreach ($_SESSION['cart'] as $product => $value) : ?>
+                                    <tr>
+                                        <td class="product_remove"><a href="/client/shop/cart/delete?id=<?= $product ?>"><i class="fa fa-trash-o"></i></a></td>
+                                        <td class="product_thumb"><img src="<?= $value['image'] ?>" alt="" width="200px" height="200px"></td>
+                                        <td class="product_name"><b><?= $value['product_name'] ?></b></td>
+                                        <td class="product_quantity">
+                                            <a href="/client/shop/cart/decrementQuantity?id=<?= $product ?>" class="btn ">
+                                                <p>-</p>
+                                            </a>
+                                            <?= $value['quantity'] ?>
+                                            <a href="/client/shop/cart/incrementQuantity?id=<?= $product ?>" class="btn">
+                                                <p>+</p>
+                                            </a>
+                                        </td>
+                                        <td class="product-price"><?= $value['price'] ?></td>
+                                        <td></td>
+
+                                    </tr>
+                                <?php endforeach; ?>
 
                                 <!-- <tr>
                                     <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
@@ -78,7 +86,18 @@
                         </table>
                     </div>
                     <div class="cart_submit">
-                        <button type="submit">update cart</button>
+                        <li>
+                            <b> Subtotal : <?php
+                                                $pay = 0;
+                                                foreach ($_SESSION['cart'] as $product) {
+                                                    $pay += $product['price'] * $product['quantity'];
+                                                }
+
+                                                echo ($pay) . "<sup>vnđ</sup>";
+                                                ?>
+                            </b>
+                        </li>
+
                     </div>
                 </div>
             </div>
