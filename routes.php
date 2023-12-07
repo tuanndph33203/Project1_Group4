@@ -57,6 +57,7 @@ $router->addRoute('/admin/products/products_detail/update', ProductDetailControl
 $router->addRoute('/admin/orders', OrderController::class, 'index');
 $router->addRoute('/admin/orders/detail', OrderController::class, 'detail');
 $router->addRoute('/admin/orders/status', OrderController::class, 'status');
+$router->addRoute('/admin/orders/cancel', OrderController::class, 'cancel');
 
 ///////////
 

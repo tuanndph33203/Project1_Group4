@@ -60,6 +60,12 @@ class OrderController extends Controller {
     
         header("Location:/admin/orders");
     }
+    public function cancel()
+    {
+        $id = $_GET['id'];
+        (new Order())->updateStatusOrder($id,5);
+        header('location:/admin/orders');
+    }
 
     // /* Xóa */
     // public function delete() {

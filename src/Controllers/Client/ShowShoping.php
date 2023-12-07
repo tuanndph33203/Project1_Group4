@@ -127,22 +127,43 @@ class ShowShoping extends Controller
             ]
         );
     }
+    public function return()
+    {
+        $id = $_GET['id'];
+        (new Order())->updateStatusOrder($id, 6);
+        header('location:/client/shoping/list');
+    }
+    public function cancel()
+    {
+        $id = $_GET['id'];
+        (new Order())->updateStatusOrder($id, 5);
+        (new Order())->updatePay($id, 1);
+        header('location:/client/shoping/list');
+    }
+    public function rachat()
+    {
+        $id = $_GET['id'];
+        (new Order())->updateStatusOrder($id, 1);
+        header('location:/client/shoping/list');
+    }
     public function receive()
     {
         $id = $_GET['id'];
-        (new Order())->updateStatusOrder($id,4);
+        (new Order())->updateStatusOrder($id, 4);
         header('location:/client/shoping/list');
     }
     public function pay()
     {
         $id = $_GET['id'];
         $orders_detail = (new OrderDetail())->getOderDetail($id);
-       if (isset($_POST['submit-order'])) {
-            (new Order())->updatePay($id,2);
-            (new Order())->updateStatusOrder($id,4);
+        if (isset($_POST['submit-order'])) {
+            (new Order())->updatePay($id, 2);
+            if ($_GET['pay'] == 2) {
+                (new Order())->updateStatusOrder($id, 4);
+            }
             header("location:/client/shoping/success");
             return;
-       }
+        }
         $this->renderClient(
             "shoping/pay",
             [
