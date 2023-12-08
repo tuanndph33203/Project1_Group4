@@ -31,8 +31,6 @@
                             <div class="col-sm-6">
                                 <?php
 
-                                use Group4\BaseMvc\Models\comment;
-
                                 if ($product['unit_id'] == 1) {
                                     echo "Đặc";
                                 } else {
@@ -71,29 +69,7 @@
                         <div class="comments__notes">
                             <p>Your email address will not be published.</p>
                         </div>
-                        <div class="product_review_form blog_form">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <?php
-                                        $i = 0;
-
-                                        foreach ($getAllcomment as $getAll) {
-                                            echo '<label for="review_comment">All comment </label>
-                                        <textarea name="comment" id="" cols="30" rows="10" disabled>'.$comment.'</textarea>';
-                                        }
-                                        $i += 1;
-                                        ?>
-
-                                        <label for="review_comment">comment </label>
-                                        <textarea name="comment" id="review_comment"></textarea>
-                                    </div>
-
-                                </div>
-                                <button type="submit">Post Comment</button>
-                            </form>
-                        </div>
-
+                        <iframe src="Views/client/comment/comment.php" width="100%" height="200px" frameborder="0"></iframe>
                     </div>
                 </div>
                 <!--services img area-->
@@ -142,8 +118,10 @@
                             </div>
                         </div>
                         <div class="container">
-                            <input type="hidden" value="<?=$product['product_id'] ?>" name="product_id">
-                            <div class=" justify-content-center p-1"><button class=" w-75 btn btn-warning">Thêm Vào Giỏ Hàng</button></div>
+                            <input type="hidden" value="<?= $product['product_id'] ?>" name="product_id">
+                            <form action="/client/shop/cart " method="POST">
+                                <div class=" justify-content-center p-1"><button class=" w-75 btn btn-warning" name="addcart">Thêm Vào Giỏ Hàng</button></div>
+                            </form>
                             <div class=" justify-content-center p-1"><button name="add-order" class=" w-75 btn btn-danger">Mua Hàng</button></div>
                         </div>
                     </form>

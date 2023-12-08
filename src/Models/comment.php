@@ -38,7 +38,7 @@ class comment extends Model {
         return $stmt->fetchAll();
 
     }
-    public function getAllcomment($product_id) {
+    public function getAllcomment() {
         $sql = "select * from comment ";
 
         $stmt = $this->conn->prepare($sql);

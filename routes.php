@@ -17,6 +17,7 @@ use Group4\BaseMvc\Controllers\Client\AccountController;
 use Group4\BaseMvc\Controllers\Client\wishlistController;
 use Group4\BaseMvc\Controllers\Client\ShowShoping;
 use Group4\BaseMvc\Controllers\Client\CartController;
+use Group4\BaseMvc\Controllers\Client\CommentController;
 
 use Group4\BaseMvc\Router;
 
@@ -99,3 +100,6 @@ $router->addRoute('/client/shop/cart', CartController::class, 'index');
 $router->addRoute('/client/shop/cart/delete', CartController::class, 'delete');
 $router->addRoute('/client/shop/cart/incrementQuantity', CartController::class, 'incrementQuantity');
 $router->addRoute('/client/shop/cart/decrementQuantity', CartController::class, 'decrementQuantity');
+
+////
+$router->addRoute('/client/comment', CommentController::class, 'index');

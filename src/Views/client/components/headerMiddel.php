@@ -10,9 +10,9 @@
         <div class="col-lg-9 col-md-9">
             <div class="header_right_info">
                 <div class="search_bar">
-                    <form action="#">
-                        <input placeholder="Search..." type="text">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                    <form action="/" method="POST">
+                        <input placeholder="Search..." type="text" name="search">
+                        <button type="submit" name="sub_search"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </div>
