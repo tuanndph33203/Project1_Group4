@@ -245,11 +245,17 @@
                 <div class="row">
                     <div class="product_active owl-carousel">
                         <?php
+                        if(isset($_POST['sub_search'])){
+                            $search = $_POST['search'];
+                        }else{
+                            $search = "";
+                        }
                         $i = 0;
                         $img_path = '/assets/img/product/';
                         // $name = '';
                         foreach ($get10ByproductID as $get10Byproduct) {
                             extract($get10Byproduct);
+                            
                             $img = $img_path . $image;
                             // $link_product = "".$id;
                             echo '<form action="/client/shop/cart" method="post" >
@@ -262,12 +268,6 @@
                                     <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <form class="h-100" action="/client/shop/cart" method="post">
-                                            <input type="hidden" name="" value="' . $img . '">
-                                            <input type="hidden" name="" value="' . $min_price . '">
-                                            <input type="hidden" name="" value="' . $product_name . '">
-                                            <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
-                                        </form>
                                     </div>
                                 </div>
                                 <div class="product_content">

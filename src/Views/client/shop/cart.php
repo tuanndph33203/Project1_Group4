@@ -1,5 +1,5 @@
 <style>
-    .cart_submit{
+    .cart_submit {
         background-color: black;
         color: white;
     }
@@ -21,7 +21,7 @@
 <!--breadcrumbs area end-->
 <!--shopping cart area start -->
 <div class="shopping_cart_area">
-    <form action="#">
+    <form action="/client/shoping/checkout" method="post">
         <div class="row">
             <div class="col-12">
                 <div class="table_desc">
@@ -35,18 +35,17 @@
                                     <th class="product_name">Product</th>
                                     <th class="product_quantity">Quantity</th>
                                     <th class="product-price">Price</th>
-                                    <th class="product_total"></th>
+                                    <th class="product_total">Total</th>
                                 </tr>
-
 
                             </thead>
                             <tbody>
                                 <?php foreach ($_SESSION['cart'] as $product => $value) : ?>
                                     <tr>
                                         <td class="product_remove"><a href="/client/shop/cart/delete?id=<?= $product ?>"><i class="fa fa-trash-o"></i></a></td>
-                                        <td class="product_thumb"><img src="<?= $value['image'] ?>" alt="" width="200px" height="200px"></td>
-                                        <td class="product_name"><b><?= $value['product_name'] ?></b></td>
-                                        <td class="product_quantity">
+                                        <input type="hidden" name="image"><td class="product_thumb"><img src="<?= $value['image'] ?>" alt="" width="200px" height="200px"></td>
+                                        <input type="hidden" name="product_name"><td class="product_name"><b><?= $value['product_name'] ?></b></td>
+                                        <input type="hidden" name="quantity"><td class="product_quantity">
                                             <a href="/client/shop/cart/decrementQuantity?id=<?= $product ?>" class="btn ">
                                                 <p>-</p>
                                             </a>
@@ -55,10 +54,11 @@
                                                 <p>+</p>
                                             </a>
                                         </td>
-                                        <td class="product-price"><?= $value['price'] ?></td>
+                                        <input type="hidden" name="price"><td class="product-price"><?= $value['price'] ?></td>
                                         <td></td>
 
                                     </tr>
+                                    
                                 <?php endforeach; ?>
 
                                 <!-- <tr>
@@ -88,13 +88,13 @@
                     <div class="cart_submit">
                         <li>
                             <b> Subtotal : <?php
-                                                $pay = 0;
-                                                foreach ($_SESSION['cart'] as $product) {
-                                                    $pay += $product['price'] * $product['quantity'];
-                                                }
+                                            $pay = 0;
+                                            foreach ($_SESSION['cart'] as $product) {
+                                                $pay += $product['price'] * $product['quantity'];
+                                            }
 
-                                                echo ($pay) . "<sup>vnđ</sup>";
-                                                ?>
+                                            echo ($pay) . "<sup>vnđ</sup>";
+                                            ?>
                             </b>
                         </li>
 
@@ -121,20 +121,38 @@
                         <div class="coupon_inner">
                             <div class="cart_subtotal">
                                 <p>Subtotal</p>
-                                <p class="cart_amount">£215.00</p>
+                                <p class="cart_amount">
+                                    <?php
+                                    $pay = 0;
+                                    foreach ($_SESSION['cart'] as $product) {
+                                        $pay += $product['price'] * $product['quantity'];
+                                    }
+
+                                    echo ($pay) . "<sup>vnđ</sup>";
+                                    ?>
+                                </p>
                             </div>
                             <div class="cart_subtotal ">
                                 <p>Shipping</p>
-                                <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
+                                <p class="cart_amount"><span>Flat Rate:</span> 50.000 <sup>vnđ</sup></p>
                             </div>
                             <a href="#">Calculate shipping</a>
 
                             <div class="cart_subtotal">
                                 <p>Total</p>
-                                <p class="cart_amount">£215.00</p>
+                                <p class="cart_amount">
+                                    <?php
+                                    $total = 0;
+                                    foreach ($_SESSION['cart'] as $product) {
+                                        $total = $pay + 50000;
+                                    }
+                                    echo ($total) . "<sup>vnđ</sup>";
+                                    ?>
+                                </p>
                             </div>
+
                             <div class="checkout_btn">
-                                <a href="#">Proceed to Checkout</a>
+                                <button name="add-order">Proceed to Checkout</button>
                             </div>
                         </div>
                     </div>

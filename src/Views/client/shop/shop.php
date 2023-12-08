@@ -64,7 +64,7 @@
             <!--price slider end-->
 
             <!--wishlist block start-->
-            <div class="sidebar_widget wishlist mb-30">
+            <!-- <div class="sidebar_widget wishlist mb-30">
                 <div class="block_title">
                     <h3><a href="#">Wishlist</a></h3>
                 </div>
@@ -98,11 +98,11 @@
                     <p>2 products</p>
                     <a href="#">» My wishlists</a>
                 </div>
-            </div>
+            </div> -->
             <!--wishlist block end-->
 
             <!--popular tags area-->
-            <div class="sidebar_widget tags  mb-30">
+            <!-- <div class="sidebar_widget tags  mb-30">
                 <div class="block_title">
                     <h3>popular tags</h3>
                 </div>
@@ -117,7 +117,7 @@
                     <a href="#">iphone 4s</a>
                     <a href="#">canon</a>
                 </div>
-            </div>
+            </div> -->
             <!--popular tags end-->
 
             <!--newsletter block start-->
@@ -134,7 +134,7 @@
             <!--newsletter block end-->
 
             <!--special product start-->
-            <div class="sidebar_widget special">
+            <!-- <div class="sidebar_widget special">
                 <div class="block_title">
                     <h3>Special Products</h3>
                 </div>
@@ -180,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--special product end-->
 
 
@@ -229,18 +229,18 @@
             <!--shop toolbar end-->
 
             <!--shop tab product-->
-            <div class="shop_tab_product">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="large" role="tabpanel">
-                        <div class="row">
-                            <?php
-                            $i = 0;
-                            $img_path = '/assets/img/product/';
-                            foreach ($get10ByproductID as $get10Byproduct) {
-                                extract($get10Byproduct);
-                                $img = $img_path . $image;
-                                // $link_product = "".$id;
-                                echo '<div class="col-lg-3">
+            <div class="new_product_area">
+                <div class="row">
+                    <div class="product_active owl-carousel">
+                        <?php
+                        $i = 0;
+                        $img_path = '/assets/img/product/';
+                        foreach ($get10ByproductID as $get10Byproduct) {
+                            extract($get10Byproduct);
+                            $img = $img_path . $image;
+                            // $link_product = "".$id;
+                            echo '<form action="/client/shop/cart" method="post">
+                                <div class="col-lg-3">
                             <div class="single_product">
                                 <div class="product_thumb">
                                     <a href="single-product.html"><img src="' . $img . '" width="200px" height="300px" alt=""></a>
@@ -248,12 +248,6 @@
                                         <img src="' . $img . '" alt="">
                                     </div>
                                     <div class="product_action">
-                                        <form class="h-100" action="/client/shop/cart" method="post">
-                                            <input type="hidden" name="" value="' . $img . '">
-                                            <input type="hidden" name="" value="' . $min_price . '">
-                                            <input type="hidden" name="" value="' . $product_name . '">
-                                            <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
-                                         </form>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -262,46 +256,55 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                        <li><a href="/client/wishlist" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                        <li><a href="/client/product_detail?id='.$product_id.'" title="Quick view">View Detail</a></li>
+                                    <li><button class = "addcart" type="submit">add to cart</button></li>
+                                    <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
+                                
+                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="price" value="' . $min_price . '">
+                                    <input type="hidden" name="product_name" value="' . $product_name . '">
+                                    <input type="hidden" name="size" value="' . $size . '">
+                                    <input type="hidden" name="product_id" value="' . $product_id . '">
+                                    <input type="hidden" name="quantity" value="1">
+
+                                </form>
                             </div>';
                             $i += 1;
                         }
                         ?>
-                        </div>
                     </div>
+                </div>
 
-                </div>
             </div>
-            <!--shop tab product end-->
+        
+        <!--shop tab product end-->
 
-            <!--pagination style start-->
-            <div class="pagination_style">
-                <div class="item_page">
-                    <form action="#">
-                        <label for="page_select">show</label>
-                        <select id="page_select">
-                            <option value="1">9</option>
-                            <option value="2">10</option>
-                            <option value="3">11</option>
-                        </select>
-                        <span>Products by page</span>
-                    </form>
-                </div>
-                <div class="page_number">
-                    <span>Pages: </span>
-                    <ul>
-                        <li>«</li>
-                        <li class="current_number">1</li>
-                        <li><a href="#">2</a></li>
-                        <li>»</li>
-                    </ul>
-                </div>
+        <!--pagination style start-->
+        <div class="pagination_style">
+            <div class="item_page">
+                <form action="#">
+                    <label for="page_select">show</label>
+                    <select id="page_select">
+                        <option value="1">9</option>
+                        <option value="2">10</option>
+                        <option value="3">11</option>
+                    </select>
+                    <span>Products by page</span>
+                </form>
             </div>
-            <!--pagination style end-->
+            <div class="page_number">
+                <span>Pages: </span>
+                <ul>
+                    <li>«</li>
+                    <li class="current_number">1</li>
+                    <li><a href="#">2</a></li>
+                    <li>»</li>
+                </ul>
+            </div>
         </div>
+    </div>
+        <!--pagination style end-->
     </div>
 </div>

@@ -78,4 +78,19 @@ class Product extends Model
 
         return $stmt->fetchAll();
     }
+    public function Search(){
+        if(isset($_POST['sub_search'])){
+            $search = $_POST['search'];
+        }
+        $sql = "select * from product p, type t where t.type_id = t.type_id and p.product_name like '%".$search."%' ";
+        
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        return $stmt->fetchAll();
+
+    }
 }
