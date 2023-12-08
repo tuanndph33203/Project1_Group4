@@ -26,13 +26,12 @@ class CartController extends Controller
     
     }
     public function delete() {
-        print_r($_SESSION['cart']);
         unset($_SESSION['cart'][ $_GET['id']]);
         $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
     }
     
     public function incrementQuantity(){
-        $product_id = $_GET['$product_id'] ?? '';
+        $product_id = $_GET['id'] ?? '';
 
         if (!empty($product_id) && isset($_SESSION['cart'][$product_id])) {
             ++$_SESSION['cart'][$product_id]['quantity'];
@@ -40,7 +39,7 @@ class CartController extends Controller
         $this->renderClient('shop/cart' ,['cart' => $_SESSION['cart']] );
     }
     public function decrementQuantity(){
-        $product_id = $_GET['$product_id'] ?? '';
+        $product_id = $_GET['id'] ?? '';
 
         if (!empty($product_id) && isset($_SESSION['cart'][$product_id])) {
             if ($_SESSION['cart'][$product_id]['quantity'] > 1) {

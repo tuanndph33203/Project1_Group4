@@ -63,6 +63,7 @@ $router->addRoute('/admin/orders/cancel', OrderController::class, 'cancel');
 $router->addRoute('/admin/post', PostController::class, 'index');
 $router->addRoute('/admin/post/update', PostController::class, 'update');
 $router->addRoute('/admin/post/create', PostController::class, 'create');
+$router->addRoute('/admin/post/delete', PostController::class, 'delete');
 ///////////
 
 $router->addRoute('/client/shop', ShopController::class, 'index');

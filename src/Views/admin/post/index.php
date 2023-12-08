@@ -23,16 +23,20 @@
                             <tr>
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $post['title'] ?></td>
-                                <td><?= $post['image'] ?></td>
+                                <td><img src="/assets/img/cart/<?=$post['image'] ?>" alt="" style="width: 100px;height: 100px;"></td>
                                 <td><?= $post['created_at'] ?></td>
-                                <td><?= $post['updated_at'] ?></td>
+                                <td><?php if ($post['updated_at']!=null) { ?>
+                                    Chưa Sửa
+                                <?php } else { ?>
+                                    <?= $post['updated_at'] ?>
+                                <?php } ?></td>
                                 <td>
                                     <div class="container">
                                         <div class="row p-3">
-                                            <a class="btn btn-danger">Xóa Bài Viết</a>
+                                            <a  href="/admin/post/delete?id=<?= $post['post_id'] ?>" class="btn btn-danger">Xóa Bài Viết</a>
                                         </div>
                                         <div class="row">
-                                            <a href="/admin/post/update" class="btn btn-info">Xem Chi Tiết Bài</a>
+                                            <a href="/admin/post/update?id=<?= $post['post_id'] ?>" class="btn btn-info">Xem Chi Tiết Bài</a>
                                         </div>
                                     </div>
                                 </td>
