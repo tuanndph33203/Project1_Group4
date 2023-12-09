@@ -37,29 +37,31 @@ class ShowShoping extends Controller
     }
     public function checkout()
     {
-        $columns = [
-            "brand" => ['brand_name', 'brand_id'],
-            "type" => ['type_name', 'type_id'],
-            "status" => ['status_name', 'status_id'],
-            "skin" => ['skin_name', 'skin_id'],
-            "unit" => ['unit_name', 'unit_id']
-        ];
-        $where = [
-            'product_id' => $_POST['product_id']
-        ];
-
-        $groupByColumn = "product_id";
-        $product = (new Product())->getAll($columns, $where, $groupByColumn);
         if (isset($_POST['add-order'])) {
-            $this->renderClient(
-                "shoping/checkout",
-                [
-                    "data" => $_POST,
-                    "product" => $product[0]
-                ]
-            );
-        } else {
-            header("Location:/");
+            $columns = [
+                "brand" => ['brand_name', 'brand_id'],
+                "type" => ['type_name', 'type_id'],
+                "status" => ['status_name', 'status_id'],
+                "skin" => ['skin_name', 'skin_id'],
+                "unit" => ['unit_name', 'unit_id']
+            ];
+            $where = [
+                'product_id' => $_POST['product_id']
+            ];
+    
+            $groupByColumn = "product_id";
+            $product = (new Product())->getAll($columns, $where, $groupByColumn);
+            if (isset($_POST['add-order'])) {
+                $this->renderClient(
+                    "shoping/checkout",
+                    [
+                        "data" => $_POST,
+                        "product" => $product[0]
+                    ]
+                );
+            } else {
+                header("Location:/");
+            }
         }
     }
     public function addOrder()

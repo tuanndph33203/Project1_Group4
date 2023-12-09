@@ -80,7 +80,7 @@
             <div class="blog_details_right">
                 <div class="blog_widget recent-posts mb-30 border p-2">
                     <h3>Thông Tin</h3>
-                    <form action="/client/shoping/checkout" method="post" class="single_posts mb-20 ml-1 d-block">
+                    <form id="cartForm" action="" method="post" class="single_posts mb-20 ml-1 d-block">
                         <div class="row">
                             <div class="col-sm-5">
                                 <strong>Trọng Lượng</strong>
@@ -119,10 +119,14 @@
                         </div>
                         <div class="container">
                             <input type="hidden" value="<?= $product['product_id'] ?>" name="product_id">
-                            <form action="/client/shop/cart " method="POST">
-                                <div class=" justify-content-center p-1"><button class=" w-75 btn btn-warning" name="addcart">Thêm Vào Giỏ Hàng</button></div>
-                            </form>
-                            <div class=" justify-content-center p-1"><button name="add-order" class=" w-75 btn btn-danger">Mua Hàng</button></div>
+                            <input type="hidden" value="<?= $product['product_name'] ?>" name="product_name">
+                            <input type="hidden" value="<?= $product['image'] ?>" name="image">
+                            <div class="justify-content-center p-1">
+                                <button type="submit" class="w-75 btn btn-warning" name="add-cart" onclick="updateFormAction('/client/shop/cart')">Thêm Vào Giỏ Hàng</button>
+                            </div>
+                        </div>
+                        <div class="row w-100 justify-content-center">
+                            <button type="submit" name="add-order" class="btn btn-danger" onclick="updateFormAction('/client/shoping/checkout')">Mua Hàng</button>
                         </div>
                     </form>
                 </div>
@@ -131,6 +135,10 @@
     </div>
 </div>
 <script>
+    function updateFormAction(action) {
+        document.getElementById("cartForm").action = action;
+    }
+
     function updateTotal() {
         var unitPriceElements = document.getElementsByClassName('unit-price');
         var unitPrice;
