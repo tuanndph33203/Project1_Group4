@@ -33,7 +33,7 @@ class Product extends Model
         ) AS pd_min ON p.product_id = pd_min.product_id
         INNER JOIN product_detail pd ON pd.product_id = pd_min.product_id AND pd.price = pd_min.min_price
         ORDER BY p.product_id DESC
-        LIMIT 0, 8;;
+        LIMIT 0, 8;
         ";
 
         $stmt = $this->conn->prepare($sql);

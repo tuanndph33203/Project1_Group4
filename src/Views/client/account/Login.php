@@ -11,7 +11,7 @@ if (isset($data["result"])) {
 ?>
 
 <?php
-if ($_SESSION['user'] != "admin") {
+if (isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
 }

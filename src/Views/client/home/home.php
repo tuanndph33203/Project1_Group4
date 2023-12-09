@@ -276,13 +276,13 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                    <li><button class = "addcart" type="submit">add to cart</button></li>
+                                    <li><button class = "addcart" name="add_cart" type="submit">add to cart</button></li>
                                         <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
                                 
-                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="image" value="' . $image . '">
                                     <input type="hidden" name="price" value="' . $min_price . '">
                                     <input type="hidden" name="product_name" value="' . $product_name . '">
                                     <input type="hidden" name="size" value="' . $size . '">
@@ -328,7 +328,7 @@
                                     </div>
                                     <div class="product_action">
                                         <form class="h-100" action="/client/shop/cart" method="post">
-                                            <input type="hidden" name="" value="' . $img . '">
+                                            <input type="hidden" name="" value="' . $image . '">
                                             <input type="hidden" name="" value="' . $min_price . '">
                                             <input type="hidden" name="" value="' . $product_name . '">
                                             <button type="submit" class="btn btn-warning bg-black w-100 h-100" href="/client/shop/cart"> <i class="fa fa-shopping-cart"></i> Add to cart</button>
@@ -347,7 +347,7 @@
                                 </div>
                             </div>
                                 
-                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="image" value="' . $image . '">
                                     <input type="hidden" name="price" value="' . $min_price . '">
                                     <input type="hidden" name="product_name" value="' . $product_name . '">
                                     <input type="hidden" name="size" value="' . $size . '">

@@ -256,13 +256,13 @@
                                 </div>
                                 <div class="product_info">
                                     <ul>
-                                    <li><button class = "addcart" type="submit">add to cart</button></li>
+                                    <li><button class = "addcart" name="add_cart" type="submit">add to cart</button></li>
                                     <li><a href="/client/product_detail?id=' . $product_id . '" title="Quick view">View Detail</a></li>
                                     </ul>
                                 </div>
                             </div>
                                 
-                                    <input type="hidden" name="image" value="' . $img . '">
+                                    <input type="hidden" name="image" value="' . $image . '">
                                     <input type="hidden" name="price" value="' . $min_price . '">
                                     <input type="hidden" name="product_name" value="' . $product_name . '">
                                     <input type="hidden" name="size" value="' . $size . '">

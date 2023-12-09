@@ -28,7 +28,6 @@
                     <div class="cart_page table-responsive">
                         <table>
                             <thead>
-
                                 <tr>
                                     <th class="product_remove">Delete</th>
                                     <th class="product_thumb">Image</th>
@@ -37,51 +36,34 @@
                                     <th class="product-price">Price</th>
                                     <th class="product_total">Total</th>
                                 </tr>
-
                             </thead>
                             <tbody>
-                                <?php foreach ($_SESSION['cart'] as $product => $value) : ?>
-                                    <tr>
-                                        <td class="product_remove"><a href="/client/shop/cart/delete?id=<?= $product ?>"><i class="fa fa-trash-o"></i></a></td>
-                                        <input type="hidden" name="image"><td class="product_thumb"><img src="<?= $value['image'] ?>" alt="" width="200px" height="200px"></td>
-                                        <input type="hidden" name="product_name"><td class="product_name"><b><?= $value['product_name'] ?></b></td>
-                                        <input type="hidden" name="quantity"><td class="product_quantity">
-                                            <a href="/client/shop/cart/decrementQuantity?id=<?= $product ?>" class="btn ">
-                                                <p>-</p>
-                                            </a>
-                                            <?= $value['quantity'] ?>
-                                            <a href="/client/shop/cart/incrementQuantity?id=<?= $product ?>" class="btn">
-                                                <p>+</p>
-                                            </a>
-                                        </td>
-                                        <input type="hidden" name="price"><td class="product-price"><?= $value['price'] ?></td>
-                                        <td></td>
-
-                                    </tr>
-                                    
-                                <?php endforeach; ?>
-
-                                <!-- <tr>
-                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart18.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbags justo</a></td>
-                                    <td class="product-price">£90.00</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                    <td class="product_total">£180.00</td>
-
-
-                                </tr>
-                                <tr>
-                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="/assets/img/cart/cart19.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag elit</a></td>
-                                    <td class="product-price">£80.00</td>
-                                    <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                    <td class="product_total">£160.00</td>
-
-
-                                </tr> -->
-
+                                <?php
+                                foreach ($_SESSION['cart'] as $product => $value) :
+                                    if ($product != null) {
+                                ?>
+                                        <tr>
+                                            <td class="product_remove"><a href="/client/shop/cart/delete?id=<?= $product ?>"><i class="fa fa-trash-o"></i></a></td>
+                                            <input type="hidden" name="image">
+                                            <td class="product_thumb"><img src="/assets/img/product/<?= $value['image'] ?>" alt="" width="200px" height="200px"></td>
+                                            <input type="hidden" name="product_name">
+                                            <td class="product_name"><b><?= $value['product_name'] ?></b></td>
+                                            <input type="hidden" name="quantity">
+                                            <td class="product_quantity">
+                                                <a href="/client/shop/cart/decrementQuantity?id=<?= $product ?>" class="btn ">
+                                                    <p>-</p>
+                                                </a>
+                                                <?= $value['quantity'] ?>
+                                                <a href="/client/shop/cart/incrementQuantity?id=<?= $product ?>" class="btn">
+                                                    <p>+</p>
+                                                </a>
+                                            </td>
+                                            <input type="hidden" name="price">
+                                            <td class="product-price"><?= $value['price'] ?></td>
+                                            <td></td>
+                                        </tr>
+                                <?php  }
+                                endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -90,14 +72,15 @@
                             <b> Subtotal : <?php
                                             $pay = 0;
                                             foreach ($_SESSION['cart'] as $product) {
+                                                if ($product != null) {
                                                 $pay += $product['price'] * $product['quantity'];
+                                                }
                                             }
 
                                             echo ($pay) . "<sup>vnđ</sup>";
                                             ?>
                             </b>
                         </li>
-
                     </div>
                 </div>
             </div>
@@ -127,7 +110,6 @@
                                     foreach ($_SESSION['cart'] as $product) {
                                         $pay += $product['price'] * $product['quantity'];
                                     }
-
                                     echo ($pay) . "<sup>vnđ</sup>";
                                     ?>
                                 </p>
@@ -137,7 +119,6 @@
                                 <p class="cart_amount"><span>Flat Rate:</span> 50.000 <sup>vnđ</sup></p>
                             </div>
                             <a href="#">Calculate shipping</a>
-
                             <div class="cart_subtotal">
                                 <p>Total</p>
                                 <p class="cart_amount">
@@ -150,7 +131,6 @@
                                     ?>
                                 </p>
                             </div>
-
                             <div class="checkout_btn">
                                 <button name="add-order">Proceed to Checkout</button>
                             </div>
