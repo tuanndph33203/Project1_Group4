@@ -11,7 +11,6 @@ class Router
 
     public function dispatch($uri) {
         $tmp = explode('?', $uri);
-        
         $uri = $tmp[0];
         if (array_key_exists($uri, $this->routes)) {
             $controller = $this->routes[$uri]['controller'];

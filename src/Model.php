@@ -25,9 +25,9 @@ class Model
         }
     }
 
-    public function findOne($id)
+    public function findOne($column, $id)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
+        $sql = "SELECT * FROM {$this->table} WHERE $column = :id LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -40,9 +40,9 @@ class Model
         return $stmt->fetch();
     }
 
-    public function all($column = 'id')
+    public function all($column)
     {
-        $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
+        $sql = "SELECT * FROM `{$this->table}` ORDER BY {$column} DESC";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -52,7 +52,6 @@ class Model
 
         return $stmt->fetchAll();
     }
-
     public function paginate($page = 1, $perPage = 10)
     {
         $sql = "SELECT * FROM {$this->table} LIMIT {$perPage} OFFSET (({$page} - 1) * {$perPage})";
@@ -65,10 +64,65 @@ class Model
 
         return $stmt->fetchAll();
     }
+    public function getAll($columns, $where, $groupByColumn)
+    {
+        $joinStatements = [];
+
+        foreach ($columns as $table => $columnArr) {
+            $joinStatements[] = "INNER JOIN `{$table}` ON `{$this->table}`.`{$table}_id` = `{$table}`.`{$table}_id`";
+        }
+
+        $whereConditions = [];
+
+        if (!empty($where)) {
+            foreach ($where as $column => $value) {
+                if (is_array($value)) {
+                    $whereInConditions = [];
+                    foreach ($value as $index => $item) {
+                        $placeholder = "{$column}_{$index}";
+                        $whereInConditions[] = ":{$placeholder}";
+                    }
+                    $whereInCondition = implode(' OR ', $whereInConditions);
+                    $whereConditions[] = "({$whereInCondition})";
+                } else {
+                    $placeholder = "{$column}";
+                    $whereConditions[] = "`{$this->table}`.`{$column}` = :{$placeholder}";
+                }
+            }
+        }
+
+        $sql = "SELECT * FROM `{$this->table}`
+    " . implode(' ', $joinStatements);
+
+        if (!empty($whereConditions)) {
+            $sql .= " WHERE " . implode(' AND ', $whereConditions);
+        }
+
+        $sql .= " GROUP BY `{$this->table}`.`{$groupByColumn}`";
+
+        $stmt = $this->conn->prepare($sql);
+
+        foreach ($where as $column => $value) {
+            if (is_array($value)) {
+                foreach ($value as $index => $item) {
+                    $placeholder = "{$column}_{$index}";
+                    $stmt->bindValue(":{$placeholder}", $item);
+                }
+            } else {
+                $placeholder = "{$column}";
+                $stmt->bindValue(":{$placeholder}", $value);
+            }
+        }
+
+        $stmt->execute();
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
+    }
 
     public function insert($data)
     {
-        $sql = "INSERT INTO {$this->table}";
+        $sql = "INSERT INTO `{$this->table}`";
 
         $columns = implode(", ", $this->columns);
         $sql .= "({$columns}) VALUES ";
@@ -89,18 +143,9 @@ class Model
         }
 
         $stmt->execute();
+        $id = $this->conn->lastInsertId();
+        return $id;
     }
-
-    /* 
-        $data = [
-            'collumn_name' => 'giá trị người dùng truyền vào',
-        ];
-
-        $conditions = [
-            ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào', 'AND hoặc OR'],
-            ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào']
-        ];
-    */
     public function update($data, $conditions = [])
     {
         $sql = "UPDATE {$this->table} SET ";
@@ -154,6 +199,17 @@ class Model
         }
 
         $stmt->execute();
+    }
+    public function count()
+    {
+        $sql = "SELECT {$this->table}.{$this->table}_name, COUNT(*) AS total_column
+                FROM product INNER JOIN {$this->table}
+                ON product.{$this->table}_id = {$this->table}.{$this->table}_id
+                GROUP BY {$this->table}.{$this->table}_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function __destruct()
